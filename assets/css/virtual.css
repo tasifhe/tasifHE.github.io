@@ -1084,7 +1084,7 @@ a:hover, a:active {
     bottom: 0;
     padding: 12px 16px;
     width: 100%;
-    background-color: #323131;
+    background-color: #261d81;
     color: #fff;
     z-index: 11;
 }
@@ -1184,16 +1184,16 @@ a:hover, a:active {
 }
 
 .theme-blue .fg-theme {
-    color: #2960f7 !important;
+    color: #000000ee !important;
 }
 
 .theme-blue .btn-theme {
-    background-color: #2960f7;
+    background-color: #000000;
     color: #fff;
 }
 
 .theme-blue .btn-theme:hover {
-    background-color: #3f71f8;
+    background-color: #0000005d;
     color: #fff;
 }
 
@@ -1202,12 +1202,12 @@ a:hover, a:active {
 }
 
 .theme-blue .btn-theme-outline {
-    color: #2960f7;
-    box-shadow: 0 0 0 2px #2960f7;
+    color: #000000;
+    box-shadow: 0 0 0 2px #191919;
 }
 
 .theme-blue .btn-theme-outline:hover {
-    background-color: #2960f7;
+    background-color: #2d2d2d;
     color: #fff;
 }
 
@@ -1228,15 +1228,15 @@ a:hover, a:active {
 }
 
 .theme-blue .progress {
-    box-shadow: 0 0 0 2px #2960f7;
+    box-shadow: 0 0 0 2px #000000;
 }
 
 .theme-blue .progress-bar {
-    background-color: #2960f7;
+    background-color: #000000ca;
 }
 
 .theme-blue .theme-list li::before {
-    border-color: #2960f7;
+    border-color: #222222;
 }
 
 

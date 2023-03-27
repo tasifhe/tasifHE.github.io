@@ -85,7 +85,7 @@
   width: 100%;
   padding-top: 6px;
   padding-bottom: 6px;
-  background-color: rgba(104, 102, 102, 0.8);
+  background-color: rgba(27, 27, 27, 0.8);
   z-index: 99;
 }
 
@@ -139,7 +139,7 @@
 
 
 .page-about {
-  background-color: #fff;
+  background-color: #4c4c4c67;
 }
 
 .page-about .img-place {
@@ -523,33 +523,33 @@
 
 /* Theme Blue */
 .theme-blue .badge-subhead  {
-  background-color: rgba(41, 96, 247, 0.15);
-  color: #2960f7;
+  background-color: rgba(44, 44, 44, 0.15);
+  color: #000000;
 }
 
 .theme-blue .filterable-button .btn.selected,
 .theme-blue .filterable-button .btn:focus {
-  background-color: #2960f7;
+  background-color: #000000;
   color: #fff;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2960f7;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #181818;
 }
 
 .theme-blue .page-home .badge {
-  background-color: rgba(41, 96, 247, 0.15);
-  color: #2960f7;
+  background-color: rgba(91, 91, 91, 0.407);
+  color: #000000e3;
 }
 
 .theme-blue .page-about .img-place::before {
-  border-color: #2960f7;
+  border-color: #000000;
 }
 
 .theme-blue .timeline li:first-child .title {
-  background-color: #2960f7;
+  background-color: #000000;
 }
 
 .theme-blue .timeline li:first-child::before {
-  background-color: #2960f7;
-  box-shadow: 0 0 0 2px #2960f7;
+  background-color: #000000;
+  box-shadow: 0 0 0 2px #000000;
 }
 
 .theme-blue .post-grid .post-category {
