@@ -1281,7 +1281,7 @@ a:hover {
 .card-blog .post-date {
   color: #4e4e4e;
   display: inline-block;
-  float: right;
+  margin-left: 10px;
 }
 
 /*--------------------------------------------------------------
@@ -1475,7 +1475,7 @@ footer .credits a {
 }
 
 .btn-download:hover {
-  background-color: #2441ff;
+  background-color: #0078FF;
   color: #ffffff;
   text-decoration: none;
 }
