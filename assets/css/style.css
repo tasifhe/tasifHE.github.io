@@ -1,6 +1,6 @@
 body {
   background-color: #1a1f20;
-  color: #4e4e4e;
+  color: #ffffff;
 }
 
 h1,
@@ -10,14 +10,14 @@ h6 {
   color: #e4e4e4;
 }
 h5{
-  color: #000000;
+  color: #ffffff;
 }
 h2{
-  color: #000000;
+  color: #fcfcfc;
 }
 
 a {
-  color: #1e1e1e;
+  color: #ffffff;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
 }
@@ -138,7 +138,7 @@ a:hover {
 /*--/ Title s /--*/
 .title-s {
   font-weight: 600;
-  color: #1e1e1e;
+  color: #f5f5f5;
   font-size: 1.1rem;
 }
 
@@ -180,7 +180,7 @@ a:hover {
   content: "";
   position: absolute;
   height: 3px;
-  background-color: #0078ff;
+  background-color: #0078FF;
   width: 100px;
   bottom: -12px;
 }
@@ -193,7 +193,7 @@ a:hover {
 .box-shadow-full {
   padding: 3rem 1.25rem;
   position: relative;
-  background-color: #fff;
+  background-color: #000000;
   margin-bottom: 3rem;
   z-index: 2;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
@@ -615,7 +615,7 @@ a:hover {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #fff;
+  color: #ffffff;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -640,7 +640,7 @@ a:hover {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(78, 78, 78, 0.9);
+  background: rgba(48, 48, 48, 0.9);
   transition: 0.3s;
   z-index: 999;
 }
@@ -659,7 +659,7 @@ a:hover {
   bottom: 15px;
   left: 15px;
   padding: 10px 0;
-  background-color: #fff;
+  background-color: #353535;
   overflow-y: auto;
   transition: 0.3s;
 }
@@ -678,7 +678,7 @@ a:hover {
 .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
-  color: #4e4e4e;
+  color: #ffffff;
 }
 
 .navbar-mobile a:hover,
@@ -838,11 +838,11 @@ a:hover {
 }
 
 .skill-mf span {
-  color: #4e4e4e;
+  color: #ffffff;
 }
 
 .skill-mf .progress {
-  background-color: #747474;
+  background-color: #303030;
   margin: 0.5rem 0 1.2rem 0;
   border-radius: 0;
   height: 0.7rem;
@@ -850,14 +850,14 @@ a:hover {
 
 .skill-mf .progress .progress-bar {
   height: 0.7rem;
-  background-color: #000000;
+  background-color: #0078FF;
 }
 
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
 .service-box {
-  background-color: #fff;
+  background-color: #000000;
   padding: 2.5rem 1.3rem;
   border-radius: 1rem;
   margin-bottom: 3rem;
@@ -867,13 +867,13 @@ a:hover {
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
   color: #fff;
-  background-color: #0078ff;
+  background-color: #494949;
   box-shadow: 0 0 0 10px #cde1f8;
 }
 
 .service-box .service-ico {
   margin-bottom: 1rem;
-  color: #1e1e1e;
+  color: #ffffff;
 }
 
 .service-box .ico-circle {
@@ -896,7 +896,7 @@ a:hover {
 }
 
 .service-box .s-description {
-  color: #4e4e4e;
+  color: #bebebe;
 }
 
 /*--------------------------------------------------------------
@@ -936,7 +936,7 @@ a:hover {
   margin-bottom: 3rem;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: #fff;
+  background-color: #000000;
 }
 
 .work-box:hover img {
@@ -1264,7 +1264,7 @@ a:hover {
 }
 
 .card-blog .card-description {
-  color: #4e4e4e;
+  color: #ffffff;
 }
 
 .card-blog .post-author {
@@ -1272,7 +1272,7 @@ a:hover {
 }
 
 .card-blog .post-date {
-  color: #4e4e4e;
+  color: #ffffff;
   display: inline-block;
   margin-left: 10px;
 }
