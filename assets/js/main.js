@@ -232,4 +232,20 @@
    */
   new PureCounter();
 
+  // Portfolio filter
+  // $(document).ready(function() {
+  //   $('.portfolio-filter li').click(function() {
+  //     $('.portfolio-filter li').removeClass('filter-active');
+  //     $(this).addClass('filter-active');
+  
+  //     var filterValue = $(this).attr('data-filter');
+  //     if (filterValue === "*") {
+  //       $('.portfolio-item').show('1000');
+  //     } else {
+  //       $('.portfolio-item').not(filterValue).hide('3000');
+  //       $('.portfolio-item').filter(filterValue).show('3000');
+  //     }
+  //   });
+  // });  
+
 })()
