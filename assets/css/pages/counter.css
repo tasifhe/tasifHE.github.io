@@ -1,0 +1,478 @@
+/* ======= Enhanced Game-Style Counter Section Styles ======= */
+
+.game-counter-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Background decorative elements */
+.game-counter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 75%, rgba(0, 120, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(0, 198, 255, 0.03) 0%, transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Game UI corner decorations */
+.game-counter-section .game-ui-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 180, 255, 0.3);
+  z-index: 2;
+  pointer-events: none;
+}
+.game-counter-section .game-ui-corner.top-left {
+  top: 20px;
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
+}
+.game-counter-section .game-ui-corner.top-right {
+  top: 20px;
+  right: 20px;
+  border-left: none;
+  border-bottom: none;
+}
+.game-counter-section .game-ui-corner.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-right: none;
+  border-top: none;
+}
+.game-counter-section .game-ui-corner.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Enhanced title section */
+.counter-title-section {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 3;
+}
+.counter-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Enhanced glass container */
+.counter-glass-enhanced {
+  background: linear-gradient(145deg, rgba(20, 30, 50, 0.7), rgba(10, 20, 40, 0.8));
+  border-radius: 25px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 3rem 2rem;
+  position: relative;
+  z-index: 3;
+  border: 1px solid rgba(0, 180, 255, 0.2);
+  margin-bottom: 3rem;
+}
+.counter-glass-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 180, 255, 0.05), transparent);
+  border-radius: 25px;
+  pointer-events: none;
+}
+
+/* Enhanced counter box design */
+.counter-box-game {
+  background: linear-gradient(145deg, rgba(25, 35, 55, 0.8), rgba(15, 25, 45, 0.9));
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.counter-box-game::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 180, 255, 0.08), transparent);
+  transition: left 0.8s ease;
+}
+.counter-box-game:hover::before {
+  left: 100%;
+}
+.counter-box-game:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(0, 180, 255, 0.5);
+  box-shadow: 
+    0 20px 40px rgba(0, 180, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Counter header with icon and badge */
+.counter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+.counter-icon-frame {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #0078ff, #00c6ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s ease;
+}
+.counter-icon-frame.experience {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+.counter-icon-frame.clients {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+}
+.counter-icon-frame.awards {
+  background: linear-gradient(135deg, #F39C12, #F1C40F);
+}
+.counter-icon-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+.counter-icon-frame .counter-icon-glow {
+  background: linear-gradient(135deg, #0078ff, #00c6ff);
+}
+.counter-icon-frame.experience .counter-icon-glow {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+.counter-icon-frame.clients .counter-icon-glow {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+}
+.counter-icon-frame.awards .counter-icon-glow {
+  background: linear-gradient(135deg, #F39C12, #F1C40F);
+}
+.counter-box-game:hover .counter-icon-frame {
+  transform: scale(1.15) rotate(10deg);
+}
+.counter-box-game:hover .counter-icon-glow {
+  opacity: 0.4;
+}
+.counter-icon-frame i {
+  font-size: 24px;
+  color: white;
+  z-index: 2;
+}
+.counter-badge {
+  background: rgba(0, 120, 255, 0.2);
+  color: #00c6ff;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 180, 255, 0.4);
+}
+.counter-badge.experience {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border-color: rgba(40, 167, 69, 0.4);
+}
+.counter-badge.clients {
+  background: rgba(255, 107, 107, 0.2);
+  color: #FF6B6B;
+  border-color: rgba(255, 107, 107, 0.4);
+}
+.counter-badge.awards {
+  background: rgba(243, 156, 18, 0.2);
+  color: #F39C12;
+  border-color: rgba(243, 156, 18, 0.4);
+}
+
+/* Enhanced counter content */
+.counter-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.counter-num-game {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+.counter-num-game .counter {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 
+    0 0 10px rgba(0, 180, 255, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
+.counter-plus {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00c6ff;
+  margin-left: 5px;
+}
+.counter-label-game {
+  text-align: center;
+}
+.counter-text {
+  display: block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.counter-subtext {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}
+
+/* Progress bar at bottom of counter box */
+.counter-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.counter-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0078ff, #00c6ff);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  position: relative;
+}
+.counter-progress-fill.experience {
+  background: linear-gradient(90deg, #28a745, #20c997);
+}
+.counter-progress-fill.clients {
+  background: linear-gradient(90deg, #FF6B6B, #FF8E8E);
+}
+.counter-progress-fill.awards {
+  background: linear-gradient(90deg, #F39C12, #F1C40F);
+}
+.counter-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: progressShine 2.5s infinite 2s;
+}
+@keyframes progressShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Additional stats panel */
+.additional-stats-panel {
+  background: linear-gradient(145deg, rgba(30, 40, 60, 0.6), rgba(20, 30, 50, 0.7));
+  border: 1px solid rgba(0, 180, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.stat-item-small {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.stat-item-small:hover {
+  background: rgba(0, 180, 255, 0.08);
+  border-color: rgba(0, 180, 255, 0.3);
+  transform: translateY(-5px);
+}
+.stat-icon-small {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, rgba(0, 180, 255, 0.2), rgba(0, 120, 255, 0.15));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00c6ff;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.stat-content-small {
+  display: flex;
+  flex-direction: column;
+}
+.stat-number {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00c6ff;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+  .counter-glass-enhanced {
+    padding: 2.5rem 1.5rem;
+  }
+  .counter-box-game {
+    height: 260px;
+    padding: 1.5rem 1rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 992px) {
+  .game-counter-section {
+    padding: 3rem 0;
+  }
+  .counter-glass-enhanced {
+    padding: 2rem 1rem;
+  }
+  .counter-box-game {
+    height: 240px;
+    margin-bottom: 2rem;
+  }
+  .counter-num-game .counter {
+    font-size: 2.5rem;
+  }
+  .counter-icon-frame {
+    width: 50px;
+    height: 50px;
+  }
+  .counter-icon-frame i {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .game-counter-section {
+    padding: 2rem 0;
+  }
+  .counter-title-section {
+    margin-bottom: 3rem;
+  }
+  .counter-glass-enhanced {
+    padding: 1.5rem 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .counter-box-game {
+    height: 220px;
+    padding: 1.2rem 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .counter-num-game .counter {
+    font-size: 2rem;
+  }
+  .counter-icon-frame {
+    width: 45px;
+    height: 45px;
+  }
+  .counter-icon-frame i {
+    font-size: 18px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .additional-stats-panel {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .counter-box-game {
+    height: 200px;
+    padding: 1rem 0.5rem;
+  }
+  .counter-num-game .counter {
+    font-size: 1.8rem;
+  }
+  .counter-text {
+    font-size: 12px;
+  }
+  .counter-subtext {
+    font-size: 10px;
+  }
+  .counter-icon-frame {
+    width: 40px;
+    height: 40px;
+  }
+  .counter-icon-frame i {
+    font-size: 16px;
+  }
+  .stat-item-small {
+    padding: 1rem 0.8rem;
+  }
+  .stat-icon-small {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  .stat-number {
+    font-size: 1.2rem;
+  }
+}

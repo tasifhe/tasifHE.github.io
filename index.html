@@ -19,6 +19,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -27,274 +28,434 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="index.html">THE</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="logo">
-        <img src="assets/img/THE2.ico" alt="THE Logo" style="height:36px;">
+  <!-- ======= Enhanced Game-Style Header ======= -->
+<header id="header" class="fixed-top game-header">
+  <div class="nav-frame left"></div>
+  <div class="nav-frame right"></div>
+  
+  <div class="container d-flex align-items-center justify-content-between">
+    <!-- Enhanced Game Logo -->
+    <div class="game-logo">
+      <a href="index.html" class="d-flex align-items-center">
+        <div class="logo-emblem">
+          <div class="logo-glow"></div>
+          <i class="bi bi-controller"></i>
+        </div>
+        <div class="logo-text-container">
+          <span class="logo-text glitch-hover" data-text="THE">THE</span>
+          <span class="logo-tagline">GAME DESIGNER</span>
+        </div>
       </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#work">Work</a></li>
-          <!--<li><a class="nav-link scrollto " href="#blog">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>-->
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
     </div>
-  </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
+    <!-- Enhanced Game Navigation -->
+    <nav id="navbar" class="game-navbar">
+      <div class="nav-bracket left"></div>
+      <ul>
+        <li>
+          <a class="nav-link scrollto" href="index.html#hero">
+            <span class="nav-icon"><i class="bi bi-house"></i></span>
+            <span class="nav-text">HOME</span>
+            <span class="nav-hover-effect"></span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="index.html#about">
+            <span class="nav-icon"><i class="bi bi-person"></i></span>
+            <span class="nav-text">ABOUT</span>
+            <span class="nav-hover-effect"></span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="index.html#services">
+            <span class="nav-icon"><i class="bi bi-gear"></i></span>
+            <span class="nav-text">SERVICES</span>
+            <span class="nav-hover-effect"></span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="index.html#work">
+            <span class="nav-icon"><i class="bi bi-briefcase"></i></span>
+            <span class="nav-text">WORK</span>
+            <span class="nav-hover-effect"></span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="index.html#contact">
+            <span class="nav-icon"><i class="bi bi-envelope"></i></span>
+            <span class="nav-text">CONTACT</span>
+            <span class="nav-hover-effect"></span>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-bracket right"></div>
+      
+      <!-- Enhanced mobile toggle -->
+      <div class="game-mobile-toggle">
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        <div class="toggle-glow"></div>
+      </div>
+    </nav>
+  </div>
+</header><!-- End Enhanced Game-Style Header -->
+
+  <!-- ======= Enhanced Hero Section with Game Design Elements ======= -->
   <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/THE-bg-min.jpg)">
-    <div class="overlay-itro"></div>
+    <!-- Animated particle overlay -->
+    <div class="particles-container"></div>
+    
+    <!-- Darker overlay with gradient -->
+    <div class="overlay-game-design"></div>
+    
+    <!-- UI Frame elements -->
+    <div class="ui-frame top-left"></div>
+    <div class="ui-frame top-right"></div>
+    <div class="ui-frame bottom-left"></div>
+    <div class="ui-frame bottom-right"></div>
+    
     <div class="hero-content display-table">
       <div class="table-cell">
         <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="hero-title mb-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Hi! This is Tasif</h1>
-          <p class="hero-subtitle"><span class="typed" data-typed-items="Level Designer,Game Developer, Competitive Programmer"></span></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+          <!-- Level indicator -->
+          <div class="level-indicator">
+            <span class="level-text">LEVEL</span>
+            <span class="level-number">05</span>
+            <div class="level-bar"><div class="level-progress"></div></div>
+          </div>
+          
+          <h1 class="hero-title game-title mb-4">
+            <span class="glitch-effect" data-text="Hi! This is Tasif">Hi! This is Tasif</span>
+          </h1>
+          
+          <p class="hero-subtitle">
+            <span class="class-title" style="font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 2px; color: #FFD700; text-shadow: 1px 1px 2px #222;">CLASS:</span>
+            <span class="typed game-font" data-typed-items="Game Designer,Game Developer,Competitive Programmer"></span>
+            <span class="cursor-indicator">_</span>
+          </p>
+          
+          <!-- Game-styled CTA button -->
+          <div class="cta-container">
+            <a href="#about" class="game-button">
+              <span class="button-text">START QUEST</span>
+              <span class="button-icon">→</span>
+            </a>
+          </div>
         </div>
       </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="mouse-icon"></div>
+      <span>SCROLL DOWN</span>
     </div>
   </div><!-- End Hero Section -->
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="box-shadow-full">
-              <div class="row">
-                <!-- Left Column - Image and Basic Info -->
-                <div class="col-lg-6 col-md-12">
-                  <div class="row">
-                    <!-- Profile Image Section -->
-                    <div class="col-sm-6 col-md-5 mb-4">
-                      <div class="about-img">
-                        <img src="assets/img/Potfolio_Pic_V1.png" class="img-fluid rounded b-shadow-a" alt="Tasif Hossain Emon - Game Developer">
-                        <div class="experience-badge-minimal">
-                          5+ Years Experience
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Basic Info Section -->
-                    <div class="col-sm-6 col-md-7 mb-4">
-                      <div class="about-info">
-                        <ul class="basic-info-list">
-                          <li><span class="info-label"><i class="bi bi-person me-1"></i>Name:</span> <span class="info-value">Tasif Hossain Emon</span></li>
-                          <li><span class="info-label"><i class="bi bi-briefcase me-1"></i>Profile:</span> <span class="info-value">Game Designer</span></li>
-                          <li><span class="info-label"><i class="bi bi-envelope me-1"></i>Email:</span> <span class="info-value">tasif.grandfleet@gmail.com</span></li>
-                          <li><span class="info-label"><i class="bi bi-telephone me-1"></i>Phone:</span> <span class="info-value">+880 1979648494</span></li>
-                          <li><span class="info-label"><i class="bi bi-geo-alt me-1"></i>Location:</span> <span class="info-value">Bangladesh</span></li>
-                          <li><span class="info-label"><i class="bi bi-circle me-1"></i>Availability:</span> <span class="info-value availability-status">Available for Work</span></li>
-                        </ul>
-                      </div>
-                    </div>
+<!-- ======= Game-Style About Section ======= -->
+<section id="about" class="about-game section-bg">
+  <div class="container">
+    <!-- Game UI decorative elements -->
+    <div class="game-ui-corner top-left"></div>
+    <div class="game-ui-corner top-right"></div>
+    <div class="game-ui-corner bottom-left"></div>
+    <div class="game-ui-corner bottom-right"></div>
+    
+    <!-- Section title with game styling -->
+    <div class="section-title-game">
+      <div class="title-decoration left"></div>
+      <h2 data-text="ABOUT ME">ABOUT ME</h2>
+      <div class="title-decoration right"></div>
+    </div>
+
+    <div class="about-grid-game">
+      <!-- Character Card - Left Column -->
+      <div class="character-card">
+        <!-- Profile Picture with HUD frame -->
+        <div class="profile-frame" data-aos="fade-right">
+          <div class="hexagon-border"></div>
+          <img src="assets/img/Potfolio_Pic_V1.png" alt="Tasif Hossain Emon" class="profile-image">
+          <div class="profile-scanner"></div>
+          <div class="character-level">LVL 5</div>
+        </div>
+
+        <!-- Character Stats Panel -->
+        <div class="character-stats" data-aos="fade-right" data-aos-delay="100">
+          <div class="stats-header">
+            <i class="bi bi-shield-fill"></i>
+            <span>CHARACTER DATA</span>
+          </div>
+          
+          <ul class="stats-list">
+            <li class="stat-item">
+              <div class="stat-icon">
+                <i class="bi bi-person"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">NAME</span>
+                <span class="stat-value">Tasif Hossain Emon</span>
+              </div>
+            </li>
+            <li class="stat-item">
+              <div class="stat-icon">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">CLASS</span>
+                <span class="stat-value">Game Designer</span>
+              </div>
+            </li>
+            <li class="stat-item">
+              <div class="stat-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">CONTACT</span>
+                <span class="stat-value">tasif.grandfleet@gmail.com</span>
+              </div>
+            </li>
+            <li class="stat-item">
+              <div class="stat-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">COMM LINK</span>
+                <span class="stat-value">+880 1978648494</span>
+              </div>
+            </li>
+            <li class="stat-item">
+              <div class="stat-icon">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">BASE</span>
+                <span class="stat-value">Bangladesh</span>
+              </div>
+            </li>
+            <li class="stat-item rank-item">
+              <div class="stat-icon rank-icon">
+                <i class="bi bi-calendar-check"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">STATUS</span>
+                <span class="stat-badge">ONLINE - READY FOR MISSIONS</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Game Content Panels - Right Column -->
+      <div class="game-content-panels">
+        <!-- Bio Section -->
+        <div class="game-panel" data-aos="fade-up">
+          <div class="panel-header">
+            <div class="panel-icon">
+              <i class="bi bi-person-badge"></i>
+            </div>
+            <h3 class="panel-title">PLAYER BIO</h3>
+            <div class="panel-controls">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="panel-content">
+            <h4><span class="text-glow">👋</span> Hello! I'm Tasif</h4>
+            <p>A passionate <strong class="highlight">Unity Game Developer</strong> and <strong class="highlight">Game Designer</strong> with 5+ years of experience creating immersive gaming experiences. I specialize in bringing innovative concepts to life through clean code and captivating design.</p>
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="game-panel" data-aos="fade-up" data-aos-delay="100">
+          <div class="panel-header">
+            <div class="panel-icon">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <h3 class="panel-title">CLASS ABILITIES</h3>
+            <div class="panel-controls">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="panel-content">
+            <ul class="abilities-list">
+              <li class="ability-item">
+                <div class="ability-icon">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <span>Develop complete game systems using Unity & C#</span>
+              </li>
+              <li class="ability-item">
+                <div class="ability-icon">
+                  <i class="bi bi-map"></i>
+                </div>
+                <span>Design immersive levels and procedural worlds</span>
+              </li>
+              <li class="ability-item">
+                <div class="ability-icon">
+                  <i class="bi bi-ui-checks"></i>
+                </div>
+                <span>Create intuitive UI/UX interfaces</span>
+              </li>
+              <li class="ability-item">
+                <div class="ability-icon">
+                  <i class="bi bi-speedometer2"></i>
+                </div>
+                <span>Optimize game performance across platforms</span>
+              </li>
+              <li class="ability-item">
+                <div class="ability-icon">
+                  <i class="bi bi-diagram-3"></i>
+                </div>
+                <span>Solve complex algorithmic challenges</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tech Skills Section -->
+        <div class="game-panel" data-aos="fade-up" data-aos-delay="200">
+          <div class="panel-header">
+            <div class="panel-icon">
+              <i class="bi bi-gear-fill"></i>
+            </div>
+            <h3 class="panel-title">TECH SKILLS</h3>
+            <div class="panel-controls">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="panel-content">
+            <div class="skills-grid-game">
+              <div class="skill-bar-container">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="bi bi-code-slash"></i>
+                    C# Unity Development
                   </div>
-                  
-                  <!-- Skills Section -->
-                  <div class="skill-mf mt-4">
-                    <div class="title-box-2 mb-4">
-                      <h5 class="title-left">
-                        <i class="bi bi-gear-fill me-2"></i>Technical Skills
-                      </h5>
-                    </div> <!-- FIXED: Added missing closing tag -->
-                    
-                    <div class="skills-container">
-                      <div class="skill-item">
-                        <div class="skill-header">
-                          <span><i class="bi bi-code-slash"></i> C# Unity Development</span> 
-                          <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-
-                      <div class="skill-item">
-                        <div class="skill-header">
-                          <span><i class="bi bi-puzzle"></i> Level Design & World Building</span> 
-                          <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-
-                      <div class="skill-item">
-                        <div class="skill-header">
-                          <span><i class="bi bi-palette"></i> UI/UX Design</span> 
-                          <span class="skill-percentage">75%</span>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-
-                      <div class="skill-item">
-                        <div class="skill-header">
-                          <span><i class="bi bi-cpu"></i> Problem Solving (C/C++)</span> 
-                          <span class="skill-percentage">70%</span>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-
-                      <div class="skill-item">
-                        <div class="skill-header">
-                          <span><i class="bi bi-brush"></i> Digital Art & Design</span> 
-                          <span class="skill-percentage">78%</span>
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Tools & Technologies -->
-                    <div class="tools-section mt-4">
-                      <h6 class="tools-title"><i class="bi bi-tools me-2"></i>Tools & Technologies</h6>
-                      <div class="tools-grid">
-                        <span class="tool-badge">Unity 3D/2D</span>
-                        <span class="tool-badge">C# .NET</span>
-                        <span class="tool-badge">Visual Studio</span>
-                        <span class="tool-badge">Photoshop</span>
-                        <span class="tool-badge">Blender</span>
-                        <span class="tool-badge">Git/GitHub</span>
-                        <span class="tool-badge">Unreal Engine</span>
-                        <span class="tool-badge">Adobe Creative Suite</span>
-                      </div>
-                    </div>
+                  <div class="skill-level">LVL 85</div>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-level="85">
+                    <div class="skill-bar-glow"></div>
                   </div>
                 </div>
-                
-                <!-- Right Column - About Me Content -->
-                <div class="col-lg-6 col-md-12">
-                  <div class="about-me pt-4 pt-lg-0">
-                    <div class="title-box-2">
-                      <h5 class="title-left">
-                        <i class="bi bi-person-fill me-2"></i>About Me
-                      </h5>
-                    </div>
-                    
-                    <!-- Enhanced About Text -->
-                    <div class="about-intro mb-4">
-                      <h6 class="intro-greeting">👋 Hello! I'm Tasif</h6>
-                      <p class="lead-enhanced">
-                        A passionate <strong>Unity Game Developer</strong> and <strong>Level Designer</strong> 
-                        with 5+ years of experience creating immersive gaming experiences. I specialize in 
-                        bringing innovative concepts to life through clean code and captivating design.
-                      </p>
-                    </div>
-
-                    <!-- What I Do Section -->
-                    <div class="what-i-do mb-4">
-                      <h6><i class="bi bi-lightning-fill me-2"></i>What I Do</h6>
-                      <ul class="specialties-list">
-                        <li><i class="bi bi-check-circle-fill"></i> Develop complete game systems using Unity &amp; C#</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Design immersive levels and procedural worlds</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Create intuitive UI/UX interfaces</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Optimize game performance across platforms</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Solve complex algorithmic challenges</li>
-                      </ul>
-                    </div>
-
-                    <!-- Key Achievements -->
-                    <div class="achievements mb-4">
-                      <h6><i class="bi bi-trophy-fill me-2"></i>Key Achievements</h6>
-                      <div class="achievement-grid">
-                        <div class="achievement-item">
-                          <div class="achievement-icon"><i class="bi bi-check2-circle"></i></div>
-                          <span class="achievement-number">22+</span>
-                          <span class="achievement-text">Projects</span>
-                        </div>
-                        <div class="achievement-item">
-                          <div class="achievement-icon"><i class="bi bi-people-fill"></i></div>
-                          <span class="achievement-number">16+</span>
-                          <span class="achievement-text">Happy Clients</span>
-                        </div>
-                        <div class="achievement-item">
-                          <div class="achievement-icon"><i class="bi bi-award-fill"></i></div>
-                          <span class="achievement-number">5+</span>
-                          <span class="achievement-text">Awards</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Personal Touch -->
-                    <div class="personal-note mb-4">
-                      <p class="lead">
-                        Beyond game development, I'm deeply invested in competitive programming, 
-                        which sharpens my analytical thinking and problem-solving abilities. 
-                        This unique combination allows me to approach game development challenges 
-                        with both creativity and technical precision.
-                      </p>
-                    </div>
-
-                    <!-- Call to Action -->
-                    <div class="text-center">
-                      <div class="cta-buttons mb-3">
-                        <a href="assets/CV/CV.pdf" download class="btn btn-primary btn-lg btn-download me-2 mb-2">
-                          <i class="bi bi-download me-2"></i>Download CV
-                        </a>
-                        <a href="#contact" class="btn btn-outline-primary btn-lg mb-2">
-                          <i class="bi bi-chat-dots me-2"></i>Let's Talk
-                        </a>
-                      </div> <!-- FIXED: Added missing closing tag -->
-                      
-                      <!-- Fun Fact -->
-                      <div class="fun-fact">
-                        <i class="bi bi-lightbulb me-1"></i>
-                        <em>Fun fact: I've generated over 1000+ procedural worlds and solved 500+ coding challenges!</em>
-                      </div>
-                    </div>
+              </div>
+              
+              <div class="skill-bar-container">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="bi bi-map"></i>
+                    Level Design & World Building
+                  </div>
+                  <div class="skill-level">LVL 90</div>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-level="90">
+                    <div class="skill-bar-glow"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="skill-bar-container">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="bi bi-palette"></i>
+                    UI/UX Design
+                  </div>
+                  <div class="skill-level">LVL 75</div>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-level="75">
+                    <div class="skill-bar-glow"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="skill-bar-container">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="bi bi-upc-scan"></i>
+                    Unreal Engine Development
+                  </div>
+                  <div class="skill-level">LVL 70</div>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-level="70">
+                    <div class="skill-bar-glow"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section><!-- End About Section -->
 
-    <!-- ======= Services Section ======= -->
+        <!-- Achievements Section -->
+        <div class="game-panel achievements-panel" data-aos="fade-up" data-aos-delay="300">
+          <div class="panel-header">
+            <div class="panel-icon">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+            <h3 class="panel-title">ACHIEVEMENTS</h3>
+            <div class="panel-controls">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="panel-content">
+            <div class="achievements-grid">
+              <div class="achievement-card">
+                <div class="achievement-hexagon">
+                  <i class="bi bi-check-circle"></i>
+                  <div class="achievement-glow"></div>
+                </div>
+                <div class="achievement-stat">22+</div>
+                <div class="achievement-name">PROJECTS</div>
+              </div>
+              
+              <div class="achievement-card">
+                <div class="achievement-hexagon">
+                  <i class="bi bi-people"></i>
+                  <div class="achievement-glow"></div>
+                </div>
+                <div class="achievement-stat">16+</div>
+                <div class="achievement-name">CLIENTS</div>
+              </div>
+              
+              <div class="achievement-card">
+                <div class="achievement-hexagon">
+                  <i class="bi bi-award"></i>
+                  <div class="achievement-glow"></div>
+                </div>
+                <div class="achievement-stat">5+</div>
+                <div class="achievement-name">AWARDS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Final Text -->
+        <div class="game-panel passion-panel" data-aos="fade-up" data-aos-delay="400">
+          <div class="panel-content no-padding">
+            <p class="passion-text">Beyond game development, I'm deeply invested in creating educational gaming experiences and exploring procedural content generation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Game-Style About Section -->
+
+    <!-- ======= Enhanced Game-Style Services Section ======= -->
     <section id="services" class="services-mf pt-5 route">
       <div class="container">
+        <!-- Game UI decorative elements -->
+        <div class="game-ui-corner top-left"></div>
+        <div class="game-ui-corner top-right"></div>
+        <div class="game-ui-corner bottom-left"></div>
+        <div class="game-ui-corner bottom-right"></div>
+        
         <div class="row">
           <div class="col-sm-12">
-            <div class="title-box text-center">
+            <div class="title-box text-center" data-aos="fade-up">
               <h3 class="title-a">
-                Services
+                SERVICES
               </h3>
               <p class="subtitle-a">
                 I offer a wide range of services to suit your needs.
@@ -305,399 +466,1265 @@
         </div>
         <div class="row">
           
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-diagram-2-fill"></i></span>
               </div>
               <div class="service-content">
                 <h2 class="s-title">Programming and Problem-solving</h2>
-                <p class="s-description text-center">
+                <p class="s-description">
                   A well-rounded developer, I focus beyond coding to tackle problems head-on. For the past two years, I've honed my competitive programming skills in C/C++, constantly striving to improve my data structures and algorithm knowledge for efficient solutions.
                 </p>
               </div>
             </div>
           </div>
           
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-controller"></i></span>
               </div>
               <div class="service-content">
                 <h2 class="s-title">Game Development</h2>
-                <p class="s-description text-center">
+                <p class="s-description">
                   For the past 4 years, I've delved into Unity game development, mastering core skills like Scriptable Objects for modular code, animation systems for character and world life, game mechanics, UI/UX design, and integrating third-party tools for enhanced functionality.
                 </p>
               </div>
             </div>
           </div>
           
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-binoculars"></i></span>
               </div>
               <div class="service-content">
                 <h2 class="s-title">Level Design & Build</h2>
-                <p class="s-description text-center">
+                <p class="s-description">
                   Building on my 4 years in Unity development, I've become a proficient level designer. My skills in advanced techniques like PWG (Procedular World Generation) systems, optimizations, and device porting allow me to craft high-performing games both for Unity and Unreal.
                 </p>
               </div>
             </div>
           </div>
           
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
             <div class="service-box">
               <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-display"></i><i class="bi bi-palette"></i></span>
+                <span class="ico-circle">
+                  <i class="bi bi-display"></i>
+                </span>
               </div>
               <div class="service-content">
                 <h2 class="s-title">Graphic Design</h2>
-                <p class="s-description text-center">
+                <p class="s-description">
                   A design enthusiast, I've sharpened my eye for design principles and honed my skills using Adobe Creative Suite (Photoshop, Illustrator, InDesign) over the past few years. I've tackled branding, marketing, and advertising projects, creating logos, brochures, flyers, and social media graphics.
                 </p>
               </div>
             </div>
           </div>
           
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-brush"></i></span>
               </div>
               <div class="service-content">
                 <h2 class="s-title">Art</h2>
-                <p class="s-description text-center">
+                <p class="s-description">
                   With a lifelong passion for art and a love for creating captivating concepts, I honed my skills in character, environment, and asset design for concept art in video games and films. Adept in digital tools like Photoshop and Krita, I constantly push myself to improve and stay current with the latest trends.
                 </p>
               </div>
             </div>
           </div>
           
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-globe"></i></span>
               </div>
               <div class="service-content">
                 <h2 class="s-title">Web Design & Development</h2>
-                <p class="s-description text-center">
-                  While I do not have extensive experience in web design and 
-                  development, I have spent 2 years honing my skills in this 
-                  field. However, my passion truly lies in game development, 
-                  and I have dedicated a significant amount of time towards 
-                  learning and improving in this area.
+                <p class="s-description">
+                  While I do not have extensive experience in web design and development, I have spent 2 years honing my skills in this field. However, my passion truly lies in game development, and I have dedicated a significant amount of time towards learning and improving in this area.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End Enhanced Game-Style Services Section -->
 
-    <!-- ======= Counter Section ======= -->
-    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/CoverBG.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container position-relative">
-        <div class="counter-glass">
+<!-- ======= Enhanced Game-Style Counter Section ======= -->
+    <section id="counter" class="counter-mf sect-pt4 route game-counter-section">
+      <div class="container">
+        <!-- Game UI decorative elements -->
+        <div class="game-ui-corner top-left"></div>
+        <div class="game-ui-corner top-right"></div>
+        <div class="game-ui-corner bottom-left"></div>
+        <div class="game-ui-corner bottom-right"></div>
+        
+        <!-- Enhanced title section -->
+        <div class="counter-title-section" data-aos="fade-up">
+          <div class="section-title-game">
+            <div class="title-decoration left"></div>
+            <h2>MISSION STATS</h2>
+            <div class="title-decoration right"></div>
+          </div>
+          <p class="counter-subtitle">Real-time performance metrics and achievements</p>
+        </div>
+        
+        <!-- Enhanced counter grid -->
+        <div class="counter-glass-enhanced">
           <div class="row">
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box counter-box pt-4 pt-md-0">
-                <div class="counter-ico">
-                  <span class="ico-circle"><i class="bi bi-check"></i></span>
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="counter-box-game">
+                <div class="counter-header">
+                  <div class="counter-icon-frame">
+                    <div class="counter-icon-glow"></div>
+                    <i class="bi bi-check-circle-fill"></i>
+                  </div>
+                  <div class="counter-badge">COMPLETED</div>
                 </div>
-                <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="22" data-purecounter-duration="1" class="counter purecounter"></p>
-                  <span class="counter-text">WORKS COMPLETED</span>
+                <div class="counter-content">
+                  <div class="counter-num-game">
+                    <span data-purecounter-start="0" data-purecounter-end="22" data-purecounter-duration="2" class="counter purecounter">0</span>
+                    <span class="counter-plus">+</span>
+                  </div>
+                  <div class="counter-label-game">
+                    <span class="counter-text">PROJECTS</span>
+                    <span class="counter-subtext">Successfully Delivered</span>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box pt-4 pt-md-0">
-                <div class="counter-ico">
-                  <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
-                </div>
-                <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="counter purecounter"></p>
-                  <span class="counter-text">YEARS OF EXPERIENCE</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box pt-4 pt-md-0">
-                <div class="counter-ico">
-                  <span class="ico-circle"><i class="bi bi-people"></i></span>
-                </div>
-                <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="1" class="counter purecounter"></p>
-                  <span class="counter-text">TOTAL CLIENTS</span>
+                <div class="counter-progress-bar">
+                  <div class="counter-progress-fill" data-progress="88"></div>
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="counter-box pt-4 pt-md-0">
-                <div class="counter-ico">
-                  <span class="ico-circle"><i class="bi bi-award"></i></span>
+            
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="counter-box-game">
+                <div class="counter-header">
+                  <div class="counter-icon-frame experience">
+                    <div class="counter-icon-glow"></div>
+                    <i class="bi bi-journal-richtext"></i>
+                  </div>
+                  <div class="counter-badge experience">EXPERIENCE</div>
                 </div>
-                <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="counter purecounter"></p>
-                  <span class="counter-text">AWARD WON</span>
+                <div class="counter-content">
+                  <div class="counter-num-game">
+                    <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="2" class="counter purecounter">0</span>
+                    <span class="counter-plus">+</span>
+                  </div>
+                  <div class="counter-label-game">
+                    <span class="counter-text">YEARS</span>
+                    <span class="counter-subtext">Game Development</span>
+                  </div>
+                </div>
+                <div class="counter-progress-bar">
+                  <div class="counter-progress-fill experience" data-progress="75"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="counter-box-game">
+                <div class="counter-header">
+                  <div class="counter-icon-frame clients">
+                    <div class="counter-icon-glow"></div>
+                    <i class="bi bi-people-fill"></i>
+                  </div>
+                  <div class="counter-badge clients">CLIENTS</div>
+                </div>
+                <div class="counter-content">
+                  <div class="counter-num-game">
+                    <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="2" class="counter purecounter">0</span>
+                    <span class="counter-plus">+</span>
+                  </div>
+                  <div class="counter-label-game">
+                    <span class="counter-text">SATISFIED</span>
+                    <span class="counter-subtext">Happy Customers</span>
+                  </div>
+                </div>
+                <div class="counter-progress-bar">
+                  <div class="counter-progress-fill clients" data-progress="95"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <div class="counter-box-game">
+                <div class="counter-header">
+                  <div class="counter-icon-frame awards">
+                    <div class="counter-icon-glow"></div>
+                    <i class="bi bi-trophy-fill"></i>
+                  </div>
+                  <div class="counter-badge awards">AWARDS</div>
+                </div>
+                <div class="counter-content">
+                  <div class="counter-num-game">
+                    <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="2" class="counter purecounter">0</span>
+                    <span class="counter-plus">+</span>
+                  </div>
+                  <div class="counter-label-game">
+                    <span class="counter-text">RECOGNITIONS</span>
+                    <span class="counter-subtext">Industry Awards</span>
+                  </div>
+                </div>
+                <div class="counter-progress-bar">
+                  <div class="counter-progress-fill awards" data-progress="60"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional stats panel -->
+        <div class="additional-stats-panel" data-aos="fade-up" data-aos-delay="500">
+          <div class="stats-grid">
+            <div class="stat-item-small">
+              <div class="stat-icon-small">
+                <i class="bi bi-code-slash"></i>
+              </div>
+                <div class="stat-content-small">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Lines of Code</span>
+                </div>
+              </div>
+              
+              <div class="stat-item-small">
+                <div class="stat-icon-small">
+                <i class="bi bi-controller"></i>
+                </div>
+                <div class="stat-content-small">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">Game Levels Designed</span>
+                </div>
+              </div>
+              
+              <div class="stat-item-small">
+                <div class="stat-icon-small">
+                <i class="bi bi-palette-fill"></i>
+                </div>
+                <div class="stat-content-small">
+                <span class="stat-number">25+</span>
+                <span class="stat-label">Unique Game Mechanics</span>
+                </div>
+              </div>
+              
+              <div class="stat-item-small">
+                <div class="stat-icon-small">
+                <i class="bi bi-lightbulb"></i>
+                </div>
+                <div class="stat-content-small">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Solutions Created</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div><!-- End Counter Section -->
+    </section><!-- End Enhanced Game-Style Counter Section -->
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="work" class="portfolio-mf sect-pt4 route" data-aos="fade-up">
+    <!-- ======= Enhanced Game-Style Portfolio Section ======= -->
+    <section id="work" class="portfolio-mf-game sect-pt4 route">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12" data-aos="fade-up" data-aos-delay="100">
-            <div class="title-box text-center">
-              <h3 class="title-a">
-                Portfolio
-              </h3>
-              <p class="subtitle-a">
-                Projects I worked on as a Game Developer
-              </p>
-              <div class="line-mf"></div>
+        <!-- Game UI decorative elements -->
+        <div class="game-ui-corner top-left"></div>
+        <div class="game-ui-corner top-right"></div>
+        <div class="game-ui-corner bottom-left"></div>
+        <div class="game-ui-corner bottom-right"></div>
+        
+        <!-- Enhanced title section -->
+        <div class="portfolio-title-section" data-aos="fade-up">
+          <div class="section-title-game">
+            <div class="title-decoration left"></div>
+            <h2>PROJECT ARCHIVES</h2>
+            <div class="title-decoration right"></div>
+          </div>
+          <p class="portfolio-subtitle">Showcase of completed missions and achievements</p>
+        </div>
+    
+        <!-- Portfolio Filter System -->
+        <div class="portfolio-filter-system" data-aos="fade-up" data-aos-delay="100">
+          <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>ALL PROJECTS</span>
+            </button>
+            <button class="filter-btn" data-filter="unity">
+              <i class="bi bi-cpu"></i>
+              <span>UNITY 3D</span>
+            </button>
+            <button class="filter-btn" data-filter="procedural">
+              <i class="bi bi-gear"></i>
+              <span>PROCEDURAL</span>
+            </button>
+            <button class="filter-btn" data-filter="controller">
+              <i class="bi bi-controller"></i>
+              <span>CONTROLLERS</span>
+            </button>
+            <button class="filter-btn" data-filter="2d">
+              <i class="bi bi-square"></i>
+              <span>2D GAMES</span>
+            </button>
+          </div>
+        </div>
+    
+        <!-- Enhanced Portfolio Grid -->
+        <div class="portfolio-grid-game">
+          
+          <!-- Portfolio Item 1 - PWG Infinite -->
+          <div class="portfolio-card-game" data-category="unity procedural" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-frame">
+              <div class="project-status-indicator">
+                <div class="status-dot completed"></div>
+                <span class="status-text">COMPLETED</span>
+              </div>
+              
+              <div class="project-image-container">
+                <img src="assets/img/PGW_Infinite.webp" alt="Procedural World Generation Infinite" class="project-image-static" loading="lazy">
+                <img src="assets/img/PGWmin_GIF.gif" alt="Procedural World Generation Infinite GIF" class="project-image-gif" loading="lazy">
+                
+                <div class="project-overlay">
+                  <div class="project-tech-stack">
+                    <span class="tech-tag unity">UNITY</span>
+                    <span class="tech-tag csharp">C#</span>
+                    <span class="tech-tag procedural">PROCEDURAL</span>
+                  </div>
+                  
+                  <div class="project-stats">
+                    <div class="stat-item">
+                      <i class="bi bi-clock"></i>
+                      <span>3 Months</span>
+                    </div>
+                    <div class="stat-item">
+                      <i class="bi bi-cpu"></i>
+                      <span>Advanced</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-actions">
+                    <a href="portfolio-details_PGW.html" class="action-btn primary" target="_blank">
+                      <i class="bi bi-eye"></i>
+                      <span>VIEW DETAILS</span>
+                    </a>
+                    <a href="#" class="action-btn secondary">
+                      <i class="bi bi-github"></i>
+                      <span>CODE</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <div class="project-header">
+                  <h3 class="project-title">Procedural World Generation</h3>
+                  <div class="project-subtitle">INFINITE TERRAIN SYSTEM</div>
+                </div>
+                
+                <div class="project-meta">
+                  <div class="project-category">
+                    <i class="bi bi-tag"></i>
+                    <span>Level & Environment Design</span>
+                  </div>
+                  <div class="project-date">
+                    <i class="bi bi-calendar"></i>
+                    <span>Sep 18, 2022</span>
+                  </div>
+                </div>
+                
+                <div class="project-description">
+                  Advanced infinite terrain generation system with optimized chunk loading and dynamic LOD management.
+                </div>
+                
+                <div class="project-metrics">
+                  <div class="metric">
+                    <span class="metric-value">∞</span>
+                    <span class="metric-label">Terrain Size</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">60</span>
+                    <span class="metric-label">FPS Target</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">5</span>
+                    <span class="metric-label">LOD Levels</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Portfolio Item 2 - TPC -->
+          <div class="portfolio-card-game" data-category="unity controller" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-frame">
+              <div class="project-status-indicator">
+                <div class="status-dot completed"></div>
+                <span class="status-text">COMPLETED</span>
+              </div>
+              
+              <div class="project-image-container">
+                <img src="assets/img/TP_Player_Controller(1).png" alt="Third Person Character Controller" class="project-image-static" loading="lazy">
+                <img src="assets/img/TPC_GIF.gif" alt="Third Person Character Controller GIF" class="project-image-gif" loading="lazy">
+                
+                <div class="project-overlay">
+                  <div class="project-tech-stack">
+                    <span class="tech-tag unity">UNITY</span>
+                    <span class="tech-tag csharp">C#</span>
+                    <span class="tech-tag physics">PHYSICS</span>
+                  </div>
+                  
+                  <div class="project-stats">
+                    <div class="stat-item">
+                      <i class="bi bi-clock"></i>
+                      <span>1 Month</span>
+                    </div>
+                    <div class="stat-item">
+                      <i class="bi bi-controller"></i>
+                      <span>Smooth</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-actions">
+                    <a href="portfolio-details_TPC.html" class="action-btn primary" target="_blank">
+                      <i class="bi bi-eye"></i>
+                      <span>VIEW DETAILS</span>
+                    </a>
+                    <a href="#" class="action-btn secondary">
+                      <i class="bi bi-github"></i>
+                      <span>CODE</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <div class="project-header">
+                  <h3 class="project-title">Third Person Controller</h3>
+                  <div class="project-subtitle">ADVANCED CHARACTER SYSTEM</div>
+                </div>
+                
+                <div class="project-meta">
+                  <div class="project-category">
+                    <i class="bi bi-tag"></i>
+                    <span>Character Controller</span>
+                  </div>
+                  <div class="project-date">
+                    <i class="bi bi-calendar"></i>
+                    <span>Oct 11, 2023</span>
+                  </div>
+                </div>
+                
+                <div class="project-description">
+                  Comprehensive third-person character controller with advanced movement mechanics and camera system.
+                </div>
+                
+                <div class="project-metrics">
+                  <div class="metric">
+                    <span class="metric-value">12</span>
+                    <span class="metric-label">Animations</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">8</span>
+                    <span class="metric-label">States</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">3</span>
+                    <span class="metric-label">Camera Modes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Portfolio Item 3 - PWG Forest -->
+          <div class="portfolio-card-game" data-category="unity procedural" data-aos="fade-up" data-aos-delay="400">
+            <div class="project-frame">
+              <div class="project-status-indicator">
+                <div class="status-dot completed"></div>
+                <span class="status-text">COMPLETED</span>
+              </div>
+              
+              <div class="project-image-container">
+                <img src="assets/img/PGW_2_FOREST(2)-min.webp" alt="Procedural World Generation Forest" class="project-image-static" loading="lazy">
+                <img src="assets/img/PGW_Forest_GIF.gif" alt="Procedural World Generation Forest GIF" class="project-image-gif" loading="lazy">
+                
+                <div class="project-overlay">
+                  <div class="project-tech-stack">
+                    <span class="tech-tag unity">UNITY</span>
+                    <span class="tech-tag csharp">C#</span>
+                    <span class="tech-tag procedural">PROCEDURAL</span>
+                  </div>
+                  
+                  <div class="project-stats">
+                    <div class="stat-item">
+                      <i class="bi bi-clock"></i>
+                      <span>2 Months</span>
+                    </div>
+                    <div class="stat-item">
+                      <i class="bi bi-tree"></i>
+                      <span>Forest</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-actions">
+                    <a href="portfolio-details_PGW_Forest.html" class="action-btn primary" target="_blank">
+                      <i class="bi bi-eye"></i>
+                      <span>VIEW DETAILS</span>
+                    </a>
+                    <a href="#" class="action-btn secondary">
+                      <i class="bi bi-github"></i>
+                      <span>CODE</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <div class="project-header">
+                  <h3 class="project-title">PWG Forest Limited</h3>
+                  <div class="project-subtitle">BIOME-SPECIFIC GENERATION</div>
+                </div>
+                
+                <div class="project-meta">
+                  <div class="project-category">
+                    <i class="bi bi-tag"></i>
+                    <span>Level Design</span>
+                  </div>
+                  <div class="project-date">
+                    <i class="bi bi-calendar"></i>
+                    <span>Dec 23, 2023</span>
+                  </div>
+                </div>
+                
+                <div class="project-description">
+                  Specialized forest biome generation with realistic tree placement and ecosystem simulation.
+                </div>
+                
+                <div class="project-metrics">
+                  <div class="metric">
+                    <span class="metric-value">1000+</span>
+                    <span class="metric-label">Trees</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">5</span>
+                    <span class="metric-label">Biomes</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">95%</span>
+                    <span class="metric-label">Optimization</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Portfolio Item 4 - Rawwar -->
+          <div class="portfolio-card-game" data-category="unity" data-aos="fade-up" data-aos-delay="500">
+            <div class="project-frame">
+              <div class="project-status-indicator">
+                <div class="status-dot in-progress"></div>
+                <span class="status-text">IN PROGRESS</span>
+              </div>
+              
+              <div class="project-image-container">
+                <img src="assets/img/ProjectRawWar.webp" alt="Rawwar Type2Fight" class="project-image-static" loading="lazy">
+                <img src="assets/img/RawWar_GIF.gif" alt="Rawwar Type2Fight GIF" class="project-image-gif" loading="lazy">
+                
+                <div class="project-overlay">
+                  <div class="project-tech-stack">
+                    <span class="tech-tag unity">UNITY</span>
+                    <span class="tech-tag csharp">C#</span>
+                    <span class="tech-tag multiplayer">MULTIPLAYER</span>
+                  </div>
+                  
+                  <div class="project-stats">
+                    <div class="stat-item">
+                      <i class="bi bi-clock"></i>
+                      <span>Ongoing</span>
+                    </div>
+                    <div class="stat-item">
+                      <i class="bi bi-people"></i>
+                      <span>Team</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-actions">
+                    <a href="portfolio-details_RAWWAR.html" class="action-btn primary" target="_blank">
+                      <i class="bi bi-eye"></i>
+                      <span>VIEW DETAILS</span>
+                    </a>
+                    <a href="#" class="action-btn secondary">
+                      <i class="bi bi-play"></i>
+                      <span>DEMO</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <div class="project-header">
+                  <h3 class="project-title">Rawwar (Type2Fight)</h3>
+                  <div class="project-subtitle">COMPETITIVE TYPING GAME</div>
+                </div>
+                
+                <div class="project-meta">
+                  <div class="project-category">
+                    <i class="bi bi-tag"></i>
+                    <span>Game Development</span>
+                  </div>
+                  <div class="project-date">
+                    <i class="bi bi-calendar"></i>
+                    <span>Jul 11, 2023</span>
+                  </div>
+                </div>
+                
+                <div class="project-description">
+                  Innovative typing-based combat game combining competitive programming with real-time strategy.
+                </div>
+                
+                <div class="project-metrics">
+                  <div class="metric">
+                    <span class="metric-value">85%</span>
+                    <span class="metric-label">Complete</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">4</span>
+                    <span class="metric-label">Players</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">∞</span>
+                    <span class="metric-label">Replayability</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Portfolio Item 5 - Drawnscape -->
+          <div class="portfolio-card-game" data-category="unity 2d" data-aos="fade-up" data-aos-delay="600">
+            <div class="project-frame">
+              <div class="project-status-indicator">
+                <div class="status-dot completed"></div>
+                <span class="status-text">COMPLETED</span>
+              </div>
+              
+              <div class="project-image-container">
+                <img src="assets/img/Drawnscape_Front_IMG.webp" alt="Drawnscape" class="project-image-static" loading="lazy">
+                <img src="assets/img/Drawnscape_GIF.gif" alt="Drawnscape GIF" class="project-image-gif" loading="lazy">
+                
+                <div class="project-overlay">
+                  <div class="project-tech-stack">
+                    <span class="tech-tag unity">UNITY 2D</span>
+                    <span class="tech-tag csharp">C#</span>
+                    <span class="tech-tag art">DIGITAL ART</span>
+                  </div>
+                  
+                  <div class="project-stats">
+                    <div class="stat-item">
+                      <i class="bi bi-clock"></i>
+                      <span>1.5 Months</span>
+                    </div>
+                    <div class="stat-item">
+                      <i class="bi bi-palette"></i>
+                      <span>Artistic</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-actions">
+                    <a href="portfolio-details_Drawnscape.html" class="action-btn primary" target="_blank">
+                      <i class="bi bi-eye"></i>
+                      <span>VIEW DETAILS</span>
+                    </a>
+                    <a href="#" class="action-btn secondary">
+                      <i class="bi bi-download"></i>
+                      <span>PLAY</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <div class="project-header">
+                  <h3 class="project-title">Drawnscape</h3>
+                  <div class="project-subtitle">ARTISTIC 2D ADVENTURE</div>
+                </div>
+                
+                <div class="project-meta">
+                  <div class="project-category">
+                    <i class="bi bi-tag"></i>
+                    <span>Unity 2D Game</span>
+                  </div>
+                  <div class="project-date">
+                    <i class="bi bi-calendar"></i>
+                    <span>Mar 15, 2024</span>
+                  </div>
+                </div>
+                
+                <div class="project-description">
+                  Beautiful hand-drawn 2D adventure game with unique art style and engaging puzzle mechanics.
+                </div>
+                
+                <div class="project-metrics">
+                  <div class="metric">
+                    <span class="metric-value">50+</span>
+                    <span class="metric-label">Levels</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">100+</span>
+                    <span class="metric-label">Assets</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">5★</span>
+                    <span class="metric-label">Rating</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Portfolio Item 6 - State Machine -->
+          <div class="portfolio-card-game" data-category="unity controller" data-aos="fade-up" data-aos-delay="700">
+            <div class="project-frame">
+              <div class="project-status-indicator">
+                <div class="status-dot completed"></div>
+                <span class="status-text">COMPLETED</span>
+              </div>
+              
+              <div class="project-image-container">
+                <img src="assets/img/TP_Player_Controller(2).png" alt="State Machine Character Controller" class="project-image-static" loading="lazy">
+                <img src="assets/img/StateMachine_GIF.gif" alt="State Machine Character Controller GIF" class="project-image-gif" loading="lazy">
+                
+                <div class="project-overlay">
+                  <div class="project-tech-stack">
+                    <span class="tech-tag unity">UNITY</span>
+                    <span class="tech-tag csharp">C#</span>
+                    <span class="tech-tag ai">STATE MACHINE</span>
+                  </div>
+                  
+                  <div class="project-stats">
+                    <div class="stat-item">
+                      <i class="bi bi-clock"></i>
+                      <span>3 Weeks</span>
+                    </div>
+                    <div class="stat-item">
+                      <i class="bi bi-diagram-3"></i>
+                      <span>Advanced</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-actions">
+                    <a href="portfolio-details_TPC.html" class="action-btn primary" target="_blank">
+                      <i class="bi bi-eye"></i>
+                      <span>VIEW DETAILS</span>
+                    </a>
+                    <a href="#" class="action-btn secondary">
+                      <i class="bi bi-github"></i>
+                      <span>CODE</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <div class="project-header">
+                  <h3 class="project-title">State Machine Controller</h3>
+                  <div class="project-subtitle">FINITE STATE AUTOMATION</div>
+                </div>
+                
+                <div class="project-meta">
+                  <div class="project-category">
+                    <i class="bi bi-tag"></i>
+                    <span>Character Controller</span>
+                  </div>
+                  <div class="project-date">
+                    <i class="bi bi-calendar"></i>
+                    <span>Sep 18, 2018</span>
+                  </div>
+                </div>
+                
+                <div class="project-description">
+                  Robust finite state machine implementation for complex character behavior and AI systems.
+                </div>
+                
+                <div class="project-metrics">
+                  <div class="metric">
+                    <span class="metric-value">15</span>
+                    <span class="metric-label">States</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">25</span>
+                    <span class="metric-label">Transitions</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">100%</span>
+                    <span class="metric-label">Modular</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+    
+        <!-- Portfolio Summary Panel -->
+        <div class="portfolio-summary-panel" data-aos="fade-up" data-aos-delay="800">
+          <div class="summary-content">
+            <div class="summary-stats">
+              <div class="summary-stat">
+                <div class="stat-icon">
+                  <i class="bi bi-check-circle-fill"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">6</span>
+                  <span class="stat-label">Projects Showcased</span>
+                </div>
+              </div>
+              
+              <div class="summary-stat">
+                <div class="stat-icon">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">50K+</span>
+                  <span class="stat-label">Lines of Code</span>
+                </div>
+              </div>
+              
+              <div class="summary-stat">
+                <div class="stat-icon">
+                  <i class="bi bi-lightning-charge"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">12</span>
+                  <span class="stat-label">Technologies Used</span>
+                </div>
+              </div>
+              
+              <div class="summary-stat">
+                <div class="stat-icon">
+                  <i class="bi bi-trophy-fill"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">100%</span>
+                  <span class="stat-label">Success Rate</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="summary-actions">
+              <a href="#" class="summary-btn primary">
+                <i class="bi bi-download"></i>
+                <span>DOWNLOAD PORTFOLIO</span>
+              </a>
+              <a href="#" class="summary-btn secondary">
+                <i class="bi bi-github"></i>
+                <span>VIEW ALL ON GITHUB</span>
+              </a>
             </div>
           </div>
         </div>
-        <div class="row">
-          <!-- Portfolio Item 1 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="work-box" data-gif="assets/img/PGWmin_GIF.gif">
-              <div class="work-img">
-                <img src="assets/img/PGW_Infinite.webp" alt="Procedural World Generation Infinite" class="img-fluid portfolio-static" loading="lazy">
-                <img src="assets/img/PGWmin_GIF.gif" alt="Procedural World Generation Infinite GIF" class="img-fluid portfolio-gif" loading="lazy" style="display: none;">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h2 class="w-title">Procedural World Generation(Infinite)</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Level & environment design</span> / <span class="w-date">18 Sep. 2022</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Portfolio Item 2 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="work-box" data-gif="assets/img/TPC_GIF.gif">
-              <div class="work-img">
-                <img src="assets/img/TP_Player_Controller(1).png" alt="Third Person Character Controller" class="img-fluid portfolio-static" loading="lazy">
-                <img src="assets/img/TPC_GIF.gif" alt="Third Person Character Controller GIF" class="img-fluid portfolio-gif" loading="lazy" style="display: none;">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h2 class="w-title">Third Person Character controller</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Unity 3D</span> / <span class="w-date">11 Oct, 2023</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Portfolio Item 3 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="work-box" data-gif="assets/img/PGW_Forest_GIF.gif">
-              <div class="work-img">
-                <img src="assets/img/PGW_2_FOREST(2)-min.webp" alt="Procedural World Generation Forest" class="img-fluid portfolio-static" loading="lazy">
-                <img src="assets/img/PGW_Forest_GIF.gif" alt="Procedural World Generation Forest GIF" class="img-fluid portfolio-gif" loading="lazy" style="display: none;">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h2 class="w-title">Procedural World Generation(Forest limited)</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Level Design</span> / <span class="w-date">23 Dec. 2023</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Portfolio Item 4 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="work-box" data-gif="assets/img/RawWar_GIF.gif">
-              <div class="work-img">
-                <img src="assets/img/ProjectRawWar.webp" alt="Rawwar Type2Fight" class="img-fluid portfolio-static" loading="lazy">
-                <img src="assets/img/RawWar_GIF.gif" alt="Rawwar Type2Fight GIF" class="img-fluid portfolio-gif" loading="lazy" style="display: none;">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h2 class="w-title">Rawwar(Type2Fight)</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Work on progress</span> / <span class="w-date">11 July. 2023</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Portfolio Item 5 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="work-box" data-gif="assets/img/Drawnscape_GIF.gif">
-              <div class="work-img">
-                <img src="assets/img/Drawnscape_Front_IMG.webp" alt="Drawnscape" class="img-fluid portfolio-static" loading="lazy">
-                <img src="assets/img/Drawnscape_GIF.gif" alt="Drawnscape GIF" class="img-fluid portfolio-gif" loading="lazy" style="display: none;">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h2 class="w-title">Drawnscape</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Unity 2D</span> / <span class="w-date">15 Mar. 2024</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Portfolio Item 6 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="700">
-            <div class="work-box" data-gif="assets/img/StateMachine_GIF.gif">
-              <div class="work-img">
-                <img src="assets/img/TP_Player_Controller(2).png" alt="State Machine Character Controller" class="img-fluid portfolio-static" loading="lazy">
-                <img src="assets/img/StateMachine_GIF.gif" alt="State Machine Character Controller GIF" class="img-fluid portfolio-gif" loading="lazy" style="display: none;">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h2 class="w-title">State Machine Character Controller</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Character Controller</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
-    </section><!-- End Portfolio Section -->
+    </section><!-- End Enhanced Game-Style Portfolio Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
-      <div class="overlay-mf"></div>
+    <!-- Replace the existing contact section with this enhanced version -->
+    
+    <!-- ======= Enhanced Game-Style Contact Section ======= -->
+    <section id="contact" class="contact-game-section sect-mt4 route">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">
-                        Send Message
-                      </h5>
+        <!-- Game UI decorative elements -->
+        <div class="game-ui-corner top-left"></div>
+        <div class="game-ui-corner top-right"></div>
+        <div class="game-ui-corner bottom-left"></div>
+        <div class="game-ui-corner bottom-right"></div>
+        
+        <!-- Enhanced title section -->
+        <div class="contact-title-section" data-aos="fade-up">
+          <div class="section-title-game">
+            <div class="title-decoration left"></div>
+            <h2>COMMUNICATION LINK</h2>
+            <div class="title-decoration right"></div>
+          </div>
+          <p class="contact-subtitle">Establish connection for collaboration and missions</p>
+        </div>
+    
+        <!-- Contact Grid Layout -->
+        <div class="contact-grid-game">
+          
+          <!-- Message Terminal (Left Side) -->
+          <div class="message-terminal" data-aos="fade-right" data-aos-delay="100">
+            <div class="terminal-header">
+              <div class="terminal-icon">
+                <i class="bi bi-terminal"></i>
+              </div>
+              <h3 class="terminal-title">SEND MESSAGE</h3>
+              <div class="terminal-controls">
+                <span class="control-dot minimize"></span>
+                <span class="control-dot maximize"></span>
+                <span class="control-dot close"></span>
+              </div>
+            </div>
+            
+            <div class="terminal-content">
+              <div class="terminal-prompt">
+                <span class="prompt-user">user@portfolio:~$</span>
+                <span class="prompt-command">send_message --secure</span>
+              </div>
+              
+              <form action="forms/contact.php" method="post" role="form" class="game-contact-form">
+                <div class="form-group">
+                  <label for="name" class="form-label">
+                    <i class="bi bi-person"></i>
+                    <span>OPERATIVE NAME</span>
+                  </label>
+                  <input type="text" name="name" class="form-control-game" id="name" placeholder="Enter your identification..." required>
+                  <div class="input-glow"></div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    <i class="bi bi-envelope"></i>
+                    <span>COMMUNICATION CHANNEL</span>
+                  </label>
+                  <input type="email" class="form-control-game" name="email" id="email" placeholder="your.email@domain.com" required>
+                  <div class="input-glow"></div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="subject" class="form-label">
+                    <i class="bi bi-tag"></i>
+                    <span>MISSION BRIEFING</span>
+                  </label>
+                  <input type="text" class="form-control-game" name="subject" id="subject" placeholder="Subject of your message..." required>
+                  <div class="input-glow"></div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="message" class="form-label">
+                    <i class="bi bi-chat-text"></i>
+                    <span>DETAILED MESSAGE</span>
+                  </label>
+                  <textarea class="form-control-game message-area" name="message" id="message" rows="6" placeholder="Type your message here..." required></textarea>
+                  <div class="input-glow"></div>
+                </div>
+                
+                <div class="form-status">
+                  <div class="loading">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <span>Establishing secure connection...</span>
+                  </div>
+                  <div class="error-message">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Connection failed. Please try again.</span>
+                  </div>
+                  <div class="sent-message">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Message transmitted successfully!</span>
+                  </div>
+                </div>
+                
+                <div class="form-submit">
+                  <button type="submit" class="btn-transmit">
+                    <span class="btn-text">TRANSMIT MESSAGE</span>
+                    <span class="btn-icon"><i class="bi bi-send"></i></span>
+                    <div class="btn-particles"></div>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          <!-- Contact Information Panel (Right Side) -->
+          <div class="contact-info-panel" data-aos="fade-left" data-aos-delay="200">
+            
+            <!-- Main Contact Card -->
+            <div class="contact-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <i class="bi bi-person-lines-fill"></i>
+                </div>
+                <h3 class="card-title">CONTACT PROTOCOLS</h3>
+                <div class="card-status">
+                  <div class="status-indicator online"></div>
+                  <span>ONLINE</span>
+                </div>
+              </div>
+              
+              <div class="card-content">
+                <div class="contact-description">
+                  <p>"Ready to collaborate on your next project? Whether you have questions about my work, want to discuss potential opportunities, or just want to connect, I'm here to help. Let's build something amazing together!"</p>
+                </div>
+                
+                <div class="contact-methods">
+                  <div class="contact-method">
+                    <div class="method-icon">
+                      <i class="bi bi-telephone"></i>
                     </div>
-                    <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                          </div>
-                          <div class="col-md-12 text-center my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                          </div>
-                          <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary btn-lg btn-download">Send Message</button>
-                          </div>
-                        </div>
-                      </form>
+                    <div class="method-info">
+                      <span class="method-label">PRIMARY COMM</span>
+                      <span class="method-value">+880 1979648494</span>
+                    </div>
+                    <div class="method-status">
+                      <div class="signal-strength">
+                        <span class="signal-bar"></span>
+                        <span class="signal-bar"></span>
+                        <span class="signal-bar"></span>
+                        <span class="signal-bar"></span>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">
-                        Get in Touch
-                      </h5>
+                  
+                  <div class="contact-method">
+                    <div class="method-icon">
+                      <i class="bi bi-telephone-fill"></i>
                     </div>
-                    <div class="more-info">
-                      <p class="lead">
-                        "Thank you for taking the time to view my portfolio. 
-                        If you have any questions, feedback, or just want to 
-                        say hello, feel free to get in touch with me. 
-                        You can reach me through the contact form on my website, 
-                        or via email. I look forward to hearing from you!"
-                      </p>
-                      <ul class="list-ico">
-                        <!--<li><span class="bi bi-geo-alt"></span> 329 WASHINGTON ST BOSTON, MA 02108</li>-->
-                        <li><span class="bi bi-phone"></span> +880 1979648494</li>
-                        <li><span class="bi bi-phone"></span> +880 1850850625</li>
-                        <li><span class="bi bi-envelope"></span> tasif.grandfleet@gmail.com</li>
-                      </ul>
+                    <div class="method-info">
+                      <span class="method-label">BACKUP COMM</span>
+                      <span class="method-value">+880 1850850625</span>
                     </div>
-                    <div class="socials">
-                      <ul>
-                        <li><a href="https://www.facebook.com/tasifhe/" target="_blank" aria-label="Facebook"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
-                        <li><a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
-                        <li><a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
-                        <li><a href="https://www.linkedin.com/in/tasif-hossain-70b372202/" target="_blank" aria-label="LinkedIn"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
-                      </ul>
+                    <div class="method-status">
+                      <div class="signal-strength">
+                        <span class="signal-bar"></span>
+                        <span class="signal-bar"></span>
+                        <span class="signal-bar"></span>
+                        <span class="signal-bar active"></span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="contact-method">
+                    <div class="method-icon">
+                      <i class="bi bi-envelope-at"></i>
+                    </div>
+                    <div class="method-info">
+                      <span class="method-label">DIGITAL COMM</span>
+                      <span class="method-value">tasif.grandfleet@gmail.com</span>
+                    </div>
+                    <div class="method-status">
+                      <div class="signal-strength">
+                        <span class="signal-bar active"></span>
+                        <span class="signal-bar active"></span>
+                        <span class="signal-bar active"></span>
+                        <span class="signal-bar active"></span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="contact-method">
+                    <div class="method-icon">
+                      <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <div class="method-info">
+                      <span class="method-label">COORDINATES</span>
+                      <span class="method-value">Bangladesh, Earth</span>
+                    </div>
+                    <div class="method-status">
+                      <div class="location-ping">
+                        <span class="ping-dot"></span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
+            <!-- Social Networks Panel -->
+            <div class="social-networks-panel">
+              <div class="panel-header">
+                <div class="panel-icon">
+                  <i class="bi bi-share"></i>
+                </div>
+                <h4 class="panel-title">SOCIAL NETWORKS</h4>
+              </div>
+              
+              <div class="social-grid">
+                <a href="https://www.facebook.com/tasifhe/" target="_blank" class="social-link facebook" aria-label="Facebook">
+                  <div class="social-icon">
+                    <i class="bi bi-facebook"></i>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-name">Facebook</span>
+                    <span class="social-handle">@tasifhe</span>
+                  </div>
+                  <div class="social-status">
+                    <div class="status-dot active"></div>
+                  </div>
+                </a>
+                
+                <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-link instagram" aria-label="Instagram">
+                  <div class="social-icon">
+                    <i class="bi bi-instagram"></i>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-name">Instagram</span>
+                    <span class="social-handle">@yourprofile</span>
+                  </div>
+                  <div class="social-status">
+                    <div class="status-dot active"></div>
+                  </div>
+                </a>
+                
+                <a href="https://twitter.com/yourprofile" target="_blank" class="social-link twitter" aria-label="Twitter">
+                  <div class="social-icon">
+                    <i class="bi bi-twitter"></i>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-name">Twitter</span>
+                    <span class="social-handle">@yourprofile</span>
+                  </div>
+                  <div class="social-status">
+                    <div class="status-dot"></div>
+                  </div>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/tasif-hossain-70b372202/" target="_blank" class="social-link linkedin" aria-label="LinkedIn">
+                  <div class="social-icon">
+                    <i class="bi bi-linkedin"></i>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-name">LinkedIn</span>
+                    <span class="social-handle">Tasif Hossain</span>
+                  </div>
+                  <div class="social-status">
+                    <div class="status-dot active"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Response Time Panel -->
+            <div class="response-time-panel">
+              <div class="panel-header">
+                <div class="panel-icon">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <h4 class="panel-title">RESPONSE METRICS</h4>
+              </div>
+              
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <div class="metric-icon">
+                    <i class="bi bi-lightning"></i>
+                  </div>
+                  <div class="metric-content">
+                    <span class="metric-value">< 24h</span>
+                    <span class="metric-label">Response Time</span>
+                  </div>
+                </div>
+                
+                <div class="metric-item">
+                  <div class="metric-icon">
+                    <i class="bi bi-check-circle"></i>
+                  </div>
+                  <div class="metric-content">
+                    <span class="metric-value">98%</span>
+                    <span class="metric-label">Success Rate</span>
+                  </div>
+                </div>
+                
+                <div class="metric-item">
+                  <div class="metric-icon">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="metric-content">
+                    <span class="metric-value">16+</span>
+                    <span class="metric-label">Clients Served</span>
+                  </div>
+                </div>
+                
+                <div class="metric-item">
+                  <div class="metric-icon">
+                    <i class="bi bi-globe"></i>
+                  </div>
+                  <div class="metric-content">
+                    <span class="metric-value">GMT+6</span>
+                    <span class="metric-label">Time Zone</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
+        
+        <!-- Quick Contact Actions -->
+        <div class="quick-actions-panel" data-aos="fade-up" data-aos-delay="400">
+          <div class="actions-header">
+            <h4>QUICK ACTIONS</h4>
+            <p>Choose your preferred method of communication</p>
+          </div>
+          
+          <div class="actions-grid">
+            <a href="tel:+8801979648494" class="action-btn call">
+              <div class="action-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="action-content">
+                <span class="action-title">DIRECT CALL</span>
+                <span class="action-subtitle">Instant Communication</span>
+              </div>
+            </a>
+            
+            <a href="mailto:tasif.grandfleet@gmail.com" class="action-btn email">
+              <div class="action-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="action-content">
+                <span class="action-title">SEND EMAIL</span>
+                <span class="action-subtitle">Detailed Discussion</span>
+              </div>
+            </a>
+            
+            <a href="https://wa.me/8801979648494" target="_blank" class="action-btn whatsapp">
+              <div class="action-icon">
+                <i class="bi bi-whatsapp"></i>
+              </div>
+              <div class="action-content">
+                <span class="action-title">WHATSAPP</span>
+                <span class="action-subtitle">Quick Messages</span>
+              </div>
+            </a>
+            
+            <button class="action-btn schedule" onclick="openScheduleModal()">
+              <div class="action-icon">
+                <i class="bi bi-calendar-check"></i>
+              </div>
+              <div class="action-content">
+                <span class="action-title">SCHEDULE MEET</span>
+                <span class="action-subtitle">Video Conference</span>
+              </div>
+            </button>
+          </div>
+        </div>
+        
       </div>
-    </section><!-- End Contact Section -->
+    </section><!-- End Enhanced Game-Style Contact Section -->
 
-  </main><!-- End #main -->
-
+  
   <!-- ======= Footer ======= -->
   <footer class="site-footer">
   <div class="container py-4">
     <div class="row align-items-center">
       <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-        <span class="footer-brand">GRANDFLEET</span> &copy; <span id="footer-year"></span> All Rights Reserved.
+        <span class="footer-brand" style="font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 2px;">GRANDFLEET</span> &copy; <span id="footer-year"></span> All Rights Reserved.
       </div>
       <div class="col-md-6 text-center text-md-end">
-        <span class="footer-powered">Powered by <a href="https://github.com/tasifHE" target="_blank">Tasif Hossain Emon</a></span>
+        <div class="footer-powered" style="font-family: 'Rajdhani', sans-serif; font-weight: 600; letter-spacing: 1px;">
+          Powered by <a href="#" target="_blank" style="font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 1.5px;">THE</a>
+        </div>
       </div>
     </div>
   </div>
-</footer><!-- End  Footer -->
+</footer><!-- End Footer -->
 
+</main><!-- End #main -->
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center game-back-to-top">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

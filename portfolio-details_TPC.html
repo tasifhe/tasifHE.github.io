@@ -7,386 +7,542 @@
   <meta name="description" content="Third Person Character Controller - Professional Unity state machine implementation showcasing fluid character movement and responsive controls.">
   <meta name="keywords" content="unity, character controller, state machine, game development, third person, animation">
   <meta name="author" content="Tasif Hossain Emon">
-
-  <title>Third Person Controller | Professional Unity Development Portfolio</title>
+  <title>Third Person Controller | Professional Game Development Portfolio</title>
+  <meta name="description" content="Third Person Character Controller - Advanced Unity state machine implementation demonstrating fluid character movement and responsive controls.">
+  <meta name="keywords" content="unity, character controller, state machine, game development, third person, animation">
+  <meta name="author" content="Tasif Hossain Emon">
 
   <!-- Favicons -->
   <link href="assets/img/THE2.ico" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/THE2.ico" rel="apple-touch-icon">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/portfolio-page.css" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+  <!-- ======= Main Site Navbar (from index.html) ======= -->
+  <header id="header" class="fixed-top game-header">
+    <div class="nav-frame left"></div>
+    <div class="nav-frame right"></div>
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="logo">
+      <div class="game-logo">
         <a href="index.html" class="d-flex align-items-center">
-          <div class="logo-icon">
-            <i class="bi bi-code-slash"></i>
+          <div class="logo-emblem">
+            <div class="logo-glow"></div>
+            <i class="bi bi-controller"></i>
           </div>
-          <span class="logo-text">THE</span>
+          <div class="logo-text-container">
+            <span class="logo-text glitch-hover" data-text="THE">THE</span>
+            <span class="logo-tagline">GAME DESIGNER</span>
+          </div>
         </a>
       </div>
-
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="game-navbar">
+        <div class="nav-bracket left"></div>
         <ul>
-          <li><a class="nav-link scrollto" href="index.html#hero"><i class="bi bi-house"></i> Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html#about"><i class="bi bi-person"></i> About</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services"><i class="bi bi-gear"></i> Services</a></li>
-          <li><a class="nav-link scrollto active" href="index.html#work"><i class="bi bi-briefcase"></i> Work</a></li>
-          <li><a class="nav-link scrollto" href="index.html#contact"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li>
+            <a class="nav-link scrollto" href="index.html#hero">
+              <span class="nav-icon"><i class="bi bi-house"></i></span>
+              <span class="nav-text">HOME</span>
+              <span class="nav-hover-effect"></span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link scrollto" href="index.html#about">
+              <span class="nav-icon"><i class="bi bi-person"></i></span>
+              <span class="nav-text">ABOUT</span>
+              <span class="nav-hover-effect"></span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link scrollto" href="index.html#services">
+              <span class="nav-icon"><i class="bi bi-gear"></i></span>
+              <span class="nav-text">SERVICES</span>
+              <span class="nav-hover-effect"></span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link scrollto active" href="index.html#work">
+              <span class="nav-icon"><i class="bi bi-briefcase"></i></span>
+              <span class="nav-text">WORK</span>
+              <span class="nav-hover-effect"></span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link scrollto" href="index.html#contact">
+              <span class="nav-icon"><i class="bi bi-envelope"></i></span>
+              <span class="nav-text">CONTACT</span>
+              <span class="nav-hover-effect"></span>
+            </a>
+          </li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <div class="nav-bracket right"></div>
+        <div class="game-mobile-toggle">
+          <i class="bi bi-list mobile-nav-toggle"></i>
+          <div class="toggle-glow"></div>
+        </div>
       </nav>
     </div>
   </header>
-
-  <!-- ======= Hero Section ======= -->
-  <section class="hero hero-single route bg-image" style="background-image: url(assets/img/PGW_SS1\ \(3\).png)" data-aos="fade-in">
-    <div class="overlay-modern"></div>
-    <div class="hero-particles"></div>
-    <div class="hero-content">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-8">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-              <span class="title-highlight">Project</span> Showcase
+  <!-- End Main Site Navbar -->
+  <!-- ======= Enhanced Game-Style Hero Section ======= -->
+  <section class="hero hero-single route bg-image game-hero-details" style="background-image: url('assets/img/TP_Player_Controller.png')" data-aos="fade-in">
+    <div class="particles-container"></div>
+    <div class="overlay-game-design"></div>
+    
+    <!-- UI Frame Elements -->
+    <div class="ui-frame top-left"></div>
+    <div class="ui-frame top-right"></div>
+    <div class="ui-frame bottom-left"></div>
+    <div class="ui-frame bottom-right"></div>    
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <div class="mission-header" data-aos="fade-up" data-aos-delay="100">
+            <div class="mission-status">
+              <span class="status-indicator completed"></span>
+              <span class="status-text">MISSION COMPLETED</span>
+            </div>
+            <h1 class="hero-title game-title">
+              <span class="mission-type">PROJECT ARCHIVE</span>
+              <span class="glitch-effect" data-text="Third Person Controller">Third Person Controller</span>
             </h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-              Advanced Character Controller Development
-            </p>
-            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="300">
-              <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item">
-                  <a href="index.html"><i class="bi bi-house"></i> Home</a>
-                </li>
-                <li class="breadcrumb-item">
-                  <a href="index.html#work"><i class="bi bi-briefcase"></i> Portfolio</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Character Controller</li>
-              </ol>
-            </nav>
+            <div class="mission-classification">
+              <span class="classification-level">LEVEL: TECHNICAL</span>
+              <span class="classification-type">TYPE: CHARACTER SYSTEM</span>
+            </div>
           </div>
+          <nav aria-label="breadcrumb" class="game-breadcrumb" data-aos="fade-up" data-aos-delay="200">
+            <div class="breadcrumb-frame">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="index.html">
+                    <span class="nav-icon"><i class="bi bi-house"></i></span> HOME BASE
+                  </a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="index.html#work">
+                    <span class="nav-icon"><i class="bi bi-archive"></i></span> MISSION ARCHIVES
+                  </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  <i class="bi bi-controller"></i>
+                  <span>THIRD PERSON CONTROLLER</span>
+                </li>
+              </ol>
+            </div>
+          </nav>
         </div>
       </div>
+    </div>    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="300">
+      <div class="mouse-icon"></div>
+      <span>SCROLL TO BRIEFING</span>
     </div>
-    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="500">
-      <div class="scroll-arrow"></div>
     </div>
-  </section>
-
-  <main id="main">
-
-    <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
+  </section>  <main id="main">
+    <section id="portfolio-details" class="portfolio-details game-portfolio-details">
       <div class="container">
 
-        <!-- Project Status Bar -->
-        <div class="project-status-bar" data-aos="fade-up">
-          <div class="status-item">
-            <i class="bi bi-check-circle-fill"></i>
-            <span>Production Ready</span>
-          </div>
-          <div class="status-item">
-            <i class="bi bi-cpu-fill"></i>
-            <span>State Machine Architecture</span>
-          </div>
-          <div class="status-item">
-            <i class="bi bi-controller"></i>
-            <span>Multi-Input Support</span>
+        <!-- Enhanced status bar with game styling -->
+        <div class="project-status-bar game-status-bar" data-aos="fade-up">
+          <div class="status-frame">
+            <div class="status-item">
+              <div class="status-icon">
+                <i class="bi bi-diagram-3"></i>
+              </div>
+              <div class="status-content">
+                <span class="status-label">ARCHITECTURE</span>
+                <span class="status-value">STATE MACHINE</span>
+              </div>
+            </div>
+            <div class="status-item">
+              <div class="status-icon">
+                <i class="bi bi-controller"></i>
+              </div>
+              <div class="status-content">
+                <span class="status-label">INPUT</span>
+                <span class="status-value">MULTI-PLATFORM</span>
+              </div>
+            </div>
+            <div class="status-item">
+              <div class="status-icon">
+                <i class="bi bi-lightning-fill"></i>
+              </div>
+              <div class="status-content">
+                <span class="status-label">PERFORMANCE</span>
+                <span class="status-value">OPTIMIZED</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="row gy-4">
-
-          <!-- Image Slider Section -->
+          <!-- Enhanced Image Slider Section -->
           <div class="col-lg-8" data-aos="fade-right">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="assets/img/TP_Player_Controller.png" alt="Third Person Controller Interface" loading="lazy">
-                  <div class="image-overlay">
-                    <div class="image-caption">Controller Setup Interface</div>
-                  </div>
+            <div class="game-info-panel">
+              <div class="panel-header">
+                <div class="panel-icon">
+                  <i class="bi bi-camera"></i>
                 </div>
-                <div class="swiper-slide">
-                  <img src="assets/img/TP_Player_Controller(1).png" alt="Character Movement States" loading="lazy">
-                  <div class="image-overlay">
-                    <div class="image-caption">Movement State Configuration</div>
-                  </div>
+                <h4 class="panel-title">MISSION SCREENSHOTS</h4>
+                <div class="panel-controls">
+                  <span></span><span></span><span></span>
                 </div>
-                <div class="swiper-slide">
-                  <img src="assets/img/ThirdPersonState-GIF.gif" alt="Character Animation Demo" loading="lazy">
-                  <div class="image-overlay">
-                    <div class="image-caption">Fluid Animation Transitions</div>
+              </div>
+              <div class="panel-content">
+                <div class="portfolio-details-slider swiper game-image-viewer">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="image-container">
+                        <img src="assets/img/TP_Player_Controller.png" alt="Third Person Controller Interface" loading="lazy">
+                        <div class="image-overlay">
+                          <div class="image-scanner"></div>
+                          <div class="image-caption">
+                            <h5>CONTROLLER SETUP</h5>
+                            <p>Advanced state machine configuration panel</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="image-container">
+                        <img src="assets/img/TP_Player_Controller(1).png" alt="Character Movement States" loading="lazy">
+                        <div class="image-overlay">
+                          <div class="image-scanner"></div>
+                          <div class="image-caption">
+                            <h5>STATE CONFIGURATION</h5>
+                            <p>Detailed state transition management</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="image-container">
+                        <img src="assets/img/TP_Player_Controller(2).png" alt="Advanced Controller Features" loading="lazy">
+                        <div class="image-overlay">
+                          <div class="image-scanner"></div>
+                          <div class="image-caption">
+                            <h5>ADVANCED FEATURES</h5>
+                            <p>Runtime optimization and performance tuning</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <div class="swiper-pagination game-pagination"></div>
+                  <div class="swiper-button-next game-nav-btn"></div>
+                  <div class="swiper-button-prev game-nav-btn"></div>
                 </div>
-                <div class="swiper-slide">
-                  <img src="assets/img/TP_Player_Controller(2).png" alt="Advanced Controller Features" loading="lazy">
-                  <div class="image-overlay">
-                    <div class="image-caption">Advanced Feature Implementation</div>
+              </div>
+            </div>
+
+            <!-- Enhanced tech stack section -->
+            <div class="game-info-panel" data-aos="fade-up" data-aos-delay="100">
+              <div class="panel-header">
+                <div class="panel-icon">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <h4 class="panel-title">TECHNOLOGY STACK</h4>
+                <div class="panel-controls">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="panel-content">
+                <div class="info-grid">
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-unity"></i>
+                      <span>ENGINE</span>
+                    </div>
+                    <div class="info-value">Unity 3D</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-code-slash"></i>
+                      <span>LANGUAGE</span>
+                    </div>
+                    <div class="info-value">C#</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-diagram-3"></i>
+                      <span>PATTERN</span>
+                    </div>
+                    <div class="info-value">State Machine</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-play-circle"></i>
+                      <span>ANIMATION</span>
+                    </div>
+                    <div class="info-value">Unity Animator</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-controller"></i>
+                      <span>INPUT</span>
+                    </div>
+                    <div class="info-value">Input System</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-speedometer2"></i>
+                      <span>PERFORMANCE</span>
+                    </div>
+                    <div class="info-value">60fps Runtime</div>
                   </div>
                 </div>
               </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
             </div>
-
-            <!-- Technical Stack -->
-            <div class="tech-stack" data-aos="fade-up" data-aos-delay="100">
-              <h4><i class="bi bi-cpu"></i> Technical Stack</h4>
-              <div class="tech-badges">
-                <span class="tech-badge unity">Unity 3D</span>
-                <span class="tech-badge csharp">C#</span>
-                <span class="tech-badge physics">State Machine</span>
-                <span class="tech-badge mobile">Animation System</span>
-                <span class="tech-badge ui">Input System</span>
-                <span class="tech-badge analytics">Physics</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Information Section -->
+          </div>          <!-- Enhanced Project Information Section -->
           <div class="col-lg-4" data-aos="fade-left">
-            
-            <!-- Project Info Card -->
-            <div class="portfolio-info-card">
-              <div class="card-header">
-                <h3><i class="bi bi-info-circle"></i> Project Information</h3>
+            <!-- Main info card -->
+            <div class="portfolio-info-card game-info-panel">
+              <div class="panel-header">
+                <div class="panel-icon">
+                  <i class="bi bi-info-circle"></i>
+                </div>
+                <h3 class="panel-title">MISSION DATA</h3>
+                <div class="panel-controls">
+                  <span></span><span></span><span></span>
+                </div>
               </div>
-              <div class="card-body">
+              <div class="panel-content">
                 <div class="info-grid">
                   <div class="info-item">
                     <div class="info-label">
                       <i class="bi bi-tag"></i>
-                      <span>Category</span>
+                      <span>CATEGORY</span>
                     </div>
-                    <div class="info-value">Character Controller (Unity)</div>
+                    <div class="info-value">Character Controller</div>
                   </div>
                   <div class="info-item">
                     <div class="info-label">
                       <i class="bi bi-building"></i>
-                      <span>Client</span>
+                      <span>CLIENT</span>
                     </div>
                     <div class="info-value">GRANDFLEET</div>
                   </div>
                   <div class="info-item">
                     <div class="info-label">
                       <i class="bi bi-calendar"></i>
-                      <span>Date</span>
+                      <span>COMPLETION</span>
                     </div>
                     <div class="info-value">11 Oct, 2023</div>
                   </div>
                   <div class="info-item">
                     <div class="info-label">
                       <i class="bi bi-clock"></i>
-                      <span>Duration</span>
+                      <span>DURATION</span>
                     </div>
                     <div class="info-value">2 Weeks</div>
                   </div>
                   <div class="info-item">
                     <div class="info-label">
                       <i class="bi bi-person"></i>
-                      <span>Role</span>
+                      <span>ROLE</span>
                     </div>
                     <div class="info-value">System Developer</div>
                   </div>
                 </div>
-                
                 <div class="action-buttons">
-                  <button class="btn btn-outline-primary" onclick="shareProject()">
-                    <i class="bi bi-share"></i> Share Project
+                  <button class="btn game-button primary" onclick="shareProject()">
+                    <i class="bi bi-share"></i>
+                    <span>SHARE PROJECT</span>
                   </button>
                 </div>
               </div>
             </div>
 
-            <!-- Key Features -->
-            <div class="features-card" data-aos="fade-up" data-aos-delay="200">
-              <h4><i class="bi bi-star"></i> Key Features</h4>
-              <ul class="features-list">
-                <li><i class="bi bi-check-circle"></i> Modular State Machine</li>
-                <li><i class="bi bi-check-circle"></i> Fluid Animation Blending</li>
-                <li><i class="bi bi-check-circle"></i> Multi-Input Support</li>
-                <li><i class="bi bi-check-circle"></i> Responsive Controls</li>
-                <li><i class="bi bi-check-circle"></i> Clean Architecture</li>
-                <li><i class="bi bi-check-circle"></i> Extensible Design</li>
-              </ul>
-            </div>
-
-            <!-- Performance Metrics -->
-            <div class="metrics-card" data-aos="fade-up" data-aos-delay="300">
-              <h4><i class="bi bi-graph-up"></i> Performance Metrics</h4>
-              <div class="metrics-grid">
-                <div class="metric-item">
-                  <div class="metric-value">0ms</div>
-                  <div class="metric-label">Input Lag</div>
+            <!-- Features card -->
+            <div class="game-info-panel" data-aos="fade-up" data-aos-delay="200">
+              <div class="panel-header">
+                <div class="panel-icon">
+                  <i class="bi bi-star"></i>
                 </div>
-                <div class="metric-item">
-                  <div class="metric-value">60fps</div>
-                  <div class="metric-label">Smooth Rate</div>
+                <h4 class="panel-title">KEY FEATURES</h4>
+                <div class="panel-controls">
+                  <span></span><span></span><span></span>
                 </div>
-                <div class="metric-item">
-                  <div class="metric-value">100%</div>
-                  <div class="metric-label">Reliability</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-value">5+</div>
-                  <div class="metric-label">States</div>
+              </div>
+              <div class="panel-content">
+                <div class="info-grid">
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-diagram-3"></i>
+                      <span>ARCHITECTURE</span>
+                    </div>
+                    <div class="info-value">Modular State Machine</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-play-circle"></i>
+                      <span>ANIMATION</span>
+                    </div>
+                    <div class="info-value">Fluid Blending</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-controller"></i>
+                      <span>INPUT</span>
+                    </div>
+                    <div class="info-value">Multi-Platform Support</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-lightning"></i>
+                      <span>CONTROLS</span>
+                    </div>
+                    <div class="info-value">Responsive Design</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="bi bi-code-square"></i>
+                      <span>CODE</span>
+                    </div>
+                    <div class="info-value">Clean Architecture</div>
+                  </div>
                 </div>
               </div>
             </div>
 
           </div>
-        </div>
-
-        <!-- Project Description -->
-        <div class="project-description" data-aos="fade-up" data-aos-delay="400">
+        </div>        <!-- Enhanced project description -->
+        <div class="project-description game-description-section" data-aos="fade-up" data-aos-delay="400">
           <div class="row">
             <div class="col-lg-8">
-              <h2 class="section-title">
-                <span class="title-number">01</span>
-                <span class="title-text">Third Person Character Controller</span>
-              </h2>
-              
-              <div class="description-content">
-                <div class="highlight-box">
-                  <h4><i class="bi bi-lightbulb"></i> Project Overview</h4>
-                  <p>A professional-grade third-person character controller built with a modular state machine architecture. This system eliminates animation jitters and provides seamless transitions between character states while maintaining clean, extensible code.</p>
-                </div>
-
-                <div class="content-sections">
-                  <div class="content-section">
-                    <h5><i class="bi bi-cpu-fill"></i> State Machine Architecture</h5>
-                    <p>Implements a robust state machine pattern that manages character states (idle, walking, running, jumping) with smooth transitions. The modular design allows easy addition of new states without breaking existing functionality.</p>
+              <div class="game-info-panel">
+                <div class="panel-header">
+                  <div class="panel-icon">
+                    <i class="bi bi-info-circle"></i>
                   </div>
-
-                  <div class="content-section">
-                    <h5><i class="bi bi-controller"></i> Advanced Input Handling</h5>
-                    <p>Utilizes Unity's New Input System for precise control handling across multiple input devices. Supports keyboard, mouse, and gamepad inputs with customizable key bindings and sensitivity settings.</p>
-                  </div>
-
-                  <div class="content-section">
-                    <h5><i class="bi bi-film"></i> Animation Integration</h5>
-                    <p>Seamless integration with Unity's Animator component featuring smooth animation blending, transition curves, and performance optimization. Characters move with natural fluidity and responsive feedback.</p>
+                  <h2 class="panel-title">MISSION BRIEFING</h2>
+                  <div class="panel-controls">
+                    <span></span><span></span><span></span>
                   </div>
                 </div>
-              </div>
-            </div>
-            
-            <div class="col-lg-4">
-              <div class="project-achievements">
-                <h4><i class="bi bi-trophy"></i> Technical Achievements</h4>
-                <div class="achievement-list">
-                  <div class="achievement-item">
-                    <i class="bi bi-gear"></i>
-                    <div>
-                      <strong>Modular Design</strong>
-                      <span>Plug-and-play architecture</span>
+                <div class="panel-content">
+                  <div class="description-content">
+                    <div class="highlight-box">
+                      <div class="highlight-header">
+                        <i class="bi bi-lightbulb"></i>
+                        <h4>PROJECT OVERVIEW</h4>
+                      </div>
+                      <p>
+                        A professional-grade third-person character controller built with a modular state machine architecture. This system eliminates animation jitters and provides seamless transitions between character states while maintaining clean, extensible code.
+                      </p>
                     </div>
-                  </div>
-                  <div class="achievement-item">
-                    <i class="bi bi-speedometer2"></i>
-                    <div>
-                      <strong>Zero Latency</strong>
-                      <span>Instant input response</span>
-                    </div>
-                  </div>
-                  <div class="achievement-item">
-                    <i class="bi bi-code-square"></i>
-                    <div>
-                      <strong>Clean Code</strong>
-                      <span>Maintainable & Scalable</span>
+                    
+                    <div class="content-sections">
+                      <div class="content-section">
+                        <div class="section-header">
+                          <i class="bi bi-cpu-fill"></i>
+                          <h5>STATE MACHINE ARCHITECTURE</h5>
+                        </div>
+                        <p>
+                          Implements a robust state machine pattern that manages character states (idle, walking, running, jumping) with smooth transitions. The modular design allows easy addition of new states without breaking existing functionality.
+                        </p>
+                      </div>
+                      
+                      <div class="content-section">
+                        <div class="section-header">
+                          <i class="bi bi-controller"></i>
+                          <h5>ADVANCED INPUT HANDLING</h5>
+                        </div>
+                        <p>
+                          Utilizes Unity's New Input System for precise control handling across multiple input devices. Supports keyboard, mouse, and gamepad inputs with customizable key bindings and sensitivity settings.
+                        </p>
+                      </div>
+                      
+                      <div class="content-section">
+                        <div class="section-header">
+                          <i class="bi bi-play-circle"></i>
+                          <h5>ANIMATION INTEGRATION</h5>
+                        </div>
+                        <p>
+                          Seamless integration with Unity's Animator component featuring smooth animation blending, transition curves, and performance optimization. Characters move with natural fluidity and responsive feedback.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="cta-section" data-aos="fade-up" data-aos-delay="500">
-          <div class="cta-content">
-            <h3>Need Custom Character Controllers?</h3>
-            <p>Let's create fluid, responsive character movement systems that enhance your game's player experience.</p>
-            <div class="cta-buttons">
-              <a href="index.html#contact" class="btn btn-primary btn-lg">
-                <i class="bi bi-envelope"></i> Start a Project
-              </a>
-              <a href="index.html#work" class="btn btn-outline-primary btn-lg">
-                <i class="bi bi-collection"></i> View More Work
-              </a>
+        </div><!-- Enhanced CTA section -->
+        <div class="cta-section game-cta-section" data-aos="fade-up" data-aos-delay="500">
+          <div class="cta-frame">
+            <div class="cta-content">
+              <div class="cta-header">
+                <h3>Need Custom Character Controllers?</h3>
+                <p>Let's create fluid, responsive character movement systems that enhance your game's player experience.</p>
+              </div>
+              <div class="cta-buttons">
+                <a href="index.html#contact" class="btn game-button primary large">
+                  <i class="bi bi-envelope"></i>
+                  <span>INITIATE CONTACT</span>
+                </a>
+                <a href="index.html#work" class="btn game-button secondary large">
+                  <i class="bi bi-collection"></i>
+                  <span>EXPLORE MORE MISSIONS</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
     </section>
-
   </main>
 
-  <!-- ======= Enhanced Footer ======= -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="footer-brand">
-              <span class="brand-text">GRANDFLEET</span>
-              <span class="copyright">&copy; <span id="footer-year"></span> All Rights Reserved.</span>
-            </div>
-          </div>
-          <div class="col-md-6 text-md-end">
-            <div class="footer-links">
-              <span class="powered-by">Crafted with <i class="bi bi-heart-fill"></i> by</span>
-              <a href="https://github.com/tasifHE" target="_blank" rel="noopener" class="creator-link">
-                Tasif Hossain Emon
-              </a>
-            </div>
+  <!-- ======= Enhanced Game-Style Footer ======= -->
+  <footer class="site-footer game-footer">
+    <div class="container py-4">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <span class="footer-brand">GRANDFLEET</span> &copy; <span id="footer-year"></span> All Rights Reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="footer-powered">
+            Powered by <a href="#" target="_blank">THE</a>
           </div>
         </div>
       </div>
     </div>
-  </footer>
-
+  </footer><!-- End Footer -->
   <!-- Loading Screen -->
   <div id="preloader">
     <div class="preloader-content">
-      <div class="spinner"></div>
-      <p>Loading Excellence...</p>
+      <div class="spinner game-spinner"></div>
+      <p>Loading Mission Data...</p>
     </div>
   </div>
 
   <!-- Back to Top -->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center game-back-to-top">
     <i class="bi bi-arrow-up-short"></i>
   </a>
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  
-  <!-- Page Specific Scripts -->
+    <!-- Page Specific Scripts -->
   <script>
     // Initialize AOS
     AOS.init({
@@ -399,27 +555,87 @@
     // Dynamic footer year
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-    // Share project function
+    // Enhanced share project function
     function shareProject() {
       if (navigator.share) {
         navigator.share({
-          title: 'Third Person Character Controller',
-          text: 'Check out this professional Unity character controller!',
+          title: 'Third Person Character Controller - Game Development Portfolio',
+          text: 'Check out this professional Unity character controller with advanced state machine architecture!',
           url: window.location.href
         });
       } else {
         navigator.clipboard.writeText(window.location.href);
-        alert('Project link copied to clipboard!');
+        // Show a game-style notification
+        showGameNotification('Mission link copied to clipboard!');
       }
     }
 
-    // Enhanced scroll effects
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const hero = document.querySelector('.hero');
-      if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.2}px)`;
-      }
+    // Game-style notification function
+    function showGameNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'game-notification';
+      notification.innerHTML = `
+        <div class="notification-content">
+          <i class="bi bi-check-circle"></i>
+          <span>${message}</span>
+        </div>
+      `;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.classList.add('show');
+      }, 100);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 300);
+      }, 3000);
+    }
+
+    // Enhanced scroll effects with parallax
+    // window.addEventListener('scroll', () => {
+    //   const scrolled = window.pageYOffset;
+    //   const hero = document.querySelector('.hero');
+    //   const particles = document.querySelector('.particles-container');
+    //   
+    //   if (hero) {
+    //     hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+    //   }
+    //   
+    //   if (particles) {
+    //     particles.style.transform = `translateY(${scrolled * 0.1}px)`;
+    //   }
+    // });
+
+    // Initialize Swiper with enhanced settings
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiper = new Swiper('.portfolio-details-slider', {
+        loop: true,
+        speed: 600,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          slideChange: function() {
+            const counter = document.querySelector('.image-counter');
+            if (counter) {
+              counter.textContent = `${this.realIndex + 1}/${this.slides.length - 2}`;
+            }
+          }
+        }
+      });
     });
   </script>
 

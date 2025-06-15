@@ -1,0 +1,531 @@
+/* Enhanced Button Components */
+
+/* === BASE BUTTON STYLES === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  min-height: 44px; /* Better touch targets */
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button content positioning */
+.btn > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* === PRIMARY BUTTON === */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(0, 120, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--gradient-primary-reverse);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 120, 255, 0.4);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 120, 255, 0.3);
+}
+
+/* === SECONDARY BUTTON === */
+.btn-secondary {
+  background: transparent;
+  color: var(--text-accent);
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.3);
+  text-decoration: none;
+}
+
+/* === OUTLINE BUTTONS === */
+.btn-outline-primary {
+  background: transparent;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-color);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 120, 255, 0.3);
+  text-decoration: none;
+}
+
+.btn-outline-secondary {
+  background: transparent;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.3);
+  text-decoration: none;
+}
+
+/* === GHOST BUTTON === */
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+  backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* === GAME-STYLED BUTTONS === */
+.btn-game {
+  background: var(--gradient-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.875rem 2rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-game::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.btn-game:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+  box-shadow: 
+    0 10px 30px var(--shadow-heavy),
+    0 0 20px rgba(0, 180, 255, 0.3);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.btn-game:hover::before {
+  opacity: 0.9;
+}
+
+/* === HUD STYLE BUTTON === */
+.btn-hud {
+  background: transparent;
+  color: var(--text-accent);
+  border: 2px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+}
+
+.btn-hud::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: var(--dark-bg);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+  z-index: -1;
+  transition: var(--transition-fast);
+}
+
+.btn-hud:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+  text-shadow: 0 0 10px var(--shadow-glow);
+  text-decoration: none;
+}
+
+.btn-hud:hover::before {
+  background: var(--gradient-primary);
+}
+
+/* === NEON BUTTON === */
+.btn-neon {
+  background: transparent;
+  color: var(--text-accent);
+  border: 2px solid var(--text-accent);
+  padding: 0.75rem 2rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  text-shadow: 0 0 10px var(--text-accent);
+  box-shadow: 
+    0 0 5px var(--text-accent),
+    inset 0 0 5px var(--text-accent);
+  transition: var(--transition-smooth);
+}
+
+.btn-neon:hover {
+  color: var(--dark-bg);
+  background: var(--text-accent);
+  box-shadow: 
+    0 0 20px var(--text-accent),
+    0 0 40px var(--text-accent),
+    inset 0 0 20px var(--text-accent);
+  text-shadow: none;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+/* === BUTTON SIZES === */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--font-size-xs);
+  min-height: 36px;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: var(--font-size-lg);
+  min-height: 52px;
+}
+
+.btn-xl {
+  padding: 1.25rem 2.5rem;
+  font-size: var(--font-size-xl);
+  min-height: 60px;
+}
+
+/* === BUTTON GROUPS === */
+.btn-group {
+  display: inline-flex;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.btn-group .btn {
+  border-radius: 0;
+  border-right-width: 1px;
+}
+
+.btn-group .btn:first-child {
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.btn-group .btn:last-child {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  border-right-width: 2px;
+}
+
+.btn-group .btn:not(:first-child) {
+  border-left-width: 0;
+}
+
+/* === ICON BUTTONS === */
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: var(--border-radius-circle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon i {
+  font-size: 1.25rem;
+}
+
+.btn-icon-sm {
+  width: 36px;
+  height: 36px;
+}
+
+.btn-icon-sm i {
+  font-size: 1rem;
+}
+
+.btn-icon-lg {
+  width: 52px;
+  height: 52px;
+}
+
+.btn-icon-lg i {
+  font-size: 1.5rem;
+}
+
+/* === FLOATING ACTION BUTTON === */
+.btn-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--border-radius-circle);
+  font-size: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 120, 255, 0.4);
+  z-index: var(--z-fixed);
+  transition: var(--transition-smooth);
+}
+
+.btn-fab:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 120, 255, 0.5);
+  color: var(--text-primary);
+}
+
+/* === BUTTON STATES === */
+.btn.loading {
+  pointer-events: none;
+  position: relative;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: btn-loading 1s linear infinite;
+}
+
+@keyframes btn-loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn.success {
+  background: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+}
+
+.btn.error {
+  background: var(--danger-color) !important;
+  border-color: var(--danger-color) !important;
+}
+
+/* === SPECIAL BUTTONS === */
+.btn-toggle {
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+.btn-toggle.active {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+}
+
+.btn-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.btn-close:hover {
+  color: var(--danger-color);
+  transform: scale(1.1);
+}
+
+/* === RESPONSIVE BUTTONS === */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: var(--font-size-xs);
+  }
+  
+  .btn-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: var(--font-size-base);
+  }
+  
+  .btn-xl {
+    padding: 1rem 2rem;
+    font-size: var(--font-size-lg);
+  }
+  
+  .btn-fab {
+    bottom: 1rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-group {
+    flex-direction: column;
+  }
+  
+  .btn-group .btn {
+    border-radius: 0;
+    border-bottom-width: 1px;
+    border-right-width: 2px;
+  }
+  
+  .btn-group .btn:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-left-radius: 0;
+  }
+  
+  .btn-group .btn:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-width: 2px;
+  }
+  
+  .btn-group .btn:not(:first-child) {
+    border-top-width: 0;
+    border-left-width: 2px;
+  }
+}
+
+/* === ACCESSIBILITY === */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn::before,
+  .btn-fab {
+    transition: none;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+  
+  .btn-neon:hover {
+    transform: none;
+  }
+  
+  @keyframes btn-loading {
+    to { transform: none; }
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 3px;
+  }
+  
+  .btn-ghost {
+    background: white;
+    color: black;
+    border-color: black;
+  }
+  
+  .btn-neon {
+    box-shadow: none;
+    text-shadow: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .btn {
+    background: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  .btn-fab {
+    display: none !important;
+  }
+}

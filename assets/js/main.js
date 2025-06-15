@@ -93,9 +93,25 @@
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
+    select('body').classList.toggle('mobile-nav-active');
+    this.classList.toggle('bi-list');
+    this.classList.toggle('bi-x');
+    
+    // Add subtle animation when opening menu
+    const navItems = document.querySelectorAll('.game-navbar ul li');
+    if (document.body.classList.contains('mobile-nav-active')) {
+      navItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, 100 * index);
+      });
+    } else {
+      navItems.forEach(item => {
+        item.style.opacity = '';
+        item.style.transform = '';
+      });
+    }
   })
 
   /**
@@ -132,14 +148,17 @@
    */
   const typed = select('.typed')
   if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
+    let typed_strings = typed.getAttribute('data-typed-items');
+    typed_strings = typed_strings.split(',');
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+      typeSpeed: 80,
+      backSpeed: 25,
+      backDelay: 2000,
+      startDelay: 500,
+      showCursor: false, // Hide default cursor as we're using our own
+      smartBackspace: true
     });
   }
 
@@ -261,29 +280,30 @@
   function animateSkillBars() {
     const skillBars = document.querySelectorAll('.progress-bar');
     
-    skillBars.forEach((bar, index) => {
+    skillBars.forEach(bar => {
+      const width = bar.getAttribute('data-width');
+      bar.style.width = '0%';
+      
       setTimeout(() => {
-        const width = bar.style.width;
-        bar.style.width = '0%';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 100);
-      }, index * 200);
+        bar.style.width = width + '%';
+      }, 300);
     });
   }
 
-  // Trigger skill bar animation when skills section is visible
+  // Create an observer for the skills section
   const skillsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         animateSkillBars();
+        // Only trigger animation once
         skillsObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
+  // When DOM is fully loaded, initialize the observer
   document.addEventListener('DOMContentLoaded', () => {
-    const skillsSection = document.querySelector('.skill-mf');
+    const skillsSection = document.querySelector('.skills-grid');
     if (skillsSection) {
       skillsObserver.observe(skillsSection);
     }
@@ -396,5 +416,538 @@
       }
     }
   });
+
+  // Generate particles for the background
+  function generateParticles() {
+    const particlesContainer = document.querySelector('.particles-container');
+    if (!particlesContainer) return;
+    
+    // Clear any existing particles
+    particlesContainer.innerHTML = '';
+    
+    // Create 50 particle elements
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      // Random position
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      
+      // Random size
+      const size = Math.random() * 3 + 1;
+      
+      // Style the particle
+      particle.style.cssText = `
+        position: absolute;
+        left: ${x}%;
+        top: ${y}%;
+        width: ${size}px;
+        height: ${size}px;
+        background: rgba(255, 255, 255, ${Math.random() * 0.5 + 0.2});
+        border-radius: 50%;
+        pointer-events: none;
+        animation: floatParticle ${Math.random() * 10 + 5}s infinite linear;
+      `;
+      
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  // Initialize particles when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    generateParticles();
+    
+    // Initialize the glitch effect occasionally
+    setInterval(() => {
+      const glitchElement = document.querySelector('.glitch-effect');
+      if (glitchElement) {
+        glitchElement.classList.add('active-glitch');
+        setTimeout(() => {
+          glitchElement.classList.remove('active-glitch');
+        }, 200);
+      }
+    }, 5000);
+  });
+
+  // Parallax and Glitch effects for hero section
+  function initHeroEffects() {
+    const hero = document.getElementById('hero');
+    const parallaxBg = document.querySelector('.parallax-bg');
+    
+    if (!hero || !parallaxBg) return;
+    
+    // Parallax effect on mouse move
+    hero.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+      
+      // Subtle movement based on mouse position
+      parallaxBg.style.transform = `translate3d(-${mouseX * 15}px, -${mouseY * 15}px, 0)`;
+    });
+    
+    // Periodic glitch effect
+    function triggerGlitch() {
+      // Only trigger when the element is in viewport
+      const rect = hero.getBoundingClientRect();
+      const isVisible = (rect.top <= window.innerHeight && rect.bottom >= 0);
+      
+      if (isVisible) {
+        hero.classList.add('glitching');
+        
+        // Remove class after animation completes
+        setTimeout(() => {
+          hero.classList.remove('glitching');
+        }, 400); // Match duration with CSS animation
+      }
+      
+      // Schedule next glitch with random timing
+      const nextGlitchDelay = Math.random() * 5000 + 3000; // Between 3-8 seconds
+      setTimeout(triggerGlitch, nextGlitchDelay);
+    }
+    
+    // Start the first glitch after page loads
+    setTimeout(triggerGlitch, 2000); 
+    
+    // Small parallax effect on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      if (scrolled <= window.innerHeight) {
+        parallaxBg.style.transform = `translate3d(0, ${scrolled * 0.15}px, 0)`;
+      }
+    });
+  }
+
+  // Initialize the effects when document is ready
+  document.addEventListener('DOMContentLoaded', initHeroEffects);
+
+  /**
+   * Initialize skill bars animation in the game-style about section
+   */
+  function initGameSkillBars() {
+    const skillBars = document.querySelectorAll('section#about.about-game .skill-bar-fill'); // Scoped selector
+
+    skillBars.forEach(bar => {
+      const level = bar.getAttribute('data-level');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              bar.style.width = `${level}%`;
+            }, 300);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(bar);
+    });
+  }
+
+  /**
+   * Enhanced counter animations with progress bars
+   */
+  function initCounterAnimations() {
+    const counterSection = document.querySelector('.game-counter-section');
+    
+    if (!counterSection) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate progress bars
+          const progressBars = entry.target.querySelectorAll('.counter-progress-fill');
+          progressBars.forEach(bar => {
+            const progress = bar.getAttribute('data-progress');
+            setTimeout(() => {
+              bar.style.width = progress + '%';
+            }, 1000);
+          });
+          
+          // Add counter animation class for enhanced effects
+          const counterBoxes = entry.target.querySelectorAll('.counter-box-game');
+          counterBoxes.forEach((box, index) => {
+            setTimeout(() => {
+              box.classList.add('counter-animated');
+            }, 200 * index);
+          });
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    observer.observe(counterSection);
+  }
+
+  /**
+   * Enhanced Portfolio functionality
+   */
+  function initPortfolioSystem() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card-game');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.getAttribute('data-filter');
+        
+        portfolioCards.forEach(card => {
+          const cardCategories = card.getAttribute('data-category').split(' ');
+          
+          if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+            card.classList.remove('filtered-out');
+            card.classList.add('filtered-in');
+          } else {
+            card.classList.remove('filtered-in');
+            card.classList.add('filtered-out');
+          }
+        });
+      });
+    });
+
+    // Enhanced hover effects for portfolio cards
+    portfolioCards.forEach(card => {
+      const staticImg = card.querySelector('.project-image-static');
+      const gifImg = card.querySelector('.project-image-gif');
+      
+      // Preload GIFs on hover
+      card.addEventListener('mouseenter', function() {
+        if (gifImg && !gifImg.dataset.loaded) {
+          const preloadImg = new Image();
+          preloadImg.onload = function() {
+            gifImg.dataset.loaded = 'true';
+          };
+          preloadImg.src = gifImg.src;
+        }
+      });
+    });
+  }
+
+  /**
+   * Project details function
+   */
+  function openProjectDetails(url) {
+    // Add loading animation
+    const body = document.body;
+    body.style.cursor = 'wait';
+    
+    // Create loading overlay
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    `;
+    
+    const loader = document.createElement('div');
+    loader.style.cssText = `
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(0, 180, 255, 0.3);
+      border-top: 3px solid #0078ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    `;
+    
+    loadingOverlay.appendChild(loader);
+    document.body.appendChild(loadingOverlay);
+    
+    // Simulate loading time and then open
+    setTimeout(() => {
+      window.open(url, '_blank');
+      document.body.removeChild(loadingOverlay);
+      body.style.cursor = 'default';
+    }, 800);
+  }
+
+  // Add this to your existing main.js file
+
+  /**
+   * Enhanced Contact Form functionality
+   */
+  function initContactForm() {
+    const contactForm = document.querySelector('.game-contact-form');
+    
+    if (!contactForm) return;
+    
+    const loadingDiv = contactForm.querySelector('.loading');
+    const errorDiv = contactForm.querySelector('.error-message');
+    const successDiv = contactForm.querySelector('.sent-message');
+    const submitBtn = contactForm.querySelector('.btn-transmit');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      hideAllMessages();
+      loadingDiv.classList.add('show');
+      submitBtn.disabled = true;
+      
+      // Add particle effect to button
+      createButtonParticles(submitBtn);
+      
+      // Simulate form submission (replace with actual form handling)
+      setTimeout(() => {
+        loadingDiv.classList.remove('show');
+        
+        // Simulate success (in real implementation, check actual response)
+        const isSuccess = Math.random() > 0.1; // 90% success rate for demo
+        
+        if (isSuccess) {
+          successDiv.classList.add('show');
+          contactForm.reset();
+          
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            successDiv.classList.remove('show');
+          }, 5000);
+        } else {
+          errorDiv.classList.add('show');
+          
+          // Hide error message after 5 seconds
+          setTimeout(() => {
+            errorDiv.classList.remove('show');
+          }, 5000);
+        }
+        
+        submitBtn.disabled = false;
+      }, 2000);
+    });
+    
+    function hideAllMessages() {
+      loadingDiv.classList.remove('show');
+      errorDiv.classList.remove('show');
+      successDiv.classList.remove('show');
+    }
+    
+    function createButtonParticles(button) {
+      const particlesContainer = button.querySelector('.btn-particles');
+      if (!particlesContainer) return;
+      
+      // Clear existing particles
+      particlesContainer.innerHTML = '';
+      
+      // Create particles
+      for (let i = 0; i < 10; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 50%;
+          pointer-events: none;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation: buttonParticle 0.8s ease-out forwards;
+          animation-delay: ${i * 0.1}s;
+        `;
+        
+        particlesContainer.appendChild(particle);
+      }
+      
+      // Remove particles after animation
+      setTimeout(() => {
+        particlesContainer.innerHTML = '';
+      }, 1000);
+    }
+  }
+
+  /**
+   * Enhanced form input animations
+   */
+  function initFormAnimations() {
+    const formInputs = document.querySelectorAll('.form-control-game');
+    
+    formInputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.classList.add('input-focused');
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentElement.classList.remove('input-focused');
+        
+        if (this.value.trim()) {
+          this.parentElement.classList.add('input-filled');
+        } else {
+          this.parentElement.classList.remove('input-filled');
+        }
+      });
+      
+      // Check initial state
+      if (input.value.trim()) {
+        input.parentElement.classList.add('input-filled');
+      }
+    });
+  }
+
+  /**
+   * Schedule meeting modal (placeholder function)
+   */
+  function openScheduleModal() {
+    // Create simple modal for demo
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      backdrop-filter: blur(5px);
+    `;
+    
+    const modalContent = document.createElement('div');
+    modalContent.style.cssText = `
+      background: linear-gradient(145deg, rgba(25, 35, 55, 0.95), rgba(15, 25, 45, 0.95));
+      border: 1px solid rgba(0, 180, 255, 0.25);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      color: white;
+    `;
+    
+    modalContent.innerHTML = `
+      <h3 style="color: #00c6ff; margin-bottom: 1rem; font-family: 'Rajdhani', sans-serif;">SCHEDULE MEETING</h3>
+      <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.8);">
+        This feature is coming soon! For now, please use email or phone to schedule a meeting.
+      </p>
+      <button onclick="this.closest('.modal').remove()" style="
+        background: linear-gradient(135deg, #0078ff, #00c6ff);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      ">CLOSE</button>
+    `;
+    
+    modal.className = 'modal';
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Close on background click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.remove();
+      }
+    });
+  }
+
+  /**
+   * Contact method hover effects
+   */
+  function initContactEffects() {
+    const contactMethods = document.querySelectorAll('.contact-method');
+    const socialLinks = document.querySelectorAll('.social-link');
+    const actionBtns = document.querySelectorAll('.action-btn');
+    
+    // Add hover sound effect (optional)
+    function playHoverSound() {
+      // You can add sound effects here if desired
+      // const audio = new Audio('path/to/hover-sound.mp3');
+      // audio.volume = 0.1;
+      // audio.play().catch(() => {}); // Ignore errors
+    }
+    
+    [...contactMethods, ...socialLinks, ...actionBtns].forEach(element => {
+      element.addEventListener('mouseenter', playHoverSound);
+    });
+  }
+
+  // CSS animations to add dynamically
+  const contactAnimations = `
+    @keyframes buttonParticle {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(
+          calc(-50% + ${Math.random() * 60 - 30}px), 
+          calc(-50% + ${Math.random() * 60 - 30}px)
+        ) scale(0);
+        opacity: 0;
+      }
+    }
+    
+    .input-focused .form-label {
+      color: #00c6ff !important;
+    }
+    
+    .input-focused .form-label i {
+      transform: scale(1.1);
+      color: #00b4ff !important;
+    }
+    
+    .input-filled .form-label {
+      color: #28a745 !important;
+    }
+  `;
+
+  // Add animations to document
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = contactAnimations;
+  document.head.appendChild(styleSheet);
+
+  // Initialize contact functionality on DOM load
+  document.addEventListener('DOMContentLoaded', () => {
+    initContactForm();
+    initFormAnimations();
+    initContactEffects();
+    initPortfolioSystem();
+    initCounterAnimations();
+    initGameSkillBars();
+    generateParticles();
+  });
+
+  // Function to open project details with error handling
+  function openProjectDetails(detailsPage) {
+    if (!detailsPage) {
+      console.error('No details page specified');
+      return;
+    }
+    
+    try {
+      // Check if the page exists (optional)
+      window.location.href = detailsPage;
+    } catch (error) {
+      console.error('Error opening project details:', error);
+      alert('Sorry, this project details page is not available yet.');
+    }
+  }
+
+  // Alternative function for opening in new tab
+  function openProjectDetailsNewTab(detailsPage) {
+    if (!detailsPage) {
+      console.error('No details page specified');
+      return;
+    }
+    
+    window.open(detailsPage, '_blank', 'noopener,noreferrer');
+  }
 
 })();
