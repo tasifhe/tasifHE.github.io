@@ -1251,13 +1251,6 @@ a:hover {
 .tech-tag.art { background: linear-gradient(135deg, #6C5CE7, #A29BFE); }
 .tech-tag.ai { background: linear-gradient(135deg, #FD79A8, #E84393); }
 
-.tech-tag.unity { background: linear-gradient(135deg, #000000, #333333); }
-.tech-tag.csharp { background: linear-gradient(135deg, #68217A, #9B4993); }
-.tech-tag.procedural { background: linear-gradient(135deg, #FF6B6B, #FF8E8E); }
-.tech-tag.physics { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
-.tech-tag.multiplayer { background: linear-gradient(135deg, #FFD93D, #FF9500); }
-.tech-tag.art { background: linear-gradient(135deg, #6C5CE7, #A29BFE); }
-.tech-tag.ai { background: linear-gradient(135deg, #FD79A8, #E84393); }
 
 /* Project Stats */
 .project-stats {
@@ -2386,11 +2379,6 @@ a:hover {
   animation: progressShine 2.5s infinite 2s;
 }
 
-@keyframes progressShine {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
 /* Additional stats panel */
 .additional-stats-panel {
   background: linear-gradient(145deg, rgba(30, 40, 60, 0.6), rgba(20, 30, 50, 0.7));
@@ -2636,7 +2624,7 @@ a:hover {
   position: relative;
   z-index: 3;
   max-width: 1400px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto;
   padding: 0 1rem;
 }
 
