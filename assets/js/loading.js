@@ -42,9 +42,19 @@ class GameLoadingScreen {
       return;
     }
 
-    // Create loading screen HTML
+    // Create loading screen HTML with enhanced effects
     const loadingHTML = `
       <div id="loading-screen">
+        <!-- Enhanced Dynamic Effects -->
+        <div class="scan-line"></div>
+        <div class="scan-line"></div>
+        <div class="energy-pulse"></div>
+        <div class="energy-pulse"></div>
+        <div class="energy-pulse"></div>
+        <div class="data-stream"></div>
+        <div class="data-stream"></div>
+        <div class="data-stream"></div>
+        
         <!-- HUD Corners -->
         <div class="loading-hud-corner top-left"></div>
         <div class="loading-hud-corner top-right"></div>
