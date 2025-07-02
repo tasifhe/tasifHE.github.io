@@ -28,8 +28,7 @@
 @import 'components/footer.css';
 */
 
-/* For now, import the original style.css for any remaining missing sections */
-@import '../style.css';
+
 
 /* Utilities (should be loaded last) */
 @import 'utilities/utilities.css';

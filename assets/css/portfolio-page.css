@@ -2,28 +2,21 @@
 
 /* ===== ENHANCED GAME-STYLE PORTFOLIO DETAILS ===== */
 
-/* Root Variables */
+/* Override and extend base variables for portfolio pages */
 :root {
-  --primary-blue: #0078ff;
-  --secondary-blue: #00c6ff;
-  --accent-cyan: #00ffff;
-  --dark-blue: #001122;
-  --darker-blue: #000816;
+  /* Keep existing main site variables and add portfolio-specific ones */
   --glass-bg: rgba(25, 35, 55, 0.95);
   --glass-border: rgba(0, 180, 255, 0.25);
+  --success: #28a745;
+  --warning: #ffc107;
+  
+  /* Ensure consistency with main site */
+  --primary-color: #0078ff;
+  --secondary-color: #00c6ff;
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.8);
   --text-muted: rgba(255, 255, 255, 0.6);
-  --success: #28a745;
-  --warning: #ffc107;
   --font-primary: 'Rajdhani', sans-serif;
-  --transition: all 0.3s ease;
-  --border-radius: 16px;
-  --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  
-  /* Add missing variables for navbar consistency */
-  --primary-color: #0078ff;
-  --secondary-color: #00c6ff;
 }
 
 /* Base Styles */
@@ -33,9 +26,10 @@
   box-sizing: border-box;
 }
 
-body {
+/* Remove body override to let main CSS handle it */
+body.portfolio-page {
   font-family: var(--font-primary);
-  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--darker-blue) 100%);
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -1169,27 +1163,42 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  z-index: 99999;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
-.preloader-content {
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#preloader .preloader-content {
   text-align: center;
-  color: white;
+  color: var(--text-primary);
 }
 
-.game-spinner {
-  width: 60px;
-  height: 60px;
-  border: 3px solid rgba(0, 180, 255, 0.3);
-  border-top: 3px solid var(--primary-blue);
+#preloader .game-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--glass-border);
+  border-top: 3px solid var(--primary-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: 0 auto 1rem;
+  margin: 0 auto 20px;
+}
+
+#preloader p {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 @keyframes spin {
@@ -1197,67 +1206,22 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Game Notification */
-.game-notification {
-  position: fixed;
-  top: 100px;
-  right: 20px;
-  background: var(--glass-bg);
-  border: 1px solid rgba(0, 180, 255, 0.5);
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 10000;
-  transform: translateX(400px);
-  transition: transform 0.3s ease;
+/* ===== BASE PORTFOLIO PAGE STYLES ===== */
+
+/* Mobile Navigation Toggle */
+body.mobile-nav-active {
+  overflow: hidden;
 }
 
-.game-notification.show {
-  transform: translateX(0);
+/* Ensure proper stacking and mobile nav functionality */
+@media (max-width: 991px) {
+  .game-mobile-toggle {
+    display: block !important;
+  }
 }
 
-.notification-content {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--success);
-  font-weight: 600;
-  font-size: 14px;
-}
-
-/* Back to Top */
-.game-back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  transition: var(--transition);
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(0.8);
-  box-shadow: 0 5px 20px rgba(0, 120, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  z-index: 1000;
-}
-
-.game-back-to-top.active {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-
-.game-back-to-top:hover {
-  transform: scale(1.1) translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 120, 255, 0.5);
+.hero.bg-image, .game-hero-details {
+  background-color: #0a0a0a;
 }
 
 /* Mobile Responsiveness */
@@ -1473,18 +1437,56 @@ body {
   }
 }
 
-/* Mobile Navigation Toggle */
-body.mobile-nav-active {
-  overflow: hidden;
+/* ===== LOADING SCREEN STYLES FOR PORTFOLIO PAGES ===== */
+
+/* Portfolio page preloader - match main loading screen styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
-/* Ensure proper stacking and mobile nav functionality */
-@media (max-width: 991px) {
-  .game-mobile-toggle {
-    display: block !important;
-  }
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.hero.bg-image, .game-hero-details {
-  background-color: #0a0a0a;
+#preloader .preloader-content {
+  text-align: center;
+  color: var(--text-primary);
 }
+
+#preloader .game-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--glass-border);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+#preloader p {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== BASE PORTFOLIO PAGE STYLES ===== */

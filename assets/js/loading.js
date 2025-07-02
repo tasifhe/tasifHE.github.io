@@ -26,28 +26,51 @@ class GameLoadingScreen {
   init() {
     // Show loading screen immediately if DOM is ready, otherwise wait
     if (document.body) {
-      this.createLoadingScreen();
+      // Check if preloader already exists (for portfolio pages)
+      const existingPreloader = document.getElementById('preloader');
+      if (existingPreloader && existingPreloader.innerHTML.trim() !== '') {
+        console.log('Found existing preloader with content, using it');
+        this.loadingScreen = existingPreloader;
+        this.startLoadingSequence();
+      } else {
+        // Create new loading screen (for main site or empty preloader)
+        this.createLoadingScreen();
+      }
     } else {
       // Wait for DOM to be available
       document.addEventListener('DOMContentLoaded', () => {
-        this.createLoadingScreen();
+        const existingPreloader = document.getElementById('preloader');
+        if (existingPreloader && existingPreloader.innerHTML.trim() !== '') {
+          console.log('Found existing preloader with content, using it');
+          this.loadingScreen = existingPreloader;
+          this.startLoadingSequence();
+        } else {
+          this.createLoadingScreen();
+        }
       });
     }
   }
 
   createLoadingScreen() {
-    // Make sure we don't create duplicate loading screens
-    if (document.getElementById('loading-screen')) {
-      console.log('Loading screen already exists');
-      return;
+    // Check if empty preloader exists (main site)
+    const existingPreloader = document.getElementById('preloader');
+    let targetElement = existingPreloader;
+    
+    if (!existingPreloader) {
+      // Create new element if none exists
+      targetElement = document.createElement('div');
+      targetElement.id = 'loading-screen';
+      document.body.insertAdjacentElement('afterbegin', targetElement);
+    } else {
+      // Use existing preloader but rename for CSS compatibility
+      existingPreloader.id = 'loading-screen';
     }
 
     // Create loading screen HTML with enhanced effects
     const loadingHTML = `
-      <div id="loading-screen">
-        <!-- Enhanced Dynamic Effects -->
-        <div class="scan-line"></div>
-        <div class="scan-line"></div>
+      <!-- Enhanced Dynamic Effects -->
+      <div class="scan-line"></div>
+      <div class="scan-line"></div>
         <div class="energy-pulse"></div>
         <div class="energy-pulse"></div>
         <div class="energy-pulse"></div>
@@ -94,19 +117,18 @@ class GameLoadingScreen {
           <!-- Status Text -->
           <div class="loading-status">Initializing...</div>
         </div>
-      </div>
     `;
 
     try {
-      // Insert at the beginning of body
-      document.body.insertAdjacentHTML('afterbegin', loadingHTML);
-      console.log('Loading screen HTML inserted');
+      // Set HTML content to target element
+      targetElement.innerHTML = loadingHTML;
+      console.log('Loading screen HTML inserted into target element');
 
       // Get references to elements
-      this.loadingScreen = document.getElementById('loading-screen');
-      this.progressBar = document.querySelector('.loading-progress-fill');
-      this.progressText = document.querySelector('.loading-progress-text');
-      this.statusText = document.querySelector('.loading-status');
+      this.loadingScreen = targetElement;
+      this.progressBar = targetElement.querySelector('.loading-progress-fill');
+      this.progressText = targetElement.querySelector('.loading-progress-text');
+      this.statusText = targetElement.querySelector('.loading-status');
 
       if (this.loadingScreen) {
         console.log('Loading screen elements found, starting sequence');
@@ -239,14 +261,18 @@ class GameLoadingScreen {
 
   hideLoadingScreen() {
     console.log('Hiding loading screen...');
-    if (this.loadingScreen) {
+    
+    // Look for the loading screen element
+    let loadingScreen = this.loadingScreen || document.getElementById('loading-screen') || document.getElementById('preloader');
+    
+    if (loadingScreen) {
       // Add hidden class for smooth transition
-      this.loadingScreen.classList.add('hidden');
+      loadingScreen.classList.add('hidden');
       
       // Remove from DOM after transition
       setTimeout(() => {
-        if (this.loadingScreen && this.loadingScreen.parentNode) {
-          this.loadingScreen.parentNode.removeChild(this.loadingScreen);
+        if (loadingScreen && loadingScreen.parentNode) {
+          loadingScreen.parentNode.removeChild(loadingScreen);
           console.log('Loading screen removed');
         }
         

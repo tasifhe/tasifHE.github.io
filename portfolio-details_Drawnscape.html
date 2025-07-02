@@ -20,8 +20,8 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <!-- NEW: Modular CSS Architecture -->
+  <link href="assets/css/main-modular.css" rel="stylesheet">
   <link href="assets/css/portfolio-page.css" rel="stylesheet">
 
   <!-- Schema Markup for SEO -->
@@ -40,7 +40,7 @@
   </script>
 </head>
 
-<body>
+<body class="portfolio-page">
   <!-- ======= Main Site Navbar (from index.html) ======= -->
   <header id="header" class="fixed-top game-header">
     <div class="nav-frame left"></div>
@@ -107,7 +107,7 @@
   </header>
   <!-- End Main Site Navbar -->
   <!-- ======= Enhanced Game-Style Hero Section ======= -->
-  <section class="hero hero-single route bg-image game-hero-details" style="background-image: url('assets/img/Drawnscape/Drawnscape_Front_IMG.jpg')" data-aos="fade-in">
+  <section class="hero hero-single route bg-image game-hero-details" style="background-image: url('assets/img/Drawnscape/Drawnscape_Front_IMG.webp')" data-aos="fade-in">
     <div class="particles-container"></div>
     <div class="overlay-game-design"></div>
     <div class="ui-frame top-left"></div>
@@ -595,14 +595,6 @@
     </div>
   </footer><!-- End Footer -->
 
-  <!-- Loading Screen -->
-  <div id="preloader">
-    <div class="preloader-content">
-      <div class="spinner game-spinner"></div>
-      <p>Loading Mission Data...</p>
-    </div>
-  </div>
-
   <!-- Back to Top -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center game-back-to-top">
     <i class="bi bi-arrow-up-short"></i>
@@ -617,6 +609,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/loading.js"></script>
   
   <!-- Page Specific Scripts -->
   <script>
@@ -629,7 +622,12 @@
     });
 
     // Dynamic footer year
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+      const footerYear = document.getElementById('footer-year');
+      if (footerYear) {
+        footerYear.textContent = new Date().getFullYear();
+      }
+    });
 
     // Enhanced share project function
     function shareProject() {
@@ -656,47 +654,64 @@
           <span>${message}</span>
         </div>
       `;
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--card-bg);
+        border: 1px solid var(--primary-color);
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        z-index: 10000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      `;
       document.body.appendChild(notification);
       
       setTimeout(() => {
-        notification.classList.add('show');
+        notification.style.transform = 'translateX(0)';
       }, 100);
       
       setTimeout(() => {
-        notification.classList.remove('show');
+        notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
-          document.body.removeChild(notification);
+          if (document.body.contains(notification)) {
+            document.body.removeChild(notification);
+          }
         }, 300);
       }, 3000);
     }
 
     // Initialize Swiper with enhanced settings
     document.addEventListener('DOMContentLoaded', function() {
-      const swiper = new Swiper('.portfolio-details-slider', {
-        loop: true,
-        speed: 600,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        on: {
-          slideChange: function() {
-            const counter = document.querySelector('.image-counter');
-            if (counter) {
-              counter.textContent = `${this.realIndex + 1}/${this.slides.length - 2}`;
+      const swiperContainer = document.querySelector('.portfolio-details-slider');
+      if (swiperContainer) {
+        const swiper = new Swiper('.portfolio-details-slider', {
+          loop: true,
+          speed: 600,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          on: {
+            slideChange: function() {
+              const counter = document.querySelector('.image-counter');
+              if (counter) {
+                counter.textContent = `${this.realIndex + 1}/${this.slides.length - 2}`;
+              }
             }
           }
-        }
-      });
+        });
+      }
     });
   </script>
 

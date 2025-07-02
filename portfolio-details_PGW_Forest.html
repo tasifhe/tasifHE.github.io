@@ -21,12 +21,20 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <!-- NEW: Modular CSS Architecture -->
+  <link href="assets/css/main-modular.css" rel="stylesheet">
   <link href="assets/css/portfolio-page.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="portfolio-page">
+
+  <!-- Loading Screen -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner game-spinner"></div>
+      <p>Loading Mission Data...</p>
+    </div>
+  </div>
   <!-- ======= Main Site Navbar (from index.html) ======= -->
   <header id="header" class="fixed-top game-header">
     <div class="nav-frame left"></div>
@@ -538,16 +546,7 @@
           </div>
         </div>
       </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <!-- Loading Screen -->
-  <div id="preloader">
-    <div class="preloader-content">
-      <div class="spinner game-spinner"></div>
-      <p>Loading Mission Data...</p>
-    </div>
-  </div>
+    </div>  </footer><!-- End Footer -->
 
   <!-- Back to Top -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center game-back-to-top">
@@ -563,6 +562,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/loading.js"></script>
   
   <!-- Page Specific Scripts -->
   <script>

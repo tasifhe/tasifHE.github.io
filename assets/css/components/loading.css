@@ -1,7 +1,8 @@
 /* ======= Enhanced Game-Style Loading Screen ======= */
 
 /* Loading screen container - covers entire viewport */
-#loading-screen {
+#loading-screen,
+#preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +19,8 @@
 }
 
 /* Enhanced animated matrix-style background */
-#loading-screen::after {
+#loading-screen::after,
+#preloader::after {
   content: '';
   position: absolute;
   top: 0;
@@ -50,14 +52,16 @@
 }
 
 /* Hide loading screen */
-#loading-screen.hidden {
+#loading-screen.hidden,
+#preloader.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
 /* Animated background particles with multiple layers */
-#loading-screen::before {
+#loading-screen::before,
+#preloader::before {
   content: '';
   position: absolute;
   top: 0;
