@@ -30,19 +30,24 @@
 /* Counter Title Section */
 .counter-title-section {
   text-align: center;
-  margin-bottom: var(--spacing-xxl);
+  margin-bottom: var(--spacing-md);
+}
+
+.counter-title-section .section-title-game {
+  margin-bottom: var(--spacing-md);
 }
 
 .counter-subtitle {
   color: var(--text-secondary);
   font-size: var(--font-size-md);
-  margin-top: var(--spacing-sm);
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-lg) * 2);
 }
 
 /* Enhanced Counter Glass */
 .counter-glass-enhanced {
   position: relative;
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg);
   background: rgba(17, 17, 17, 0.8);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-lg);
@@ -50,12 +55,32 @@
   box-shadow: var(--shadow-game);
 }
 
+/* Ensure proper Bootstrap grid spacing */
+.counter-glass-enhanced .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.counter-glass-enhanced .col-sm-6.col-lg-3 {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Force cards to stay in one row on large screens */
+@media (min-width: 992px) {
+  .counter-glass-enhanced .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
 /* Counter Box Game Style */
 .counter-box-game {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -65,7 +90,7 @@
 
 .counter-box-game:hover {
   border-color: var(--primary-color);
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-game);
 }
 
@@ -89,13 +114,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .counter-icon-frame {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,12 +155,12 @@
 }
 
 .counter-box-game:hover .counter-icon-glow {
-  opacity: 0.3;
+  opacity: 0.2;
   animation: pulse 2s infinite;
 }
 
 .counter-icon-frame i {
-  font-size: 24px;
+  font-size: 18px;
   color: var(--primary-color);
 }
 
@@ -155,9 +180,9 @@
 .counter-badge {
   background: var(--gradient-primary);
   color: var(--text-primary);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: 4px var(--spacing-xs);
   border-radius: var(--border-radius-sm);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -176,20 +201,20 @@
 
 /* Counter Content */
 .counter-content {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .counter-num-game {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-xs);
-  margin-bottom: var(--spacing-sm);
+  gap: 4px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .counter {
   font-family: var(--font-secondary);
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--text-primary);
   text-shadow: 0 0 20px rgba(0, 120, 255, 0.5);
@@ -197,7 +222,7 @@
 
 .counter-plus {
   font-family: var(--font-secondary);
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--primary-color);
 }
@@ -209,16 +234,16 @@
 .counter-text {
   display: block;
   font-family: var(--font-secondary);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: 1px;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 2px;
 }
 
 .counter-subtext {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
   letter-spacing: 1px;
 }
@@ -226,9 +251,9 @@
 /* Progress Bar */
 .counter-progress-bar {
   width: 100%;
-  height: 6px;
+  height: 4px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  border-radius: 2px;
   overflow: hidden;
   position: relative;
 }
@@ -236,7 +261,7 @@
 .counter-progress-fill {
   height: 100%;
   background: var(--gradient-primary);
-  border-radius: 3px;
+  border-radius: 2px;
   width: 0;
   transition: width 2s ease 1s;
   position: relative;
@@ -267,8 +292,8 @@
 
 /* Additional Stats Panel */
 .additional-stats-panel {
-  margin-top: var(--spacing-xl);
-  padding: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-lg);
   background: rgba(17, 17, 17, 0.5);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -276,15 +301,15 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-md);
 }
 
 .stat-item-small {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
@@ -293,19 +318,19 @@
 
 .stat-item-small:hover {
   border-color: var(--primary-color);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .stat-icon-small {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: rgba(0, 120, 255, 0.1);
   color: var(--primary-color);
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .stat-content-small {
@@ -315,14 +340,14 @@
 .stat-number {
   display: block;
   font-family: var(--font-secondary);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 2px;
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
   letter-spacing: 1px;
 }
@@ -330,39 +355,69 @@
 /* Responsive Design */
 @media (max-width: 991px) {
   .counter-glass-enhanced {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
   }
   
-  .counter-box-game {
+  .counter-glass-enhanced .col-sm-6.col-lg-3 {
     margin-bottom: var(--spacing-lg);
   }
   
   .stats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-sm);
   }
 }
 
 @media (max-width: 768px) {
+  .counter-glass-enhanced .col-sm-6.col-lg-3 {
+    margin-bottom: var(--spacing-xl);
+  }
+  
   .counter {
-    font-size: 36px;
+    font-size: 28px;
   }
   
   .counter-plus {
-    font-size: 24px;
+    font-size: 18px;
   }
   
   .counter-icon-frame {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
   
   .counter-icon-frame i {
-    font-size: 20px;
+    font-size: 16px;
+  }
+  
+  .counter-text {
+    font-size: 12px;
+  }
+  
+  .counter-subtext {
+    font-size: 10px;
   }
   
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .additional-stats-panel {
+    padding: var(--spacing-md);
+  }
+  
+  .stat-icon-small {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  .stat-number {
+    font-size: 14px;
+  }
+  
+  .stat-label {
+    font-size: 10px;
   }
 }
 

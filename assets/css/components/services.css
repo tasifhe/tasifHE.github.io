@@ -55,7 +55,7 @@
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg);
   text-align: center;
   height: 100%;
   transition: var(--transition-smooth);
@@ -76,7 +76,7 @@
 
 .service-box:hover {
   border-color: var(--primary-color);
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-game);
 }
 
@@ -86,19 +86,19 @@
 
 /* Service Icon */
 .service-ico {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .ico-circle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: var(--gradient-primary);
   color: var(--text-primary);
-  font-size: 32px;
+  font-size: 24px;
   transition: var(--transition-smooth);
   position: relative;
 }
@@ -115,7 +115,7 @@
 }
 
 .service-box:hover .ico-circle {
-  transform: scale(1.1) rotate(10deg);
+  transform: scale(1.05) rotate(5deg);
 }
 
 .service-box:hover .ico-circle::before {
@@ -131,32 +131,43 @@
 
 .s-title {
   font-family: var(--font-secondary);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   letter-spacing: 1px;
 }
 
 .s-description {
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
+  font-size: 14px;
+}
+
+/* Add spacing between service card rows */
+.services-mf .col-md-4 {
+  margin-bottom: var(--spacing-lg);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .service-box {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
   }
   
   .ico-circle {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
   }
   
   .s-title {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  .s-description {
+    font-size: 13px;
   }
 }
