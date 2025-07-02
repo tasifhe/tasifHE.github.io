@@ -893,18 +893,39 @@ textarea.form-control {
 .card-status {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
   font-size: 12px;
   color: var(--success-color);
   font-weight: 600;
+  font-family: var(--font-secondary);
+  letter-spacing: 0.5px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(40, 167, 69, 0.1);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  border-radius: var(--border-radius-sm);
 }
 
-.status-indicator {
+.card-status .status-indicator {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--success-color);
   animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+.card-status .status-indicator.online {
+  background: #28a745;
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+  animation: pulse 2s infinite, pulseGlow 3s infinite;
+}
+
+.card-status span {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #28a745;
+  font-size: 11px;
 }
 
 .card-content {
@@ -1165,30 +1186,42 @@ textarea.form-control {
   transition: var(--transition-smooth);
 }
 
-/* Status Indicator */
-.status-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-lg);
-  padding: var(--spacing-md);
-  background: rgba(40, 167, 69, 0.1);
-  border: 1px solid #28a745;
-  border-radius: var(--border-radius-sm);
-  color: #28a745;
-  font-family: var(--font-secondary);
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 12px;
-}
-
+/* Status Dot for Social Links */
 .status-dot {
   width: 8px;
   height: 8px;
   background: #28a745;
   border-radius: 50%;
   animation: pulse 2s infinite;
+}
+
+/* Animation for status indicators */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Enhanced pulse animation for online status */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.8), 0 0 25px rgba(40, 167, 69, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+  }
 }
 
 /* Responsive Design */
