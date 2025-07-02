@@ -93,20 +93,29 @@
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active');
+    console.log('Mobile nav toggle clicked!');
+    const body = select('body');
+    body.classList.toggle('mobile-nav-active');
+    
+    console.log('Body classes:', body.className);
+    
     this.classList.toggle('bi-list');
     this.classList.toggle('bi-x');
     
     // Add subtle animation when opening menu
     const navItems = document.querySelectorAll('.game-navbar ul li');
+    console.log('Nav items found:', navItems.length);
+    
     if (document.body.classList.contains('mobile-nav-active')) {
+      console.log('Opening mobile menu');
       navItems.forEach((item, index) => {
         setTimeout(() => {
           item.style.opacity = '1';
-          item.style.transform = 'translateY(0)';
+          item.style.transform = 'translateX(0)';
         }, 100 * index);
       });
     } else {
+      console.log('Closing mobile menu');
       navItems.forEach(item => {
         item.style.opacity = '';
         item.style.transform = '';
@@ -827,22 +836,43 @@
       width: 90%;
       text-align: center;
       color: white;
+      box-shadow: 0 20px 40px rgba(0, 120, 255, 0.2);
     `;
     
     modalContent.innerHTML = `
-      <h3 style="color: #00c6ff; margin-bottom: 1rem; font-family: 'Rajdhani', sans-serif;">SCHEDULE MEETING</h3>
-      <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.8);">
-        This feature is coming soon! For now, please use email or phone to schedule a meeting.
+      <div style="margin-bottom: 1.5rem;">
+        <i class="bi bi-calendar-check" style="font-size: 3rem; color: #00c6ff;"></i>
+      </div>
+      <h3 style="color: #00c6ff; margin-bottom: 1rem; font-family: 'Rajdhani', sans-serif; font-weight: 700;">SCHEDULE MEETING</h3>
+      <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.6;">
+        This feature is coming soon! For now, please use email or phone to schedule a meeting directly.
       </p>
-      <button onclick="this.closest('.modal').remove()" style="
-        background: linear-gradient(135deg, #0078ff, #00c6ff);
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-      ">CLOSE</button>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="mailto:tasif.grandfleet@gmail.com" style="
+          background: linear-gradient(135deg, #0078ff, #00c6ff);
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 600;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <i class="bi bi-envelope"></i>
+          EMAIL
+        </a>
+        <button onclick="this.closest('.modal').remove()" style="
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: white;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: 600;
+        ">CLOSE</button>
+      </div>
     `;
     
     modal.className = 'modal';
@@ -855,99 +885,104 @@
         modal.remove();
       }
     });
-  }
-
-  /**
-   * Contact method hover effects
-   */
-  function initContactEffects() {
-    const contactMethods = document.querySelectorAll('.contact-method');
-    const socialLinks = document.querySelectorAll('.social-link');
-    const actionBtns = document.querySelectorAll('.action-btn');
     
-    // Add hover sound effect (optional)
-    function playHoverSound() {
-      // You can add sound effects here if desired
-      // const audio = new Audio('path/to/hover-sound.mp3');
-      // audio.volume = 0.1;
-      // audio.play().catch(() => {}); // Ignore errors
-    }
-    
-    [...contactMethods, ...socialLinks, ...actionBtns].forEach(element => {
-      element.addEventListener('mouseenter', playHoverSound);
+    // Close on Escape key
+    document.addEventListener('keydown', function escapeHandler(e) {
+      if (e.key === 'Escape') {
+        modal.remove();
+        document.removeEventListener('keydown', escapeHandler);
+      }
     });
   }
 
-  // CSS animations to add dynamically
-  const contactAnimations = `
-    @keyframes buttonParticle {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(
-          calc(-50% + ${Math.random() * 60 - 30}px), 
-          calc(-50% + ${Math.random() * 60 - 30}px)
-        ) scale(0);
-        opacity: 0;
-      }
-    }
-    
-    .input-focused .form-label {
-      color: #00c6ff !important;
-    }
-    
-    .input-focused .form-label i {
-      transform: scale(1.1);
-      color: #00b4ff !important;
-    }
-    
-    .input-filled .form-label {
-      color: #28a745 !important;
-    }
-  `;
-
-  // Add animations to document
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = contactAnimations;
-  document.head.appendChild(styleSheet);
-
-  // Initialize contact functionality on DOM load
-  document.addEventListener('DOMContentLoaded', () => {
-    initContactForm();
-    initFormAnimations();
-    initContactEffects();
-    initPortfolioSystem();
-    initCounterAnimations();
-    initGameSkillBars();
-    generateParticles();
-  });
-
-  // Function to open project details with error handling
-  function openProjectDetails(detailsPage) {
-    if (!detailsPage) {
-      console.error('No details page specified');
-      return;
-    }
-    
-    try {
-      // Check if the page exists (optional)
-      window.location.href = detailsPage;
-    } catch (error) {
-      console.error('Error opening project details:', error);
-      alert('Sorry, this project details page is not available yet.');
-    }
-  }
-
-  // Alternative function for opening in new tab
-  function openProjectDetailsNewTab(detailsPage) {
-    if (!detailsPage) {
-      console.error('No details page specified');
-      return;
-    }
-    
-    window.open(detailsPage, '_blank', 'noopener,noreferrer');
-  }
+  // Make openScheduleModal globally accessible
+  window.openScheduleModal = openScheduleModal;
 
 })();
+
+// Additional global functions that need to be accessible
+function openScheduleModal() {
+  // Create simple modal for demo
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+  `;
+  
+  const modalContent = document.createElement('div');
+  modalContent.style.cssText = `
+    background: linear-gradient(145deg, rgba(25, 35, 55, 0.95), rgba(15, 25, 45, 0.95));
+    border: 1px solid rgba(0, 180, 255, 0.25);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0, 120, 255, 0.2);
+  `;
+  
+  modalContent.innerHTML = `
+    <div style="margin-bottom: 1.5rem;">
+      <i class="bi bi-calendar-check" style="font-size: 3rem; color: #00c6ff;"></i>
+    </div>
+    <h3 style="color: #00c6ff; margin-bottom: 1rem; font-family: 'Rajdhani', sans-serif; font-weight: 700;">SCHEDULE MEETING</h3>
+    <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.6;">
+      This feature is coming soon! For now, please use email or phone to schedule a meeting directly.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+      <a href="mailto:tasif.grandfleet@gmail.com" style="
+        background: linear-gradient(135deg, #0078ff, #00c6ff);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      ">
+        <i class="bi bi-envelope"></i>
+        EMAIL
+      </a>
+      <button onclick="this.closest('.modal').remove()" style="
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      ">CLOSE</button>
+    </div>
+  `;
+  
+  modal.className = 'modal';
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+  
+  // Close on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.remove();
+    }
+  });
+  
+  // Close on Escape key
+  document.addEventListener('keydown', function escapeHandler(e) {
+    if (e.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', escapeHandler);
+    }
+  });
+}

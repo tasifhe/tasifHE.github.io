@@ -530,80 +530,134 @@ textarea.form-control {
   gap: var(--spacing-md);
 }
 
-.social-link {
+/* Social Info Styles */
+.social-networks-panel .social-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: var(--spacing-sm);
+}
+
+.social-networks-panel .social-name {
+  font-size: 12px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: var(--font-secondary);
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+.social-networks-panel .social-handle {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-primary);
+}
+
+.social-networks-panel .social-status {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 120, 255, 0.1);
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 20px;
-  transition: var(--transition-smooth);
-  position: relative;
-  overflow: hidden;
+  flex-shrink: 0;
 }
 
-.social-link::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-primary);
-  border-radius: 50%;
-  opacity: 0;
-  transition: var(--transition-smooth);
-  z-index: -1;
-}
-
-.social-link:hover {
-  color: var(--text-primary);
-  border-color: var(--primary-color);
-  transform: translateY(-3px);
-}
-
-.social-link:hover::before {
-  opacity: 1;
-}
-
-/* Social Info Styles */
-.social-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.social-name {
-  font-size: 10px;
-  color: var(--text-primary);
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.social-handle {
-  font-size: 8px;
-  color: var(--text-muted);
-}
-
-.social-status {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
-.social-status .status-dot {
-  width: 6px;
-  height: 6px;
+.social-networks-panel .social-status .status-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--text-muted);
+  transition: var(--transition-smooth);
 }
 
-.social-status .status-dot.active {
+.social-networks-panel .social-status .status-dot.active {
   background: var(--success-color);
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
   animation: pulse 2s infinite;
+}
+
+/* Platform-specific social link styling */
+.social-networks-panel .social-link.facebook:hover .social-icon {
+  background: rgba(66, 103, 178, 0.2);
+}
+
+.social-networks-panel .social-link.facebook:hover .social-icon i {
+  color: #4267B2;
+}
+
+.social-networks-panel .social-link.instagram:hover .social-icon {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.social-networks-panel .social-link.instagram:hover .social-icon i {
+  color: #ffffff;
+}
+
+.social-networks-panel .social-link.twitter:hover .social-icon {
+  background: rgba(29, 161, 242, 0.2);
+}
+
+.social-networks-panel .social-link.twitter:hover .social-icon i {
+  color: #1DA1F2;
+}
+
+.social-networks-panel .social-link.linkedin:hover .social-icon {
+  background: rgba(10, 102, 194, 0.2);
+}
+
+.social-networks-panel .social-link.linkedin:hover .social-icon i {
+  color: #0A66C2;
+}
+
+/* Enhanced social link animations and effects */
+.social-networks-panel .social-link {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(5px);
+}
+
+.social-networks-panel .social-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Additional visual improvements */
+.social-networks-panel .social-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.social-networks-panel .social-link:hover::after {
+  left: 100%;
+}
+
+/* Platform-specific border colors on hover */
+.social-networks-panel .social-link.facebook:hover {
+  border-color: #4267B2;
+}
+
+.social-networks-panel .social-link.instagram:hover {
+  border-color: #e4405f;
+}
+
+.social-networks-panel .social-link.twitter:hover {
+  border-color: #1DA1F2;
+}
+
+.social-networks-panel .social-link.linkedin:hover {
+  border-color: #0A66C2;
+}
+
+/* Gradient animation for Instagram */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Response Time Panel */
@@ -1030,17 +1084,17 @@ textarea.form-control {
   font-size: 14px;
 }
 
-.social-grid {
+.social-networks-panel .social-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--spacing-sm);
   padding: var(--spacing-lg);
 }
 
-.social-link {
+.social-networks-panel .social-link {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
   text-decoration: none;
   padding: var(--spacing-md);
   border: 1px solid var(--border-color);
@@ -1048,9 +1102,10 @@ textarea.form-control {
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.social-link::before {
+.social-networks-panel .social-link::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -1060,35 +1115,54 @@ textarea.form-control {
   z-index: -1;
 }
 
-.social-link:hover {
+.social-networks-panel .social-link:hover {
   border-color: var(--primary-color);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 120, 255, 0.15);
 }
 
-.social-link:hover::before {
-  opacity: 0.1;
+.social-networks-panel .social-link:hover::before {
+  opacity: 0.05;
 }
 
-.social-icon {
+.social-networks-panel .social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(0, 120, 255, 0.1);
+  border: 2px solid transparent;
   transition: var(--transition-smooth);
   flex-shrink: 0;
+  position: relative;
 }
 
-.social-link:hover .social-icon {
+.social-networks-panel .social-icon::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+.social-networks-panel .social-link:hover .social-icon {
   background: rgba(0, 120, 255, 0.2);
   transform: scale(1.1);
 }
 
-.social-icon i {
-  font-size: 16px;
+.social-networks-panel .social-link:hover .social-icon::before {
+  opacity: 0.3;
+}
+
+.social-networks-panel .social-icon i {
+  font-size: 18px;
   color: var(--primary-color);
+  transition: var(--transition-smooth);
 }
 
 /* Status Indicator */
@@ -1128,7 +1202,7 @@ textarea.form-control {
     order: -1;
   }
   
-  .social-grid {
+  .social-networks-panel .social-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
@@ -1162,8 +1236,29 @@ textarea.form-control {
     font-size: 12px;
   }
   
-  .social-grid {
+  .social-networks-panel .social-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .social-networks-panel .social-link {
+    padding: var(--spacing-md);
+  }
+  
+  .social-networks-panel .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .social-networks-panel .social-icon i {
+    font-size: 16px;
+  }
+  
+  .social-networks-panel .social-name {
+    font-size: 11px;
+  }
+  
+  .social-networks-panel .social-handle {
+    font-size: 9px;
   }
   
   .actions-grid {
@@ -1185,9 +1280,33 @@ textarea.form-control {
     gap: var(--spacing-sm);
     text-align: center;
   }
+}
+
+@media (max-width: 480px) {
+  .social-networks-panel {
+    margin-top: var(--spacing-md);
+  }
   
-  .terminal-controls {
-    order: -1;
+  .social-networks-panel .social-link {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+  
+  .social-networks-panel .social-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .social-networks-panel .social-icon i {
+    font-size: 14px;
+  }
+  
+  .social-networks-panel .social-name {
+    font-size: 10px;
+  }
+  
+  .social-networks-panel .social-handle {
+    font-size: 8px;
   }
 }
 
