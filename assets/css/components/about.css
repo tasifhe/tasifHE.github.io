@@ -453,139 +453,404 @@
   gap: var(--spacing-lg);
 }
 
+/* Enhanced Skills System - Game-Like UI */
 .skill-bar-container {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  padding: var(--spacing-sm);
+  background: rgba(13, 25, 43, 0.3);
+  border: 1px solid rgba(0, 120, 255, 0.2);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+.skill-bar-container:hover {
+  border-color: rgba(0, 120, 255, 0.5);
+  background: rgba(13, 25, 43, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 32px rgba(0, 120, 255, 0.15),
+    0 0 40px rgba(0, 120, 255, 0.1);
 }
 
 .skill-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 2;
 }
 
 .skill-name {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.skill-name::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 
+    0 0 10px var(--primary-color),
+    0 0 20px rgba(0, 120, 255, 0.5);
+  animation: skillIndicatorPulse 2s ease-in-out infinite;
 }
 
 .skill-level {
-  color: var(--text-accent);
-  font-family: var(--font-secondary);
+  color: var(--primary-color);
+  font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 14px;
-}
-
-.skill-bar-bg {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
+  font-size: 16px;
+  text-shadow: 0 0 12px var(--primary-color);
   position: relative;
 }
 
+.skill-level::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  box-shadow: 0 0 15px var(--secondary-color);
+}
+
+.skill-bar-container.completed .skill-level::after {
+  opacity: 1;
+  animation: achievementFlash 1.2s ease-out;
+}
+
+/* Advanced Skill Bar Track */
+.skill-bar-bg {
+  height: 18px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(13, 25, 43, 0.95) 0%,
+    rgba(27, 39, 53, 0.9) 50%,
+    rgba(13, 25, 43, 0.95) 100%);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Animated Border Frame */
+.skill-bar-bg::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    var(--primary-color) 0%,
+    var(--secondary-color) 25%,
+    var(--primary-color) 50%,
+    var(--secondary-color) 75%,
+    var(--primary-color) 100%);
+  background-size: 400% 400%;
+  border-radius: 12px;
+  z-index: -1;
+  animation: borderEnergyFlow 4s ease-in-out infinite;
+}
+
+/* Grid Pattern Background */
+.skill-bar-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      rgba(0, 120, 255, 0.08) 1px,
+      transparent 2px,
+      rgba(0, 120, 255, 0.08) 3px,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      rgba(0, 198, 255, 0.05) 1px,
+      transparent 2px
+    );
+  border-radius: 10px;
+  animation: gridScan 6s linear infinite;
+}
+
+/* Enhanced Energy Fill */
 .skill-bar-fill {
   height: 100%;
-  background: var(--gradient-primary);
-  border-radius: 4px;
+  background: linear-gradient(135deg, 
+    #0078ff 0%,
+    #00c6ff 25%,
+    #0078ff 50%,
+    #00a8ff 75%,
+    #0078ff 100%);
+  background-size: 300% 100%;
+  border-radius: 10px;
   position: relative;
   width: 0;
-  transition: width 2s ease;
+  transition: width 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 0 25px rgba(0, 120, 255, 0.6),
+    0 0 50px rgba(0, 120, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 2;
 }
 
-.skill-bar-glow {
+.skill-bar-fill.animated {
+  animation: energyPulse 4s ease-in-out infinite;
+}
+
+.skill-bar-fill.completed {
+  background: linear-gradient(135deg, 
+    #FFD700 0%,
+    #FFA500 25%,
+    #FFD700 50%,
+    #FF8C00 75%,
+    #FFD700 100%);
+  box-shadow: 
+    0 0 30px rgba(255, 215, 0, 0.8),
+    0 0 60px rgba(255, 215, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  animation: masterGlow 2.5s ease-in-out infinite;
+}
+
+/* Energy Pattern Overlay */
+.skill-bar-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, 
+      rgba(255, 255, 255, 0.15) 25%, 
+      transparent 25%, 
+      transparent 50%, 
+      rgba(255, 255, 255, 0.15) 50%, 
+      rgba(255, 255, 255, 0.15) 75%, 
+      transparent 75%),
+    linear-gradient(-45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.12) 31%,
+      rgba(255, 255, 255, 0.12) 32%,
+      transparent 33%);
+  background-size: 20px 20px, 24px 24px;
+  border-radius: 10px;
+  animation: energyPattern 3s linear infinite;
+}
+
+/* Power Shimmer Effect */
+.skill-bar-fill::after {
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;
-  width: 100%;
+  width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  animation: shimmer 2s ease infinite;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.6) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent 100%);
+  border-radius: 10px;
+  animation: powerShimmer 3.5s ease-in-out infinite;
+  animation-delay: 1.5s;
 }
 
-/* Achievements Panel */
-.achievements-panel .panel-content {
-  padding: var(--spacing-lg);
-}
-
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-}
-
-.achievement-card {
-  text-align: center;
-}
-
-.achievement-hexagon {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto var(--spacing-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  background: var(--gradient-primary);
-  color: var(--text-primary);
-  font-size: 24px;
-  transition: var(--transition-smooth);
-}
-
-.achievement-hexagon:hover {
-  transform: scale(1.1);
-}
-
-.achievement-glow {
+/* Completion Indicator */
+.skill-bar-container.completed::after {
+  content: '●';
   position: absolute;
-  inset: -5px;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: var(--transition-smooth);
-  z-index: -1;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #FFD700;
+  font-size: 20px;
+  text-shadow: 
+    0 0 15px #FFD700,
+    0 0 30px rgba(255, 215, 0, 0.5);
+  animation: completionPulse 2s ease-in-out infinite;
 }
 
-.achievement-hexagon:hover .achievement-glow {
-  opacity: 0.5;
-  animation: pulse 2s infinite;
+/* Advanced Particle Effects for Skill Bars */
+.skill-bar-container.completed .skill-bar-bg::before {
+  background: linear-gradient(45deg, 
+    #FFD700 0%,
+    #FFA500 25%,
+    #FFD700 50%,
+    #FF8C00 75%,
+    #FFD700 100%);
+  animation: goldenBorderFlow 3s ease-in-out infinite;
 }
 
-.achievement-stat {
-  font-family: var(--font-secondary);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
+.skill-bar-container.completed .skill-bar-bg::after {
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      rgba(255, 215, 0, 0.15) 1px,
+      transparent 2px,
+      rgba(255, 215, 0, 0.15) 3px,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      rgba(255, 165, 0, 0.1) 1px,
+      transparent 2px
+    );
+  animation: goldenGridScan 4s linear infinite;
 }
 
-.achievement-name {
-  font-size: 12px;
-  color: var(--text-muted);
-  letter-spacing: 1px;
-  font-weight: 500;
+/* Floating achievement particles */
+.skill-bar-container.completed::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: 
+    radial-gradient(2px 2px at 20% 30%, #FFD700, transparent),
+    radial-gradient(2px 2px at 40% 70%, #FFA500, transparent),
+    radial-gradient(1px 1px at 90% 40px, #FFD700, transparent),
+    radial-gradient(1px 1px at 60% 80px, #FF8C00, transparent),
+    radial-gradient(2px 2px at 80% 20%, #FFD700, transparent);
+  background-size: 200px 40px;
+  animation: achievementParticles 8s linear infinite;
+  pointer-events: none;
+  z-index: 10;
 }
 
-/* Passion Panel */
-.passion-panel {
-  border: 1px solid var(--primary-color);
-  background: rgba(0, 120, 255, 0.05);
+/* Mastery aura effect */
+.skill-bar-container.completed {
+  position: relative;
+  overflow: visible;
 }
 
-.passion-panel .panel-content.no-padding {
-  padding: var(--spacing-lg);
+.skill-bar-container.completed .skill-name::before {
+  background: #FFD700;
+  box-shadow: 
+    0 0 15px #FFD700,
+    0 0 30px rgba(255, 215, 0, 0.6),
+    0 0 45px rgba(255, 215, 0, 0.3);
+  animation: masteryIndicator 2s ease-in-out infinite;
 }
 
-.passion-text {
-  color: var(--text-secondary);
-  font-style: italic;
-  text-align: center;
-  margin: 0;
-  line-height: 1.6;
+/* Enhanced keyframes for mastery effects */
+@keyframes goldenBorderFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes goldenGridScan {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 24px 0, 0 4px;
+  }
+}
+
+@keyframes achievementParticles {
+  0% {
+    background-position: 0 0;
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 400px 0;
+    opacity: 0;
+  }
+}
+
+@keyframes masteryIndicator {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 
+      0 0 15px #FFD700,
+      0 0 30px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.4);
+    box-shadow: 
+      0 0 25px #FFD700,
+      0 0 50px rgba(255, 215, 0, 0.8),
+      0 0 75px rgba(255, 215, 0, 0.4);
+  }
+}
+
+/* Power surge effect for high-level skills */
+.skill-bar-container.high-level .skill-bar-fill::after {
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(0, 198, 255, 0.15) 20%,
+    rgba(0, 198, 255, 0.8) 40%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(0, 198, 255, 0.8) 60%,
+    rgba(0, 198, 255, 0.15) 80%,
+    transparent 100%);
+  animation: powerSurge 2.8s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes powerSurge {
+  0% { 
+    left: -100%; 
+    opacity: 0;
+    width: 60%;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% { 
+    left: 100%; 
+    opacity: 0;
+    width: 60%;
+  }
 }
 
 /* Responsive Design */
@@ -623,9 +888,61 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
   }
+  
+  .skill-bar-container {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-xs);
+  }
+  
+  .skill-bar-bg {
+    height: 16px;
+  }
+  
+  .skill-name {
+    font-size: 14px;
+  }
+  
+  .skill-level {
+    font-size: 14px;
+  }
+  
+  .skill-bar-container.completed::after {
+    right: -25px;
+    font-size: 16px;
+  }
 }
 
-/* Animations */
+@media (max-width: 480px) {
+  .skill-bar-container {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .skill-bar-bg {
+    height: 14px;
+  }
+  
+  .skill-name {
+    font-size: 13px;
+  }
+  
+  .skill-level {
+    font-size: 13px;
+  }
+  
+  .skill-name::before {
+    left: -12px;
+    width: 6px;
+    height: 6px;
+  }
+  
+  .skill-level::after {
+    right: -15px;
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Enhanced Animations */
 @keyframes scan {
   0% { transform: rotate(0deg); opacity: 0; }
   50% { opacity: 1; }
@@ -686,4 +1003,172 @@
     transform: translateY(-5px) rotate(270deg);
     opacity: 0.7;
   }
+}
+
+/* Advanced Skill Bar Animations */
+@keyframes skillIndicatorPulse {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 
+      0 0 10px var(--primary-color),
+      0 0 20px rgba(0, 120, 255, 0.5);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.3);
+    box-shadow: 
+      0 0 20px var(--primary-color),
+      0 0 40px rgba(0, 120, 255, 0.8);
+  }
+}
+
+@keyframes achievementFlash {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.3);
+    box-shadow: 
+      0 0 25px var(--secondary-color),
+      0 0 50px rgba(0, 198, 255, 0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 0 15px var(--secondary-color);
+  }
+}
+
+@keyframes borderEnergyFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gridScan {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 24px 0, 0 4px;
+  }
+}
+
+@keyframes energyPulse {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 
+      0 0 25px rgba(0, 120, 255, 0.6),
+      0 0 50px rgba(0, 120, 255, 0.3);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 
+      0 0 35px rgba(0, 120, 255, 0.8),
+      0 0 70px rgba(0, 120, 255, 0.5);
+  }
+}
+
+@keyframes masterGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 0 60px rgba(255, 215, 0, 0.4);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 
+      0 0 40px rgba(255, 215, 0, 1),
+      0 0 80px rgba(255, 215, 0, 0.6),
+      0 0 120px rgba(255, 215, 0, 0.3);
+  }
+}
+
+@keyframes energyPattern {
+  0% { 
+    background-position: 0 0, 0 0; 
+  }
+  100% { 
+    background-position: 40px 40px, -48px -48px; 
+  }
+}
+
+@keyframes powerShimmer {
+  0% { 
+    left: -100%; 
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% { 
+    left: 100%; 
+    opacity: 0;
+  }
+}
+
+@keyframes completionPulse {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    text-shadow: 
+      0 0 15px #FFD700,
+      0 0 30px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+    text-shadow: 
+      0 0 25px #FFD700,
+      0 0 50px rgba(255, 215, 0, 0.8),
+      0 0 75px rgba(255, 215, 0, 0.4);
+  }
+}
+
+/* Legacy animations for compatibility */
+@keyframes skillBarPattern {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+@keyframes skillBarGlow {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(0, 120, 255, 0.4); 
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(0, 120, 255, 0.8), 
+                0 0 35px rgba(0, 198, 255, 0.6); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes preScan {
+  0% { left: -100%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
 }

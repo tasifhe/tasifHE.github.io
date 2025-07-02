@@ -193,6 +193,9 @@
    * Enhanced Portfolio functionality with smooth animations
    */
   document.addEventListener('DOMContentLoaded', function() {
+    // Initialize skill bars animation
+    initGameSkillBars();
+    
     const portfolioItems = document.querySelectorAll('.work-box');
     
     const portfolioLinks = [
@@ -534,24 +537,68 @@
    * Initialize skill bars animation in the game-style about section
    */
   function initGameSkillBars() {
-    const skillBars = document.querySelectorAll('section#about.about-game .skill-bar-fill'); // Scoped selector
+    const skillBars = document.querySelectorAll('.skill-bar-fill[data-level]');
+    
+    if (skillBars.length === 0) {
+      console.log('No skill bars found');
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const container = bar.closest('.skill-bar-container');
+          const level = parseInt(bar.getAttribute('data-level'));
+          
+          // Start the animation with a slight delay for dramatic effect
+          setTimeout(() => {
+            bar.style.width = `${level}%`;
+            bar.classList.add('animated');
+            
+            // Add completion effects for high-level skills
+            if (level >= 90) {
+              setTimeout(() => {
+                bar.classList.add('completed');
+                container.classList.add('completed');
+                
+                // Play achievement sound effect (if audio is enabled)
+                playAchievementSound();
+              }, 2800);
+            } else if (level >= 80) {
+              setTimeout(() => {
+                container.classList.add('high-level');
+              }, 2500);
+            }
+            
+            // Add energy pulse effect after animation completes
+            setTimeout(() => {
+              bar.classList.add('energy-charged');
+            }, 3200);
+            
+          }, Math.random() * 500 + 200); // Randomized delay for staggered effect
+          
+          observer.unobserve(bar);
+        }
+      });
+    }, { 
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
     skillBars.forEach(bar => {
-      const level = bar.getAttribute('data-level');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              bar.style.width = `${level}%`;
-            }, 300);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-
       observer.observe(bar);
     });
+  }
+
+  /**
+   * Play achievement sound effect (optional)
+   */
+  function playAchievementSound() {
+    // Optional: Add audio feedback for completion
+    // const audio = new Audio('assets/sounds/achievement.mp3');
+    // audio.volume = 0.3;
+    // audio.play().catch(e => console.log('Audio play failed:', e));
   }
 
   /**
