@@ -105,29 +105,30 @@
   50% { transform: scale(1.02); }
 }
 
-/* Floating geometric shapes */
+/* Floating geometric shapes - Repositioned to avoid interfering with text */
 .loading-container::before,
 .loading-container::after {
   content: '';
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border: 2px solid rgba(0, 120, 255, 0.3);
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 120, 255, 0.2);
   animation: floatingShape 8s ease-in-out infinite;
   z-index: -1;
+  opacity: 0.6;
 }
 
 .loading-container::before {
-  top: -100px;
-  left: -80px;
+  top: -150px;
+  left: -120px;
   border-radius: 50%;
   animation-delay: 0s;
   animation-name: floatingCircle;
 }
 
 .loading-container::after {
-  bottom: -100px;
-  right: -80px;
+  bottom: -150px;
+  right: -120px;
   transform: rotate(45deg);
   animation-delay: 2s;
   animation-name: floatingSquare;
@@ -694,18 +695,19 @@
   }
 }
 
-/* Energy pulse ripples */
+/* Energy pulse ripples - Reduced and repositioned */
 #loading-screen .energy-pulse {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  border: 1px solid rgba(0, 120, 255, 0.3);
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(0, 120, 255, 0.2);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: energyPulse 4s ease-out infinite;
-  z-index: 0;
+  animation: energyPulse 6s ease-out infinite;
+  z-index: -2;
+  opacity: 0.7;
 }
 
 #loading-screen .energy-pulse:nth-child(1) {
@@ -713,13 +715,13 @@
 }
 
 #loading-screen .energy-pulse:nth-child(2) {
-  animation-delay: 1s;
-  border-color: rgba(0, 198, 255, 0.3);
+  animation-delay: 2s;
+  border-color: rgba(0, 198, 255, 0.15);
 }
 
 #loading-screen .energy-pulse:nth-child(3) {
-  animation-delay: 2s;
-  border-color: rgba(255, 107, 107, 0.3);
+  animation-delay: 4s;
+  border-color: rgba(255, 107, 107, 0.15);
 }
 
 @keyframes energyPulse {
@@ -817,13 +819,13 @@
   /* Reduce intensity of effects on mobile */
   .loading-container::before,
   .loading-container::after {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   
   #loading-screen .energy-pulse {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
   
   #loading-screen .data-stream {
@@ -860,8 +862,8 @@
   /* Further reduce effects for very small screens */
   .loading-container::before,
   .loading-container::after {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
   
   #loading-screen .scan-line {
@@ -869,8 +871,8 @@
   }
   
   #loading-screen .energy-pulse {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   
   /* Hide some effects on very small screens to improve performance */
