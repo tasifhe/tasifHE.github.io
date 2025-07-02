@@ -1,0 +1,403 @@
+/**
+ * Counter/Stats section with game-style metrics
+ * Mission stats with enhanced game UI elements
+ */
+
+/* Counter Section */
+.counter-mf {
+  position: relative;
+  padding: var(--spacing-xxl) 0;
+  background: var(--card-bg);
+}
+
+.game-counter-section {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.game-counter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.8;
+}
+
+/* Counter Title Section */
+.counter-title-section {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.counter-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-md);
+  margin-top: var(--spacing-sm);
+}
+
+/* Enhanced Counter Glass */
+.counter-glass-enhanced {
+  position: relative;
+  padding: var(--spacing-xl);
+  background: rgba(17, 17, 17, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-game);
+}
+
+/* Counter Box Game Style */
+.counter-box-game {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  height: 100%;
+}
+
+.counter-box-game:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-game);
+}
+
+.counter-box-game::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 120, 255, 0.1), transparent);
+  transition: var(--transition-smooth);
+}
+
+.counter-box-game:hover::before {
+  left: 100%;
+}
+
+/* Counter Header */
+.counter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}
+
+.counter-icon-frame {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  background: rgba(0, 120, 255, 0.1);
+}
+
+.counter-icon-frame.experience {
+  border-color: var(--secondary-color);
+  background: rgba(0, 198, 255, 0.1);
+}
+
+.counter-icon-frame.clients {
+  border-color: var(--success-color);
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.counter-icon-frame.awards {
+  border-color: var(--warning-color);
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.counter-icon-glow {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+.counter-box-game:hover .counter-icon-glow {
+  opacity: 0.3;
+  animation: pulse 2s infinite;
+}
+
+.counter-icon-frame i {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.counter-icon-frame.experience i {
+  color: var(--secondary-color);
+}
+
+.counter-icon-frame.clients i {
+  color: var(--success-color);
+}
+
+.counter-icon-frame.awards i {
+  color: var(--warning-color);
+}
+
+/* Counter Badge */
+.counter-badge {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.counter-badge.experience {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+.counter-badge.clients {
+  background: linear-gradient(135deg, var(--success-color), #20c997);
+}
+
+.counter-badge.awards {
+  background: linear-gradient(135deg, var(--warning-color), #fd7e14);
+}
+
+/* Counter Content */
+.counter-content {
+  margin-bottom: var(--spacing-lg);
+}
+
+.counter-num-game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.counter {
+  font-family: var(--font-secondary);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0, 120, 255, 0.5);
+}
+
+.counter-plus {
+  font-family: var(--font-secondary);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.counter-label-game {
+  text-align: center;
+}
+
+.counter-text {
+  display: block;
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.counter-subtext {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* Progress Bar */
+.counter-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.counter-progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 3px;
+  width: 0;
+  transition: width 2s ease 1s;
+  position: relative;
+}
+
+.counter-progress-fill.experience {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+.counter-progress-fill.clients {
+  background: linear-gradient(90deg, var(--success-color), #20c997);
+}
+
+.counter-progress-fill.awards {
+  background: linear-gradient(90deg, var(--warning-color), #fd7e14);
+}
+
+.counter-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 2s ease infinite;
+}
+
+/* Additional Stats Panel */
+.additional-stats-panel {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background: rgba(17, 17, 17, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.stat-item-small {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-smooth);
+}
+
+.stat-item-small:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.stat-icon-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 120, 255, 0.1);
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.stat-content-small {
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-secondary);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .counter-glass-enhanced {
+    padding: var(--spacing-lg);
+  }
+  
+  .counter-box-game {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .counter {
+    font-size: 36px;
+  }
+  
+  .counter-plus {
+    font-size: 24px;
+  }
+  
+  .counter-icon-frame {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .counter-icon-frame i {
+    font-size: 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation for progress bars */
+.counter-box-game.animate .counter-progress-fill[data-progress="88"] {
+  width: 88%;
+}
+
+.counter-box-game.animate .counter-progress-fill[data-progress="75"] {
+  width: 75%;
+}
+
+.counter-box-game.animate .counter-progress-fill[data-progress="95"] {
+  width: 95%;
+}
+
+.counter-box-game.animate .counter-progress-fill[data-progress="60"] {
+  width: 60%;
+}
+
+/* Keyframe Animations */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,41 @@
+/**
+ * Main CSS file that imports all modular components
+ * This file orchestrates all the CSS modules for the game-themed portfolio
+ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* Base Styles */
+@import 'base/variables.css';
+@import 'base/base.css';
+
+/* Layout System */
+@import 'layout/layout.css';
+
+/* Components */
+@import 'components/loading.css';
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/about.css';
+@import 'components/services.css';
+@import 'components/counter.css';
+@import 'components/portfolio.css';
+@import 'components/contact.css';
+@import 'components/ui-elements.css';
+/* TODO: Add these as we create them:
+@import 'components/footer.css';
+*/
+
+/* For now, import the original style.css for any remaining missing sections */
+@import '../style.css';
+
+/* Utilities (should be loaded last) */
+@import 'utilities/utilities.css';
+
+/**
+ * Critical Performance Note:
+ * This main.css file should be loaded in the HTML head
+ * All component-specific styles are imported here to maintain
+ * a single HTTP request while keeping code modular
+ */
