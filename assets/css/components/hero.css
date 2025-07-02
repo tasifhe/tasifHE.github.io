@@ -230,15 +230,38 @@
   animation: blink 1s infinite;
 }
 
-/* CTA Button */
+/* CTA Buttons Container */
 .cta-container {
   opacity: 0;
   animation: fadeInUp 1s ease 2s forwards;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
 }
 
+/* CTA Buttons on mobile */
+@media (max-width: 768px) {
+  .cta-container {
+    gap: var(--spacing-sm);
+  }
+  
+  .game-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    min-width: 180px;
+    font-size: 0.9rem;
+  }
+  
+  .button-icon {
+    font-size: 1em;
+  }
+}
+
+/* Base Game Button Styles */
 .game-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-xl);
   background: var(--gradient-primary);
@@ -253,8 +276,39 @@
   overflow: hidden;
   transition: var(--transition-smooth);
   box-shadow: 0 4px 20px rgba(0, 120, 255, 0.3);
+  min-width: 200px;
+  text-align: center;
 }
 
+/* Primary Button (START QUEST) */
+.game-button.primary {
+  background: var(--gradient-primary);
+  box-shadow: 0 4px 20px rgba(0, 120, 255, 0.3);
+}
+
+.game-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 120, 255, 0.5);
+  border-color: var(--primary-color);
+}
+
+/* Secondary Button (DOWNLOAD CV) */
+.game-button.secondary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.game-button.secondary:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+/* Button Effects */
 .game-button::before {
   content: '';
   position: absolute;
@@ -262,12 +316,6 @@
   background: var(--gradient-primary);
   opacity: 0;
   transition: var(--transition-smooth);
-}
-
-.game-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 120, 255, 0.5);
-  border-color: var(--primary-color);
 }
 
 .game-button:hover::before {
@@ -283,10 +331,15 @@
   position: relative;
   z-index: 2;
   transition: var(--transition-smooth);
+  font-size: 1.1em;
 }
 
 .game-button:hover .button-icon {
-  transform: translateX(5px);
+  transform: translateX(3px);
+}
+
+.game-button.secondary:hover .button-icon {
+  transform: translateY(2px);
 }
 
 /* Scroll Indicator */
