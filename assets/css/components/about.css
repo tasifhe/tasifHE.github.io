@@ -85,20 +85,48 @@
   position: relative;
   margin-bottom: var(--spacing-xl);
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hexagon-border {
   position: absolute;
-  inset: -10px;
+  width: 320px;
+  height: 320px;
   background: var(--gradient-primary);
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  opacity: 0.3;
+  opacity: 0.4;
   transition: var(--transition-smooth);
+  animation: hexagonRotate 8s linear infinite;
+}
+
+.hexagon-border::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: var(--dark-bg);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.hexagon-border::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  background: var(--gradient-primary);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  opacity: 0.2;
+  filter: blur(10px);
+  animation: hexagonPulse 3s ease-in-out infinite;
 }
 
 .profile-frame:hover .hexagon-border {
-  opacity: 0.6;
-  animation: pulse 2s infinite;
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.profile-frame:hover .hexagon-border::after {
+  opacity: 0.4;
 }
 
 .profile-image {
@@ -107,17 +135,74 @@
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--primary-color);
-  box-shadow: var(--shadow-game);
+  box-shadow: 
+    0 0 20px rgba(0, 120, 255, 0.5),
+    0 0 40px rgba(0, 120, 255, 0.3),
+    0 0 60px rgba(0, 120, 255, 0.1);
   transition: var(--transition-smooth);
+  position: relative;
+  z-index: 2;
+}
+
+.profile-frame:hover .profile-image {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 30px rgba(0, 120, 255, 0.7),
+    0 0 60px rgba(0, 120, 255, 0.5),
+    0 0 90px rgba(0, 120, 255, 0.3);
 }
 
 .profile-scanner {
   position: absolute;
-  inset: 0;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent);
-  opacity: 0;
-  animation: scan 3s linear infinite;
+  background: conic-gradient(from 0deg, transparent 0deg, var(--primary-color) 30deg, transparent 60deg);
+  opacity: 0.6;
+  animation: scanRotate 2s linear infinite;
+  z-index: 1;
+}
+
+.profile-scanner::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, transparent 0deg, var(--secondary-color) 45deg, transparent 90deg);
+  animation: scanRotateReverse 3s linear infinite;
+}
+
+/* Particle Animation Elements */
+.profile-frame::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 60%, var(--primary-color) 61%, var(--primary-color) 62%, transparent 63%),
+              radial-gradient(circle, transparent 70%, var(--secondary-color) 71%, var(--secondary-color) 72%, transparent 73%);
+  opacity: 0.3;
+  animation: particleOrbit 10s linear infinite;
+  z-index: 0;
+}
+
+.profile-frame::after {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, var(--primary-color), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--secondary-color), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--primary-color), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--secondary-color), transparent),
+    radial-gradient(2px 2px at 160px 30px, var(--primary-color), transparent);
+  background-repeat: no-repeat;
+  background-size: 200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px;
+  animation: particleFloat 6s ease-in-out infinite;
+  opacity: 0.4;
+  z-index: 0;
 }
 
 .character-level {
@@ -550,4 +635,55 @@
 @keyframes shimmer {
   0% { left: -100%; }
   100% { left: 100%; }
+}
+
+/* Enhanced Profile Frame Animations */
+@keyframes hexagonRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes hexagonPulse {
+  0%, 100% { 
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes scanRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes scanRotateReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes particleOrbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.4;
+  }
+  25% { 
+    transform: translateY(-10px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translateY(0px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% { 
+    transform: translateY(-5px) rotate(270deg);
+    opacity: 0.7;
+  }
 }
