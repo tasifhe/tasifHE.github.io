@@ -1,0 +1,133 @@
+{
+  "name": "the-portfolio",
+  "version": "2.0.0",
+  "description": "Professional Game Developer Portfolio - Modern Modular Architecture",
+  "main": "index-modular.html",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve . -l 8000",
+    "dev": "npx serve . -l 8000 --cors",
+    "build": "echo 'Building production assets...' && npm run optimize",
+    "optimize": "npm run optimize:css && npm run optimize:js && npm run optimize:images",
+    "optimize:css": "echo 'CSS optimization not configured - using static files'",
+    "optimize:js": "echo 'JS optimization not configured - using ES6 modules'",
+    "optimize:images": "echo 'Image optimization not configured'",
+    "test": "npm run test:html && npm run test:css && npm run test:js && npm run test:accessibility",
+    "test:html": "npx html-validate index-modular.html",
+    "test:css": "npx stylelint 'assets/css/**/*.css'",
+    "test:js": "npx eslint 'assets/js/**/*.js'",
+    "test:accessibility": "npx axe-cli http://localhost:8000",
+    "preview": "npm run start",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "npx stylelint 'assets/css/**/*.css' --fix",
+    "lint:js": "npx eslint 'assets/js/**/*.js' --fix",
+    "validate": "npx html-validate index-modular.html && echo 'HTML validation passed'",
+    "analyze": "npx lighthouse http://localhost:8000 --output json --output-path ./lighthouse-report.json",
+    "deploy": "echo 'Deploying to GitHub Pages...' && git add . && git commit -m 'Deploy updates' && git push origin main",
+    "clean": "echo 'Cleaning build artifacts...'",
+    "health": "npm run validate && npm run lint && echo 'Health check passed'"
+  },
+  "keywords": [
+    "portfolio",
+    "game-developer",
+    "unity",
+    "web-development",
+    "javascript",
+    "css",
+    "html5",
+    "responsive",
+    "modular-architecture",
+    "progressive-web-app"
+  ],
+  "author": {
+    "name": "THE",
+    "email": "contact@the-portfolio.com",
+    "url": "https://tasifhe.github.io"
+  },
+  "license": "MIT",
+  "homepage": "https://tasifhe.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tasifHE/tasifHE.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tasifHE/tasifHE.github.io/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "@axe-core/cli": "^4.8.0",
+    "eslint": "^8.50.0",
+    "html-validate": "^8.5.0",
+    "lighthouse": "^11.0.0",
+    "serve": "^14.2.0",
+    "stylelint": "^15.10.0",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "dependencies": {},
+  "optionalDependencies": {
+    "sharp": "^0.32.0",
+    "imagemin": "^8.0.0",
+    "terser": "^5.20.0",
+    "cssnano": "^6.0.0"
+  },
+  "config": {
+    "port": 8000,
+    "host": "localhost"
+  },
+  "pwa": {
+    "name": "THE Portfolio",
+    "short_name": "THE",
+    "description": "Professional Game Developer Portfolio",
+    "theme_color": "#0078ff",
+    "background_color": "#0a0a0a",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "/",
+    "scope": "/"
+  },
+  "seo": {
+    "title": "THE - Professional Game Developer Portfolio",
+    "description": "Professional game developer specializing in Unity, web development, and interactive experiences. Explore my portfolio of games, web applications, and creative projects.",
+    "keywords": "game developer, unity, web development, portfolio, interactive design",
+    "author": "THE",
+    "language": "en",
+    "charset": "utf-8"
+  },
+  "performance": {
+    "budget": {
+      "js": "200kb",
+      "css": "100kb",
+      "images": "500kb",
+      "total": "1mb"
+    },
+    "targets": {
+      "lighthouse": {
+        "performance": 90,
+        "accessibility": 95,
+        "best-practices": 90,
+        "seo": 95
+      }
+    }
+  },
+  "development": {
+    "liveReload": true,
+    "sourceMaps": true,
+    "compression": false,
+    "minification": false
+  },
+  "production": {
+    "compression": true,
+    "minification": true,
+    "sourceMaps": false,
+    "optimization": true
+  }
+}

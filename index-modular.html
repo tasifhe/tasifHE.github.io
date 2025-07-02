@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>THE - Professional Game Developer Portfolio</title>
+  <meta name="description" content="Professional game developer specializing in Unity, web development, and interactive experiences. Explore my portfolio of games, web applications, and creative projects.">
+  <meta name="keywords" content="game developer, unity, web development, portfolio, interactive design, THE">
+  <meta name="author" content="THE">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tasifhe.github.io/">
+  <meta property="og:title" content="THE - Professional Game Developer Portfolio">
+  <meta property="og:description" content="Professional game developer specializing in Unity, web development, and interactive experiences.">
+  <meta property="og:image" content="assets/img/Potfolio_Pic_V2.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tasifhe.github.io/">
+  <meta property="twitter:title" content="THE - Professional Game Developer Portfolio">
+  <meta property="twitter:description" content="Professional game developer specializing in Unity, web development, and interactive experiences.">
+  <meta property="twitter:image" content="assets/img/Potfolio_Pic_V2.jpg">
+
+  <!-- Favicons -->
+  <link href="assets/img/THE2.ico" rel="icon">
+  <link href="assets/img/THE2.ico" rel="apple-touch-icon">
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Critical CSS - Inline for performance -->
+  <style>
+    /* Critical above-the-fold styles */
+    body { 
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #0a0a0a; 
+      color: #ffffff; 
+      overflow-x: hidden; 
+    }
+    
+    .loading-screen { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      z-index: 10000; 
+    }
+    
+    #header { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      z-index: 999; 
+      background: rgba(0, 0, 0, 0.9); 
+      backdrop-filter: blur(10px); 
+    }
+    
+    main { 
+      padding-top: 80px; 
+      min-height: 100vh; 
+    }
+  </style>
+
+  <!-- Modern CSS Architecture -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Loading Screen Component -->
+  <link href="assets/css/components/loading.css" rel="stylesheet">
+
+  <!-- Google Fonts - Load asynchronously -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "THE",
+    "jobTitle": "Game Developer",
+    "description": "Professional game developer specializing in Unity, web development, and interactive experiences",
+    "url": "https://tasifhe.github.io/",
+    "sameAs": [
+      "https://github.com/tasifHE",
+      "https://linkedin.com/in/tasif"
+    ],
+    "knowsAbout": ["Game Development", "Unity", "Web Development", "JavaScript", "C#", "Interactive Design"]
+  }
+  </script>
+</head>
+
+<body class="animations-enabled">
+  <!-- Skip Navigation Link -->
+  <a href="#main" class="skip-link sr-only">Skip to main content</a>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen" aria-label="Loading">
+    <div class="loading-container">
+      <div class="loading-circle">
+        <div class="loading-text">THE</div>
+      </div>
+      <div class="loading-progress">
+        <div class="loading-progress-fill"></div>
+      </div>
+      <div class="loading-status">Initializing Portfolio...</div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <!-- Logo/Brand -->
+        <a href="#hero" class="header-brand" aria-label="THE Portfolio Home">
+          <img src="assets/img/THE2.ico" alt="THE Logo" width="40" height="40">
+          <span class="header-title">THE</span>
+        </a>
+
+        <!-- Main Navigation -->
+        <ul id="navbar" class="navbar-nav">
+          <li><a class="nav-link scrollto active" href="#hero" data-section="hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about" data-section="about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services" data-section="services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#work" data-section="work">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#contact" data-section="contact">Contact</a></li>
+        </ul>
+
+        <!-- Mobile Navigation Toggle -->
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="bi bi-list"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======= Main Content ======= -->
+  <main id="main" role="main">
+    
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero-section" role="banner">
+      <div class="hero-background">
+        <div class="particle-container" aria-hidden="true"></div>
+      </div>
+      
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text animate-on-scroll" data-animation="fadeInUp">
+            <h1 class="hero-title">
+              <span class="hero-greeting">Hello, I'm</span>
+              <span class="hero-name">THE</span>
+            </h1>
+            <p class="hero-subtitle">Professional Game Developer & Creative Technologist</p>
+            <p class="hero-description">
+              Crafting immersive digital experiences through innovative game development, 
+              web technologies, and interactive design.
+            </p>
+            
+            <div class="hero-actions">
+              <a href="#work" class="btn btn-primary scrollto">
+                <i class="bi bi-collection"></i>
+                View Portfolio
+              </a>
+              <a href="#contact" class="btn btn-outline scrollto">
+                <i class="bi bi-envelope"></i>
+                Get in Touch
+              </a>
+            </div>
+          </div>
+          
+          <div class="hero-visual animate-on-scroll" data-animation="fadeInRight">
+            <div class="hero-image-container">
+              <img src="assets/img/Potfolio_Pic_V2.jpg" alt="THE - Professional Game Developer" class="hero-image" loading="eager">
+              <div class="hero-image-frame"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Passionate about creating digital experiences that matter</p>
+        </div>
+        
+        <div class="about-content">
+          <!-- About content will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">Services</h2>
+          <p class="section-subtitle">What I can do for you</p>
+        </div>
+        
+        <div class="services-grid">
+          <!-- Services content will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="work" class="section portfolio-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">Portfolio</h2>
+          <p class="section-subtitle">Showcasing my latest projects and achievements</p>
+        </div>
+        
+        <!-- Portfolio Filter -->
+        <div class="portfolio-filters animate-on-scroll">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="game">Games</button>
+          <button class="filter-btn" data-filter="web">Web Apps</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="unity">Unity</button>
+        </div>
+        
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+          <!-- Portfolio items will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Stats/Counter Section ======= -->
+    <section id="stats" class="section stats-section">
+      <div class="container">
+        <div class="stats-grid animate-on-scroll">
+          <div class="stat-item">
+            <div class="stat-number counter" data-count="50">0</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number counter" data-count="5">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number counter" data-count="25">0</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number counter" data-count="100">0</div>
+            <div class="stat-label">Cups of Coffee</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">Let's discuss your next project</p>
+        </div>
+        
+        <div class="contact-content">
+          <!-- Contact form and information will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>THE</h3>
+          <p>Creating digital experiences that inspire and engage.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero" class="scrollto">Home</a></li>
+            <li><a href="#about" class="scrollto">About</a></li>
+            <li><a href="#services" class="scrollto">Services</a></li>
+            <li><a href="#work" class="scrollto">Portfolio</a></li>
+            <li><a href="#contact" class="scrollto">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h4>Follow Me</h4>
+          <div class="social-links">
+            <a href="https://github.com/tasifHE" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/tasif" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="mailto:contact@the-portfolio.com" aria-label="Email">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 THE. All rights reserved. | Built with ❤️ and modern web technologies.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/typed.js/typed.min.js" defer></script>
+
+  <!-- Modern Modular JavaScript Architecture -->
+  <script type="module" src="assets/js/app.js"></script>
+  
+  <!-- Loading Screen JavaScript -->
+  <script src="assets/js/loading.js"></script>
+
+  <!-- Fallback for non-module browsers -->
+  <script nomodule>
+    console.warn('Your browser does not support ES6 modules. Please update to a modern browser for the best experience.');
+    // Load legacy bundle if needed
+  </script>
+
+  <!-- Performance and Analytics -->
+  <script>
+    // Basic performance monitoring
+    window.addEventListener('load', function() {
+      if ('performance' in window) {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log('Page load time:', loadTime + 'ms');
+      }
+    });
+
+    // Service Worker Registration (Progressive Web App)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(function(error) {
+            console.log('ServiceWorker registration failed');
+          });
+      });
+    }
+  </script>
+
+</body>
+
+</html>

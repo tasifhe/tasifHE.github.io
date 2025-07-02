@@ -1,0 +1,41 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single",
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "color-named": "never",
+    "selector-combinator-space-after": "always",
+    "selector-attribute-quotes": "always",
+    "selector-attribute-operator-space-before": "never",
+    "selector-attribute-operator-space-after": "never",
+    "selector-attribute-brackets-space-inside": "never",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-space-before": "never",
+    "declaration-colon-space-after": "always",
+    "declaration-block-single-line-max-declarations": 1,
+    "property-no-unknown": true,
+    "block-no-empty": true,
+    "unit-whitelist": ["em", "rem", "s", "px", "%", "deg", "vh", "vw", "fr"],
+    "shorthand-property-no-redundant-values": true,
+    "comment-whitespace-inside": "always",
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["import", "media", "supports", "keyframes"]
+    }],
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9_-]*$",
+    "selector-id-pattern": "^[a-z][a-zA-Z0-9_-]*$",
+    "custom-property-pattern": "^[a-z][a-zA-Z0-9_-]*$",
+    "max-nesting-depth": 4,
+    "declaration-property-unit-allowed-list": {
+      "font-size": ["rem", "em", "px"],
+      "line-height": ["", "rem", "em"],
+      "margin": ["rem", "em", "px", "%"],
+      "padding": ["rem", "em", "px", "%"]
+    }
+  },
+  "ignoreFiles": [
+    "assets/vendor/**/*.css",
+    "**/*.min.css"
+  ]
+}
