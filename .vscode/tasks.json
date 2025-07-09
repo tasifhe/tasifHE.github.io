@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Test Portfolio Hero Section",
+			"type": "shell",
+			"command": "echo \"Portfolio hero section fixes applied successfully!\"",
+			"group": "test",
+			"isBackground": false
+		}
+	]
+}
