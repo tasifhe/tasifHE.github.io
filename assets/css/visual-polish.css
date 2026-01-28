@@ -1,0 +1,617 @@
+/**
+ * VISUAL POLISH & DESIGN REFINEMENTS
+ * Professional spacing, alignments, and custom touches
+ * Version: 2.0.2 - January 26, 2026
+ */
+
+/* ========================================
+   1. REFINED SPACING & RHYTHM
+   ======================================== */
+
+/* Better vertical rhythm */
+section {
+  padding: clamp(60px, 8vw, 120px) 0;
+}
+
+.section-title-game {
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+/* More natural gap spacing */
+.about-grid-game {
+  gap: clamp(32px, 4vw, 60px);
+}
+
+.portfolio-grid-game {
+  gap: clamp(24px, 3vw, 40px);
+}
+
+/* Better card internal spacing */
+.game-panel {
+  padding: clamp(24px, 3vw, 36px);
+}
+
+.panel-header {
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+}
+
+.panel-content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.panel-content h4 {
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+/* ========================================
+   2. TYPOGRAPHY REFINEMENTS
+   ======================================== */
+
+/* Better line heights and letter spacing */
+body {
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.hero-title {
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+}
+
+.hero-subtitle {
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+/* Better paragraph spacing */
+p + p {
+  margin-top: 1em;
+}
+
+/* Refined font sizes with better scale */
+.section-title-game h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: 0.05em;
+}
+
+.panel-title {
+  font-size: clamp(18px, 2.5vw, 22px);
+  letter-spacing: 0.03em;
+}
+
+/* ========================================
+   3. ALIGNMENT & BALANCE FIXES
+   ======================================== */
+
+/* Fix profile frame alignment */
+.profile-frame {
+  margin-bottom: 32px;
+  padding: 0 16px;
+}
+
+.profile-image {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Better stat item alignment */
+.stat-item {
+  padding: 14px 12px;
+  margin-bottom: 6px;
+  align-items: flex-start;
+}
+
+.stat-icon {
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-content {
+  flex: 1;
+  padding-top: 2px;
+}
+
+.stat-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.stat-value {
+  display: block;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Better button group spacing */
+.cta-container {
+  gap: 16px;
+  margin-top: 40px;
+}
+
+@media (min-width: 640px) {
+  .cta-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* ========================================
+   4. IMPROVED WHITESPACE
+   ======================================== */
+
+/* Add breathing room to components */
+.character-stats {
+  padding: 28px 24px;
+}
+
+.stats-header {
+  padding: 12px 16px;
+  margin: -4px -4px 24px -4px;
+}
+
+.abilities-list {
+  padding: 0;
+  margin: 0;
+}
+
+.ability-item {
+  padding: 14px 0;
+  margin-bottom: 0;
+}
+
+.ability-item + .ability-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Better skill bar spacing */
+.skill-bar-container {
+  margin-bottom: 28px;
+}
+
+.skill-bar-container:last-child {
+  margin-bottom: 0;
+}
+
+.skill-info {
+  margin-bottom: 10px;
+}
+
+/* ========================================
+   5. REFINED BORDERS & SHADOWS
+   ======================================== */
+
+/* More subtle borders */
+.game-panel,
+.character-stats,
+.portfolio-card-game {
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Softer shadows */
+.game-panel {
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.character-stats {
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 120, 255, 0.1);
+}
+
+/* Better hover states with subtle lift */
+.portfolio-card-game:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 12px 28px rgba(0, 120, 255, 0.25),
+    0 0 0 1px rgba(0, 120, 255, 0.3);
+}
+
+.game-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 120, 255, 0.2);
+}
+
+/* ========================================
+   6. CUSTOM DESIGN DETAILS
+   ======================================== */
+
+/* Add subtle background patterns */
+.about-game::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 120, 255, 0.03) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Refined corner accents */
+.game-ui-corner {
+  width: 50px;
+  height: 50px;
+  border-width: 2px;
+  opacity: 0.6;
+}
+
+.game-ui-corner::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary-color);
+}
+
+.game-ui-corner.top-left::after {
+  top: -4px;
+  left: -4px;
+}
+
+.game-ui-corner.top-right::after {
+  top: -4px;
+  right: -4px;
+}
+
+.game-ui-corner.bottom-left::after {
+  bottom: -4px;
+  left: -4px;
+}
+
+.game-ui-corner.bottom-right::after {
+  bottom: -4px;
+  right: -4px;
+}
+
+/* Better title decorations */
+.title-decoration {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary-color) 50%,
+    transparent 100%
+  );
+}
+
+.title-decoration.right {
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    transparent 100%
+  );
+}
+
+.title-decoration.left {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary-color) 100%
+  );
+}
+
+/* More refined hexagon border */
+.hexagon-border {
+  width: 300px;
+  height: 300px;
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+/* ========================================
+   7. NAVIGATION REFINEMENTS
+   ======================================== */
+
+/* Better nav spacing */
+.game-header {
+  padding: 16px 0;
+}
+
+.game-navbar ul {
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.nav-icon {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-text {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+/* Logo refinements */
+.logo-emblem {
+  width: 48px;
+  height: 48px;
+  margin-right: 14px;
+}
+
+.logo-text {
+  font-size: 26px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.logo-tagline {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  margin-top: -3px;
+  opacity: 0.8;
+}
+
+/* ========================================
+   8. PORTFOLIO CARD POLISH
+   ======================================== */
+
+.portfolio-card-game {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.project-image-wrapper {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-title {
+  font-size: 22px;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.project-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-badge {
+  padding: 6px 12px;
+  background: rgba(0, 120, 255, 0.1);
+  border: 1px solid rgba(0, 120, 255, 0.2);
+  border-radius: 6px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   9. BUTTON REFINEMENTS
+   ======================================== */
+
+.game-button {
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-button.primary {
+  background: linear-gradient(135deg, #0078ff 0%, #00a8ff 100%);
+  box-shadow: 
+    0 4px 14px rgba(0, 120, 255, 0.3),
+    0 0 0 1px rgba(0, 120, 255, 0.1) inset;
+}
+
+.game-button.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.game-button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* ========================================
+   10. MOBILE REFINEMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  section {
+    padding: clamp(40px, 6vw, 60px) 0;
+  }
+  
+  .about-grid-game {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .profile-image {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .character-stats {
+    padding: 20px 16px;
+  }
+  
+  .stat-item {
+    padding: 12px 8px;
+  }
+  
+  .game-panel {
+    padding: 20px 18px;
+  }
+  
+  .panel-header {
+    margin-bottom: 16px;
+  }
+  
+  .portfolio-grid-game {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .game-button {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   11. SUBTLE ANIMATIONS
+   ======================================== */
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Apply to decorative elements */
+.ui-frame {
+  animation: subtlePulse 4s ease-in-out infinite;
+}
+
+.game-ui-corner::after {
+  animation: subtlePulse 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* ========================================
+   12. ACCESSIBILITY & FOCUS STATES
+   ======================================== */
+
+*:focus-visible {
+  outline: 3px solid rgba(0, 120, 255, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Better link focus */
+.nav-link:focus-visible {
+  outline-color: rgba(0, 120, 255, 0.8);
+  background: rgba(0, 120, 255, 0.1);
+}
+
+/* Button focus */
+.game-button:focus-visible {
+  outline-color: rgba(0, 120, 255, 0.8);
+  box-shadow: 
+    0 0 0 4px rgba(0, 120, 255, 0.2),
+    0 8px 20px rgba(0, 120, 255, 0.4);
+}
+
+/* ========================================
+   13. FINE DETAILS & MICRO-INTERACTIONS
+   ======================================== */
+
+/* Smooth text selection */
+::selection {
+  background: rgba(0, 120, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Better scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 120, 255, 0.3);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 120, 255, 0.5);
+  background-clip: padding-box;
+}
+
+/* Refined hover transitions */
+.stat-item,
+.ability-item,
+.nav-link,
+.game-button,
+.portfolio-card-game {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   14. PRINT STYLES
+   ======================================== */
+
+@media print {
+  .game-header,
+  .particles-container,
+  .ui-frame,
+  .game-ui-corner,
+  .scroll-indicator,
+  .back-to-top {
+    display: none;
+  }
+  
+  section {
+    page-break-inside: avoid;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+  }
+}

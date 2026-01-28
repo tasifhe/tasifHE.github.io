@@ -25,11 +25,23 @@
 @import 'components/contact.css';
 @import 'components/ui-elements.css';
 @import 'components/back-to-top.css';
-/* TODO: Add these as we create them:
 @import 'components/footer.css';
-*/
+@import 'components/quick-peek-modal.css';
 
+/* Visual Polish & Refinements */
+@import 'visual-polish.css';
 
+/* Performance Optimizations */
+@import 'performance-optimizations.css';
+
+/* Micro-Interactions */
+@import 'micro-interactions.css';
+
+/* Mobile Responsive Enhancements */
+@import 'mobile-responsive.css';
+
+/* Portfolio Page Mobile Enhancements (for detail pages) */
+@import 'portfolio-page-mobile.css';
 
 /* Utilities (should be loaded last) */
 @import 'utilities/utilities.css';

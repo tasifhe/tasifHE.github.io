@@ -1,0 +1,252 @@
+/**
+ * Footer Component Styles
+ * Game-themed footer with character and visual effects
+ */
+
+/* ======= Footer Section ======= */
+footer {
+  position: relative;
+  background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+  color: var(--text-secondary);
+  padding: 3rem 0 1.5rem;
+  margin-top: 5rem;
+  border-top: 2px solid rgba(0, 120, 255, 0.3);
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary-color) 20%, 
+    var(--secondary-color) 50%, 
+    var(--primary-color) 80%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Footer decorative corners */
+footer .game-ui-corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(0, 120, 255, 0.4);
+  pointer-events: none;
+}
+
+footer .game-ui-corner.top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+footer .game-ui-corner.top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+footer .game-ui-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+footer .game-ui-corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* Footer content */
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Social links section */
+.footer-socials {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footer-socials h4 {
+  color: var(--text-accent);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.socials li {
+  list-style: none;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 120, 255, 0.1);
+  border: 2px solid rgba(0, 120, 255, 0.3);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.socials a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--gradient-primary);
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  border-radius: 50%;
+}
+
+.socials a:hover {
+  border-color: var(--primary-color);
+  color: var(--text-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 120, 255, 0.4);
+}
+
+.socials a:hover::before {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.socials a i {
+  position: relative;
+  z-index: 1;
+}
+
+/* Copyright section */
+.footer-copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+
+.copyright a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+  color: var(--secondary-color);
+}
+
+/* Credits section */
+.credits {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.credits a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.credits a:hover {
+  color: var(--primary-color);
+}
+
+/* Footer powered by section */
+.footer-powered {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-powered a {
+  color: var(--text-accent);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.footer-powered a:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(0, 120, 255, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 0 1rem;
+    margin-top: 3rem;
+  }
+  
+  .socials {
+    gap: 1rem;
+  }
+  
+  .socials a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .footer-socials h4 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Animation for footer elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer .footer-socials {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+footer .footer-copyright {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}

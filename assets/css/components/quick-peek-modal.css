@@ -1,0 +1,603 @@
+/**
+ * Quick Peek Modal Component
+ * AAA-Level Portfolio - Project Preview Modal System
+ * Author: THE
+ * Version: 2.0.3
+ */
+
+/* ================================================
+   1. MODAL OVERLAY
+   ================================================ */
+.quick-peek-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.quick-peek-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.quick-peek-overlay.active .quick-peek-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ================================================
+   2. MODAL CONTAINER
+   ================================================ */
+.quick-peek-modal {
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  max-height: 90vh;
+  background: linear-gradient(
+    160deg,
+    rgba(17, 24, 39, 0.98) 0%,
+    rgba(31, 41, 55, 0.98) 100%
+  );
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  border-radius: 16px;
+  overflow: hidden;
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 
+    0 20px 70px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Modal Glow Effect */
+.quick-peek-modal::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.1) 50%,
+    transparent 100%
+  );
+  border-radius: 16px;
+  z-index: -1;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.quick-peek-overlay.active .quick-peek-modal::before {
+  animation: shimmerGlow 3s ease infinite;
+}
+
+@keyframes shimmerGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ================================================
+   3. CLOSE BUTTON
+   ================================================ */
+.quick-peek-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+}
+
+.quick-peek-close:hover {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.quick-peek-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* ================================================
+   4. MEDIA SECTION (Image/Video)
+   ================================================ */
+.quick-peek-media {
+  position: relative;
+  width: 100%;\n  height: 380px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.quick-peek-media::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.95), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.quick-peek-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.quick-peek-modal:hover .quick-peek-image {
+  transform: scale(1.03);
+}
+
+/* Status Badge */
+.quick-peek-status {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-family: var(--font-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.quick-peek-status.completed {
+  background: rgba(16, 185, 129, 0.95);
+  color: white;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+.quick-peek-status.in-progress {
+  background: rgba(245, 158, 11, 0.95);
+  color: white;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+}
+
+.quick-peek-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+  animation: statusPulse 2s infinite;
+}
+
+/* Tech Stack Pills */
+.quick-peek-tech-stack {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.tech-pill {
+  padding: 0.4rem 0.9rem;
+  background: rgba(17, 24, 39, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  font-family: var(--font-secondary);
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.tech-pill:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.tech-pill.unity { border-color: #10b981; color: #34d399; }
+.tech-pill.csharp { border-color: #8b5cf6; color: #a78bfa; }
+.tech-pill.procedural { border-color: #06b6d4; color: #22d3ee; }
+.tech-pill.multiplayer { border-color: #ef4444; color: #f87171; }
+.tech-pill.physics { border-color: #f59e0b; color: #fbbf24; }
+
+/* ================================================
+   5. CONTENT SECTION
+   ================================================ */
+.quick-peek-content {
+  padding: var(--spacing-xl);
+}
+
+/* Header */
+.quick-peek-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.quick-peek-title {
+  font-family: var(--font-secondary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+}
+
+.quick-peek-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Meta Info */
+.quick-peek-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quick-peek-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.quick-peek-meta-item i {
+  color: #8b5cf6;
+  font-size: 1rem;
+}
+
+/* Description */
+.quick-peek-description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Metrics Grid */
+.quick-peek-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(59, 130, 246, 0.05));
+  border: 1.5px solid rgba(99, 102, 241, 0.2);
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6366f1, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.metric-card:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(59, 130, 246, 0.08));
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+.metric-card:hover::before {
+  opacity: 1;
+}
+
+.metric-card-value {
+  font-family: var(--font-secondary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: block;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.metric-card-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* ================================================
+   6. ACTION BUTTONS
+   ================================================ */
+.quick-peek-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.quick-peek-btn {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-peek-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.quick-peek-btn:hover::before {
+  left: 100%;
+}
+
+.quick-peek-btn.primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.quick-peek-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+}
+
+.quick-peek-btn.primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.quick-peek-btn.secondary {
+  background: transparent;
+  color: #e2e8f0;
+  border: 1.5px solid rgba(99, 102, 241, 0.4);
+}
+
+.quick-peek-btn.secondary:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
+}
+
+.quick-peek-btn.github {
+  background: rgba(30, 41, 59, 0.8);
+  color: #e2e8f0;
+  border: 1.5px solid rgba(71, 85, 105, 0.6);
+}
+
+.quick-peek-btn.github:hover {
+  background: rgba(51, 65, 85, 0.9);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
+}
+
+/* ================================================
+   7. LOADING STATE
+   ================================================ */
+.quick-peek-loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 30, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  z-index: 5;
+}
+
+.quick-peek-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0, 120, 255, 0.2);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.quick-peek-loading-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
+/* ================================================
+   8. RESPONSIVE DESIGN
+   ================================================ */
+@media (max-width: 768px) {
+  .quick-peek-overlay {
+    padding: var(--spacing-md);
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+  
+  .quick-peek-modal {
+    max-height: calc(100vh - 80px);
+    border-radius: 16px;
+  }
+  
+  .quick-peek-media {
+    height: 220px;
+  }
+  
+  .quick-peek-content {
+    padding: var(--spacing-lg);
+  }
+  
+  .quick-peek-title {
+    font-size: 1.5rem;
+  }
+  
+  .quick-peek-meta {
+    gap: var(--spacing-md);
+  }
+  
+  .quick-peek-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .quick-peek-actions {
+    flex-direction: column;
+  }
+  
+  .quick-peek-btn {
+    width: 100%;
+    min-height: 48px;
+  }
+  
+  .quick-peek-close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-peek-media {
+    height: 180px;
+  }
+  
+  .quick-peek-content {
+    padding: var(--spacing-md);
+  }
+  
+  .quick-peek-title {
+    font-size: 1.25rem;
+  }
+  
+  .quick-peek-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .quick-peek-description {
+    font-size: 0.875rem;
+  }
+  
+  .quick-peek-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .metric-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .metric-card-value {
+    font-size: 1.25rem;
+  }
+  
+  .tech-pill {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ================================================
+   9. ANIMATIONS
+   ================================================ */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* ================================================
+   10. KEYBOARD NAVIGATION
+   ================================================ */
+.quick-peek-overlay:focus-visible {
+  outline: none;
+}
+
+.quick-peek-close:focus-visible,
+.quick-peek-btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+/* Trap focus within modal */
+.quick-peek-modal [tabindex="-1"]:focus {
+  outline: none;
+}

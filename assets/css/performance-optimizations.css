@@ -1,0 +1,371 @@
+/**
+ * Performance Optimizations CSS
+ * AAA-Level Portfolio - Animation & rendering optimizations
+ * Author: THE
+ * Version: 1.0.0
+ * 
+ * This file contains:
+ * 1. GPU acceleration hints (will-change)
+ * 2. Consolidated shared keyframes
+ * 3. Animation performance improvements
+ * 4. Content visibility optimizations
+ * 5. Smooth scrolling enhancements
+ */
+
+/* ===== GPU ACCELERATION HINTS ===== */
+
+/* Apply will-change only to actively animated elements */
+.game-card:hover,
+.portfolio-item:hover,
+.quick-peek-btn:hover,
+.game-button:hover {
+  will-change: transform, box-shadow;
+}
+
+/* Modal and overlay animations */
+.quick-peek-modal.show,
+.quick-peek-overlay.show {
+  will-change: opacity, transform;
+}
+
+/* Header scroll state */
+.game-header.scrolled {
+  will-change: background-color, box-shadow;
+}
+
+/* Clean up will-change after animation */
+.game-card,
+.portfolio-item,
+.quick-peek-btn,
+.game-button {
+  will-change: auto;
+}
+
+/* ===== SHARED KEYFRAMES (Consolidated) ===== */
+
+/* Basic fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade in with upward movement */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in with downward movement */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scale out animation */
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* Gentle floating animation */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Subtle pulse animation */
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Spinner rotation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Border glow effect */
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Button shimmer sweep */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ===== SMOOTH TRANSITIONS ===== */
+
+/* Optimized cubic-bezier for natural motion */
+:root {
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-snappy: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Apply smooth transitions to interactive elements */
+.game-card,
+.portfolio-item,
+.game-button,
+.btn,
+.nav-link,
+.filter-btn,
+.social-link {
+  transition-timing-function: var(--ease-smooth);
+}
+
+/* ===== CONTENT VISIBILITY OPTIMIZATION ===== */
+
+/* Use content-visibility for off-screen sections */
+section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* Portfolio grid optimization */
+.portfolio-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* ===== REDUCED MOTION MASTER OVERRIDE ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable parallax and floating effects */
+  .particles-container,
+  .floating-shape,
+  .animated-bg {
+    display: none !important;
+  }
+  
+  /* Disable background video autoplay indicators */
+  video[autoplay] {
+    animation: none !important;
+  }
+}
+
+/* ===== INTERSECTION OBSERVER READY CLASSES ===== */
+
+/* Initial hidden state for scroll-reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-smooth), 
+              transform 0.6s var(--ease-smooth);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal for grid items */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s var(--ease-smooth), 
+              transform 0.4s var(--ease-smooth);
+}
+
+.reveal-stagger.revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.15s; }
+.reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.2s; }
+.reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.25s; }
+.reveal-stagger.revealed > *:nth-child(6) { transition-delay: 0.3s; }
+
+/* ===== SMOOTH SCROLLING OPTIMIZATION ===== */
+
+/* Optimized smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Anchor offset for fixed header */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* ===== IMAGE LOADING OPTIMIZATION ===== */
+
+/* Lazy loaded images placeholder */
+img[loading="lazy"] {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accent-color-rgb), 0.1) 0%,
+    rgba(var(--accent-color-rgb), 0.2) 50%,
+    rgba(var(--accent-color-rgb), 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease infinite;
+}
+
+img[loading="lazy"].loaded {
+  animation: none;
+  background: transparent;
+}
+
+/* ===== PRINT OPTIMIZATIONS ===== */
+
+@media print {
+  /* Hide non-essential elements */
+  .game-header,
+  .game-back-to-top,
+  .particles-container,
+  #preloader,
+  .quick-peek-overlay {
+    display: none !important;
+  }
+  
+  /* Force visible content */
+  * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  /* Optimize print colors */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a {
+    color: #0066cc !important;
+    text-decoration: underline !important;
+  }
+}
+
+/* ===== HIGH PERFORMANCE MODE (for slower devices) ===== */
+
+/* Can be toggled via JS adding .performance-mode to body */
+body.performance-mode {
+  /* Disable all non-essential animations */
+  --transition-duration: 0.1s;
+}
+
+body.performance-mode *,
+body.performance-mode *::before,
+body.performance-mode *::after {
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+
+body.performance-mode .particles-container,
+body.performance-mode .floating-shape,
+body.performance-mode .animated-bg,
+body.performance-mode .parallax-layer {
+  display: none !important;
+}
+
+/* ===== FONT DISPLAY OPTIMIZATION ===== */
+
+/* Already handled in main-modular.css font import with display=swap */

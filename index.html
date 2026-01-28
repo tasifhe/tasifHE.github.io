@@ -5,13 +5,46 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>THE</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>THE - Professional Game Designer & Developer Portfolio</title>
+  <meta name="description" content="Professional game designer and developer with 4+ years of Unity experience. Specializing in game mechanics, level design, procedural generation, and interactive experiences. View my portfolio of published games and projects.">
+  <meta name="keywords" content="game designer, game developer, unity developer, level designer, procedural generation, game mechanics, interactive design, portfolio, unity games, indie game developer">
+  <meta name="author" content="Tasif Hossain Emon">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tasifhe.github.io/">
+  <meta property="og:title" content="THE - Professional Game Designer & Developer Portfolio">
+  <meta property="og:description" content="Professional game designer and developer with 4+ years of Unity experience. Explore my portfolio of published games and interactive projects.">
+  <meta property="og:image" content="https://tasifhe.github.io/assets/img/Potfolio_Pic_V2.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tasifhe.github.io/">
+  <meta property="twitter:title" content="THE - Professional Game Designer & Developer">
+  <meta property="twitter:description" content="Professional game designer and developer specializing in Unity development and interactive experiences.">
+  <meta property="twitter:image" content="https://tasifhe.github.io/assets/img/Potfolio_Pic_V2.jpg">
+  
+  <!-- Additional SEO -->
+  <link rel="canonical" href="https://tasifhe.github.io/">
+  <meta name="theme-color" content="#0078ff">
 
   <!-- Favicons -->
   <link href="assets/img/THE2.ico" rel="icon">
   <link href="assets/img/THE2.ico" rel="apple-touch-icon">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="THE Portfolio">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,11 +57,34 @@
   <!-- NEW: Modular CSS Architecture -->
   <link href="assets/css/main-modular.css" rel="stylesheet">
   
-  <!-- Note: loading.css is now imported within main-modular.css -->
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tasif Hossain Emon",
+    "jobTitle": "Game Designer & Developer",
+    "url": "https://tasifhe.github.io",
+    "image": "https://tasifhe.github.io/assets/img/Potfolio_Pic_V2.jpg",
+    "sameAs": [
+      "https://github.com/tasifHE",
+      "https://linkedin.com/in/tasif-hossain-emon"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Ghost Interactive"
+    },
+    "knowsAbout": ["Unity", "Game Design", "Level Design", "Procedural Generation", "C#", "Game Mechanics"],
+    "description": "Professional game designer and developer with 4+ years of Unity experience specializing in game mechanics, level design, and interactive experiences."
+  }
+  </script>
 
 </head>
 
 <body>
+
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <!-- ======= Enhanced Game-Style Header ======= -->
 <header id="header" class="fixed-top game-header">
@@ -188,9 +244,9 @@
         <!-- Profile Picture with HUD frame -->
         <div class="profile-frame" data-aos="fade-right">
           <div class="hexagon-border"></div>
-          <img src="assets/img/Potfolio_Pic_V2.jpg" alt="Tasif Hossain Emon" class="profile-image">
+          <img src="assets/img/Potfolio_Pic_V2.jpg" alt="Tasif Hossain Emon - Professional Game Designer and Developer" class="profile-image" fetchpriority="high" decoding="async" loading="eager">
           <div class="profile-scanner"></div>
-          <div class="character-level">LVL 5</div>
+          <div class="character-level" aria-label="Experience level 5">LVL 5</div>
         </div>
 
         <!-- Character Stats Panel -->
@@ -868,21 +924,33 @@
               <i class="bi bi-grid-3x3-gap"></i>
               <span>ALL PROJECTS</span>
             </button>
-            <button class="filter-btn" data-filter="unity">
-              <i class="bi bi-cpu"></i>
-              <span>UNITY 3D</span>
-            </button>
-            <button class="filter-btn" data-filter="procedural">
-              <i class="bi bi-gear"></i>
-              <span>PROCEDURAL</span>
-            </button>
-            <button class="filter-btn" data-filter="controller">
-              <i class="bi bi-controller"></i>
-              <span>CONTROLLERS</span>
+            <button class="filter-btn" data-filter="3d">
+              <i class="bi bi-box"></i>
+              <span>3D PROJECTS</span>
             </button>
             <button class="filter-btn" data-filter="2d">
               <i class="bi bi-square"></i>
-              <span>2D GAMES</span>
+              <span>2D PROJECTS</span>
+            </button>
+            <button class="filter-btn" data-filter="procedural">
+              <i class="bi bi-diagram-3"></i>
+              <span>PROCEDURAL GEN</span>
+            </button>
+            <button class="filter-btn" data-filter="character">
+              <i class="bi bi-person-walking"></i>
+              <span>CHARACTER & MOVEMENT</span>
+            </button>
+            <button class="filter-btn" data-filter="shooter">
+              <i class="bi bi-crosshair"></i>
+              <span>SHOOTER GAMES</span>
+            </button>
+            <button class="filter-btn" data-filter="ai">
+              <i class="bi bi-robot"></i>
+              <span>AI SYSTEMS</span>
+            </button>
+            <button class="filter-btn" data-filter="multiplayer">
+              <i class="bi bi-people"></i>
+              <span>MULTIPLAYER</span>
             </button>
           </div>
         </div>
@@ -891,7 +959,7 @@
         <div class="portfolio-grid-game">
           
           <!-- Portfolio Item 1 - PWG Infinite -->
-          <div class="portfolio-card-game" data-category="unity procedural" data-aos="fade-up" data-aos-delay="200">
+          <div class="portfolio-card-game" data-category="3d procedural" data-aos="fade-up" data-aos-delay="200">
             <div class="project-frame">
               <div class="project-status-indicator">
                 <div class="status-dot completed"></div>
@@ -899,8 +967,8 @@
               </div>
               
               <div class="project-image-container">
-                <img src="assets/img/PGW/PGW_Infinite.webp" alt="Procedural World Generation Infinite" class="project-image-static" loading="lazy">
-                <img src="assets/img/PGW/PGWmin_GIF.gif" alt="Procedural World Generation Infinite GIF" class="project-image-gif" loading="lazy">
+                <img src="assets/img/PGW/PGW_Infinite.webp" alt="Procedural World Generation - Infinite terrain generation system in Unity" class="project-image-static" loading="lazy" decoding="async">
+                <img src="assets/img/PGW/PGWmin_GIF.gif" alt="Procedural World Generation animated demonstration" class="project-image-gif" loading="lazy" decoding="async">
                 
                 <div class="project-overlay">
                   <div class="project-tech-stack">
@@ -973,7 +1041,7 @@
           </div>
     
           <!-- Portfolio Item 2 - TPC -->
-          <div class="portfolio-card-game" data-category="unity controller" data-aos="fade-up" data-aos-delay="300">
+          <div class="portfolio-card-game" data-category="3d character" data-aos="fade-up" data-aos-delay="300">
             <div class="project-frame">
               <div class="project-status-indicator">
                 <div class="status-dot completed"></div>
@@ -981,8 +1049,8 @@
               </div>
               
               <div class="project-image-container">
-                <img src="assets/img/SMTPCC/TP_Player_Controller(1).png" alt="Third Person Character Controller" class="project-image-static" loading="lazy">
-                <img src="assets/img/PGW/PGWmin_GIF.gif" alt="Third Person Character Controller GIF" class="project-image-gif" loading="lazy">
+                <img src="assets/img/SMTPCC/TP_Player_Controller(1).png" alt="Third Person Character Controller - State machine-based movement system" class="project-image-static" loading="lazy" decoding="async">
+                <img src="assets/img/PGW/PGWmin_GIF.gif" alt="Third Person Character Controller animated demonstration" class="project-image-gif" loading="lazy" decoding="async">
 
                 <div class="project-overlay">
                   <div class="project-tech-stack">
@@ -1055,7 +1123,7 @@
           </div>
     
           <!-- Portfolio Item 3 - PWG Forest -->
-          <div class="portfolio-card-game" data-category="unity procedural" data-aos="fade-up" data-aos-delay="400">
+          <div class="portfolio-card-game" data-category="3d procedural ai" data-aos="fade-up" data-aos-delay="400">
             <div class="project-frame">
               <div class="project-status-indicator">
                 <div class="status-dot completed"></div>
@@ -1063,8 +1131,8 @@
               </div>
               
               <div class="project-image-container">
-                <img src="assets/img/PGWF/PGW_2_FOREST(2)-min.webp" alt="Procedural World Generation Forest" class="project-image-static" loading="lazy">
-                <img src="assets/img/PGWF/PGW_Forest_GIF.gif" alt="Procedural World Generation Forest GIF" class="project-image-gif" loading="lazy">
+                <img src="assets/img/PGWF/PGW_2_FOREST(2)-min.webp" alt="Procedural Forest Generation - Advanced biome and vegetation system" class="project-image-static" loading="lazy" decoding="async">
+                <img src="assets/img/PGWF/PGW_Forest_GIF.gif" alt="Procedural Forest Generation animated demonstration" class="project-image-gif" loading="lazy" decoding="async">
 
                 <div class="project-overlay">
                   <div class="project-tech-stack">
@@ -1137,7 +1205,7 @@
           </div>
     
           <!-- Portfolio Item 4 - Rawwar -->
-          <div class="portfolio-card-game" data-category="unity" data-aos="fade-up" data-aos-delay="500">
+          <div class="portfolio-card-game" data-category="3d shooter multiplayer" data-aos="fade-up" data-aos-delay="500">
             <div class="project-frame">
               <div class="project-status-indicator">
                 <div class="status-dot in-progress"></div>
@@ -1145,8 +1213,8 @@
               </div>
               
               <div class="project-image-container">
-                <img src="assets/img/RAWWAR/ProjectRawWar.webp" alt="Rawwar Type2Fight" class="project-image-static" loading="lazy">
-                <img src="assets/img/RAWWAR/RawWar_GIF.gif" alt="Rawwar Type2Fight GIF" class="project-image-gif" loading="lazy">
+                <img src="assets/img/RAWWAR/ProjectRawWar.webp" alt="Rawwar Type2Fight - Fast-paced multiplayer typing combat game" class="project-image-static" loading="lazy" decoding="async">
+                <img src="assets/img/RAWWAR/RawWar_GIF.gif" alt="Rawwar Type2Fight gameplay demonstration" class="project-image-gif" loading="lazy" decoding="async">
                 
                 <div class="project-overlay">
                   <div class="project-tech-stack">
@@ -1219,7 +1287,7 @@
           </div>
     
           <!-- Portfolio Item 5 - Drawnscape -->
-          <div class="portfolio-card-game" data-category="unity 2d" data-aos="fade-up" data-aos-delay="600">
+          <div class="portfolio-card-game" data-category="2d character" data-aos="fade-up" data-aos-delay="600">
             <div class="project-frame">
               <div class="project-status-indicator">
                 <div class="status-dot completed"></div>
@@ -1227,8 +1295,8 @@
               </div>
               
               <div class="project-image-container">
-                <img src="assets/img/Drawnscape/Drawnscape_Front_IMG.webp" alt="Drawnscape" class="project-image-static" loading="lazy">
-                <img src="assets/img/Drawnscape_GIF.gif" alt="Drawnscape GIF" class="project-image-gif" loading="lazy">
+                <img src="assets/img/Drawnscape/Drawnscape_Front_IMG.webp" alt="Drawnscape - Physics-based puzzle game with innovative drawing mechanics" class="project-image-static" loading="lazy" decoding="async">
+                <img src="assets/img/Drawnscape_GIF.gif" alt="Drawnscape gameplay demonstration" class="project-image-gif" loading="lazy" decoding="async">
                 
                 <div class="project-overlay">
                   <div class="project-tech-stack">
@@ -1301,7 +1369,7 @@
           </div>
     
             <!-- Portfolio Item 6 - Project Crack Platoon (PCP) -->
-            <div class="portfolio-card-game" data-category="unity" data-aos="fade-up" data-aos-delay="700">
+            <div class="portfolio-card-game" data-category="3d shooter multiplayer ai" data-aos="fade-up" data-aos-delay="700">
             <div class="project-frame">
               <div class="project-status-indicator">
               <div class="status-dot in-progress"></div>
@@ -1309,8 +1377,8 @@
               </div>
               
               <div class="project-image-container">
-              <img src="assets/img/PCP/PCP_SS1.png" alt="Project Crack Platoon" class="project-image-static" loading="lazy">
-              <img src="assets/img/PCP_GIF.gif" alt="Project Crack Platoon Gameplay GIF" class="project-image-gif" loading="lazy">
+              <img src="assets/img/PCP/PCP_SS1.png" alt="Project Crack Platoon - Tactical squad-based shooter game" class="project-image-static" loading="lazy" decoding="async">
+              <img src="assets/img/PCP_GIF.gif" alt="Project Crack Platoon gameplay demonstration" class="project-image-gif" loading="lazy" decoding="async">
               
               <div class="project-overlay">
                 <div class="project-tech-stack">
@@ -1488,40 +1556,40 @@
                 <span class="prompt-command">send_message --secure</span>
               </div>
               
-              <form action="forms/contact.php" method="post" role="form" class="game-contact-form">
+              <form action="forms/contact.php" method="post" role="form" class="game-contact-form" aria-labelledby="contact-title">
                 <div class="form-group">
                   <label for="name" class="form-label">
-                    <i class="bi bi-person"></i>
+                    <i class="bi bi-person" aria-hidden="true"></i>
                     <span>OPERATIVE NAME</span>
                   </label>
-                  <input type="text" name="name" class="form-control-game" id="name" placeholder="Enter your identification..." required>
+                  <input type="text" name="name" class="form-control-game" id="name" placeholder="Enter your identification..." required aria-required="true" aria-describedby="name-help">
                   <div class="input-glow"></div>
                 </div>
                 
                 <div class="form-group">
                   <label for="email" class="form-label">
-                    <i class="bi bi-envelope"></i>
+                    <i class="bi bi-envelope" aria-hidden="true"></i>
                     <span>COMMUNICATION CHANNEL</span>
                   </label>
-                  <input type="email" class="form-control-game" name="email" id="email" placeholder="your.email@domain.com" required>
+                  <input type="email" class="form-control-game" name="email" id="email" placeholder="your.email@domain.com" required aria-required="true" aria-describedby="email-help">
                   <div class="input-glow"></div>
                 </div>
                 
                 <div class="form-group">
                   <label for="subject" class="form-label">
-                    <i class="bi bi-tag"></i>
+                    <i class="bi bi-tag" aria-hidden="true"></i>
                     <span>MISSION BRIEFING</span>
                   </label>
-                  <input type="text" class="form-control-game" name="subject" id="subject" placeholder="Subject of your message..." required>
+                  <input type="text" class="form-control-game" name="subject" id="subject" placeholder="Subject of your message..." required aria-required="true" aria-describedby="subject-help">
                   <div class="input-glow"></div>
                 </div>
                 
                 <div class="form-group">
                   <label for="message" class="form-label">
-                    <i class="bi bi-chat-text"></i>
+                    <i class="bi bi-chat-text" aria-hidden="true"></i>
                     <span>DETAILED MESSAGE</span>
                   </label>
-                  <textarea class="form-control-game message-area" name="message" id="message" rows="6" placeholder="Type your message here..." required></textarea>
+                  <textarea class="form-control-game message-area" name="message" id="message" rows="6" placeholder="Type your message here..." required aria-required="true" aria-describedby="message-help"></textarea>
                   <div class="input-glow"></div>
                 </div>
                 
@@ -1807,7 +1875,123 @@
   <script src="assets/js/main.js"></script>
   <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
+  
+  // Enhanced Portfolio Filter Initialization
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for DOM and other scripts to load
+    setTimeout(function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const portfolioCards = document.querySelectorAll('.portfolio-card-game');
+      
+      console.log('Manual Init - Buttons:', filterButtons.length, 'Cards:', portfolioCards.length);
+      
+      if (filterButtons.length > 0 && portfolioCards.length > 0) {
+        // FORCE all cards visible on initial load
+        portfolioCards.forEach(card => {
+          card.style.display = '';
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          card.classList.add('filtered-in');
+          card.classList.remove('filtered-out');
+        });
+        
+        // FORCE "ALL PROJECTS" button to be active
+        filterButtons.forEach(btn => {
+          if (btn.getAttribute('data-filter') === 'all') {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+        
+        filterButtons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const filterValue = this.getAttribute('data-filter');
+            console.log('Clicked filter:', filterValue);
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // First, fade out all cards quickly
+            portfolioCards.forEach(card => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.9)';
+              card.classList.remove('filtered-in');
+              card.classList.add('filtered-out');
+            });
+            
+            // Then after fade out, show filtered cards with stagger
+            setTimeout(function() {
+              let visibleIndex = 0;
+              
+              portfolioCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardCategories = cardCategory ? cardCategory.split(' ') : [];
+                
+                let shouldShow = false;
+                
+                if (filterValue === 'all') {
+                  shouldShow = true;
+                } else {
+                  // Check if card has the filter category
+                  shouldShow = cardCategories.includes(filterValue);
+                }
+                
+                console.log('Card:', cardCategories, 'Filter:', filterValue, 'Show:', shouldShow);
+                
+                if (shouldShow) {
+                  card.style.display = '';
+                  setTimeout(function() {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                    card.classList.remove('filtered-out');
+                    card.classList.add('filtered-in');
+                  }, visibleIndex * 100);
+                  visibleIndex++;
+                } else {
+                  // Hide non-matching cards
+                  card.style.display = 'none';
+                }
+              });
+              
+              // If no cards are visible, show a message
+              if (visibleIndex === 0) {
+                console.warn('No cards match filter:', filterValue);
+              }
+            }, 300);
+          });
+        });
+        
+        console.log('Portfolio filters initialized successfully!');
+        console.log('All cards visible, ALL PROJECTS active');
+      } else {
+        console.error('Filter buttons or cards not found!');
+      }
+    }, 500);
+  });
+  
+  // Register Service Worker for PWA
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('SW registered:', registration);
+        })
+        .catch(error => {
+          console.log('SW registration failed:', error);
+        });
+    });
+  }
   </script>
+  
+  <!-- Quick Peek Modal System -->
+  <script src="assets/js/quick-peek-modal.js"></script>
 
 </body>
 

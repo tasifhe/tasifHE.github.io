@@ -29,7 +29,6 @@ class GameLoadingScreen {
       // Check if preloader already exists (for portfolio pages)
       const existingPreloader = document.getElementById('preloader');
       if (existingPreloader && existingPreloader.innerHTML.trim() !== '') {
-        console.log('Found existing preloader with content, using it');
         this.loadingScreen = existingPreloader;
         this.startLoadingSequence();
       } else {
@@ -41,7 +40,6 @@ class GameLoadingScreen {
       document.addEventListener('DOMContentLoaded', () => {
         const existingPreloader = document.getElementById('preloader');
         if (existingPreloader && existingPreloader.innerHTML.trim() !== '') {
-          console.log('Found existing preloader with content, using it');
           this.loadingScreen = existingPreloader;
           this.startLoadingSequence();
         } else {
@@ -122,7 +120,6 @@ class GameLoadingScreen {
     try {
       // Set HTML content to target element
       targetElement.innerHTML = loadingHTML;
-      console.log('Loading screen HTML inserted into target element');
 
       // Get references to elements
       this.loadingScreen = targetElement;
@@ -131,7 +128,6 @@ class GameLoadingScreen {
       this.statusText = targetElement.querySelector('.loading-status');
 
       if (this.loadingScreen) {
-        console.log('Loading screen elements found, starting sequence');
         // Start loading sequence
         this.startLoadingSequence();
       } else {

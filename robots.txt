@@ -1,0 +1,17 @@
+# robots.txt for THE Portfolio
+# https://tasifhe.github.io/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tasifhe.github.io/sitemap.xml
+
+# Disallow access to vendor directories
+Disallow: /assets/vendor/
+
+# Disallow access to forms directory
+Disallow: /forms/
+
+# Crawl delay (optional)
+Crawl-delay: 1

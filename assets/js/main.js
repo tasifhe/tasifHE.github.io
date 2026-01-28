@@ -93,21 +93,16 @@
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    console.log('Mobile nav toggle clicked!');
     const body = select('body');
     body.classList.toggle('mobile-nav-active');
-    
-    console.log('Body classes:', body.className);
     
     this.classList.toggle('bi-list');
     this.classList.toggle('bi-x');
     
     // Add subtle animation when opening menu
     const navItems = document.querySelectorAll('.game-navbar ul li');
-    console.log('Nav items found:', navItems.length);
     
     if (document.body.classList.contains('mobile-nav-active')) {
-      console.log('Opening mobile menu');
       navItems.forEach((item, index) => {
         setTimeout(() => {
           item.style.opacity = '1';
@@ -115,7 +110,6 @@
         }, 100 * index);
       });
     } else {
-      console.log('Closing mobile menu');
       navItems.forEach(item => {
         item.style.opacity = '';
         item.style.transform = '';
@@ -247,7 +241,6 @@
       // Error handling with smooth fallback
       if (gifImg) {
         gifImg.addEventListener('error', function() {
-          console.log(`GIF not found for portfolio item ${index + 1}: ${this.src}`);
           this.style.display = 'none';
         });
       }
@@ -540,7 +533,6 @@
     const skillBars = document.querySelectorAll('.skill-bar-fill[data-level]');
     
     if (skillBars.length === 0) {
-      console.log('No skill bars found');
       return;
     }
 
@@ -598,7 +590,7 @@
     // Optional: Add audio feedback for completion
     // const audio = new Audio('assets/sounds/achievement.mp3');
     // audio.volume = 0.3;
-    // audio.play().catch(e => console.log('Audio play failed:', e));
+    // audio.play().catch(e => { /* Audio play failed silently */ });
   }
 
   /**
@@ -644,22 +636,58 @@
     // Filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card-game');
+    
+    console.log('Portfolio System Init:', {
+      buttons: filterButtons.length,
+      cards: portfolioCards.length
+    });
+    
+    // Early exit if no filter buttons or cards found
+    if (filterButtons.length === 0 || portfolioCards.length === 0) {
+      console.warn('Portfolio filter system not initialized: missing elements');
+      return;
+    }
+
+    // Initialize all cards as visible
+    portfolioCards.forEach(card => {
+      card.classList.add('filtered-in');
+    });
 
     filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Filter clicked:', button.getAttribute('data-filter'));
+        
         // Remove active class from all buttons
         filterButtons.forEach(btn => btn.classList.remove('active'));
         // Add active class to clicked button
         button.classList.add('active');
         
         const filterValue = button.getAttribute('data-filter');
+        console.log('Filtering by:', filterValue);
         
         portfolioCards.forEach(card => {
-          const cardCategories = card.getAttribute('data-category').split(' ');
+          const cardCategory = card.getAttribute('data-category');
+          const cardCategories = cardCategory ? cardCategory.split(' ') : [];
           
-          if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+          console.log('Card categories:', cardCategories, 'Filter:', filterValue);
+          
+          let shouldShow = false;
+          
+          if (filterValue === 'all') {
+            shouldShow = true;
+          } else if (filterValue === 'unity') {
+            // UNITY 3D: Show unity projects but exclude 2D games
+            shouldShow = cardCategories.includes('unity') && !cardCategories.includes('2d');
+          } else {
+            // For other filters (procedural, controller, 2d), standard filtering
+            shouldShow = cardCategories.includes(filterValue);
+          }
+          
+          if (shouldShow) {
             card.classList.remove('filtered-out');
             card.classList.add('filtered-in');
+            card.style.display = '';
           } else {
             card.classList.remove('filtered-in');
             card.classList.add('filtered-out');
@@ -944,6 +972,13 @@
 
   // Make openScheduleModal globally accessible
   window.openScheduleModal = openScheduleModal;
+
+  /**
+   * Initialize Portfolio System on DOM ready
+   */
+  window.addEventListener('load', function() {
+    setTimeout(initPortfolioSystem, 100);
+  });
 
 })();
 

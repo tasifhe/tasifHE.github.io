@@ -9,10 +9,36 @@
   <meta name="description" content="Procedural World Generation - Advanced Unity project demonstrating procedural terrain, biomes, and runtime world building.">
   <meta name="keywords" content="unity, procedural generation, world building, terrain, biomes, game development">
   <meta name="author" content="Tasif Hossain Emon">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tasifhe.github.io/portfolio-details_PGW.html">
+  <meta property="og:title" content="Procedural World Generation - Unity Project">
+  <meta property="og:description" content="Advanced Unity project demonstrating procedural terrain, biomes, and runtime world building.">
+  <meta property="og:image" content="https://tasifhe.github.io/assets/img/PGW/PGW_SS1 (3).jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tasifhe.github.io/portfolio-details_PGW.html">
+  <meta property="twitter:title" content="Procedural World Generation">
+  <meta property="twitter:description" content="Advanced Unity procedural terrain and biome generation.">
+  <meta property="twitter:image" content="https://tasifhe.github.io/assets/img/PGW/PGW_SS1 (3).jpg">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://tasifhe.github.io/portfolio-details_PGW.html">
 
   <!-- Favicons -->
   <link href="assets/img/THE2.ico" rel="icon">
   <link href="assets/img/THE2.ico" rel="apple-touch-icon">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,9 +51,32 @@
   <!-- NEW: Modular CSS Architecture -->
   <link href="assets/css/main-modular.css" rel="stylesheet">
   <link href="assets/css/portfolio-page.css" rel="stylesheet">
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Procedural World Generation",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows, Unity",
+    "offers": {
+      "@type": "Offer",
+      "price": "0"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Tasif Hossain Emon"
+    },
+    "description": "Advanced Unity project demonstrating procedural terrain, biomes, and runtime world building."
+  }
+  </script>
 </head>
 
 <body class="portfolio-page">
+
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Loading Screen -->
   <div id="preloader">
@@ -54,40 +103,40 @@
           </div>
         </a>
       </div>
-      <nav id="navbar" class="game-navbar">
+      <nav id="navbar" class="game-navbar" aria-label="Main navigation">
         <div class="nav-bracket left"></div>
-        <ul>
+        <ul role="list">
           <li>
-            <a class="nav-link scrollto" href="index.html#hero">
-              <span class="nav-icon"><i class="bi bi-house"></i></span>
+            <a class="nav-link scrollto" href="index.html#hero" aria-label="Navigate to home">
+              <span class="nav-icon"><i class="bi bi-house" aria-hidden="true"></i></span>
               <span class="nav-text">HOME</span>
               <span class="nav-hover-effect"></span>
             </a>
           </li>
           <li>
-            <a class="nav-link scrollto" href="index.html#about">
-              <span class="nav-icon"><i class="bi bi-person"></i></span>
+            <a class="nav-link scrollto" href="index.html#about" aria-label="Navigate to about section">
+              <span class="nav-icon"><i class="bi bi-person" aria-hidden="true"></i></span>
               <span class="nav-text">ABOUT</span>
               <span class="nav-hover-effect"></span>
             </a>
           </li>
           <li>
-            <a class="nav-link scrollto" href="index.html#services">
-              <span class="nav-icon"><i class="bi bi-gear"></i></span>
+            <a class="nav-link scrollto" href="index.html#services" aria-label="Navigate to services section">
+              <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
               <span class="nav-text">SERVICES</span>
               <span class="nav-hover-effect"></span>
             </a>
           </li>
           <li>
-            <a class="nav-link scrollto active" href="index.html#work">
-              <span class="nav-icon"><i class="bi bi-briefcase"></i></span>
+            <a class="nav-link scrollto active" href="index.html#work" aria-label="Navigate to work section" aria-current="page">
+              <span class="nav-icon"><i class="bi bi-briefcase" aria-hidden="true"></i></span>
               <span class="nav-text">WORK</span>
               <span class="nav-hover-effect"></span>
             </a>
           </li>
           <li>
-            <a class="nav-link scrollto" href="index.html#contact">
-              <span class="nav-icon"><i class="bi bi-envelope"></i></span>
+            <a class="nav-link scrollto" href="index.html#contact" aria-label="Navigate to contact section">
+              <span class="nav-icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
               <span class="nav-text">CONTACT</span>
               <span class="nav-hover-effect"></span>
             </a>
@@ -95,7 +144,7 @@
         </ul>
         <div class="nav-bracket right"></div>
         <div class="game-mobile-toggle">
-          <i class="bi bi-list mobile-nav-toggle"></i>
+          <i class="bi bi-list mobile-nav-toggle" role="button" aria-label="Toggle mobile navigation" aria-expanded="false"></i>
           <div class="toggle-glow"></div>
         </div>
       </nav>
@@ -210,7 +259,7 @@
                   <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="image-container">
-                    <img src="assets/img/PGW/PGW_SS1 (3).jpg" alt="Procedural World Screenshot 1" loading="lazy">
+                    <img src="assets/img/PGW/PGW_SS1 (3).jpg" alt="Procedural World Screenshot 1" loading="lazy" decoding="async">
                     <div class="image-overlay">
                       <div class="image-scanner"></div>
                       <div class="image-caption">

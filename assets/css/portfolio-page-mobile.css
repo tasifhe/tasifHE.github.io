@@ -1,0 +1,329 @@
+/**
+ * Portfolio Page Mobile Enhancements
+ * AAA-Level Portfolio - Detail page responsive fixes
+ * Author: THE
+ * Version: 2.0.3
+ */
+
+/* ===== ENHANCED MOBILE RESPONSIVE STYLES FOR PORTFOLIO PAGES ===== */
+
+/* Extra small devices (< 480px) - Portfolio Pages */
+@media (max-width: 480px) {
+  body.portfolio-page .game-hero-details {
+    min-height: 100svh;
+    padding-top: 70px;
+  }
+  
+  body.portfolio-page .hero-title.game-title {
+    font-size: clamp(1.25rem, 7vw, 2rem);
+    line-height: 1.2;
+  }
+  
+  body.portfolio-page .mission-status {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+  
+  body.portfolio-page .breadcrumb {
+    font-size: 0.75rem;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+  
+  body.portfolio-page .breadcrumb-separator {
+    display: none;
+  }
+  
+  body.portfolio-page .tech-grid {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  body.portfolio-page .tech-badge {
+    font-size: 9px;
+    padding: 4px 10px;
+    min-height: 32px;
+  }
+  
+  body.portfolio-page .game-info-section {
+    padding: 2rem 1rem;
+  }
+  
+  body.portfolio-page .info-panel {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+  
+  body.portfolio-page .section-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+  
+  body.portfolio-page .section-number {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  body.portfolio-page .section-title {
+    font-size: 1.25rem;
+  }
+  
+  body.portfolio-page .section-underline {
+    width: 60px;
+    margin: 0 auto;
+  }
+  
+  body.portfolio-page .game-swiper-container {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
+  
+  body.portfolio-page .swiper-slide {
+    border-radius: 8px;
+  }
+  
+  body.portfolio-page .slider-navigation {
+    display: none;
+  }
+  
+  body.portfolio-page .slider-pagination {
+    padding: 0.75rem;
+  }
+  
+  body.portfolio-page .highlight-box {
+    padding: 1rem;
+  }
+  
+  body.portfolio-page .content-section {
+    padding: 0.75rem;
+  }
+  
+  body.portfolio-page .feature-list li {
+    font-size: 0.875rem;
+    padding-left: 1.5rem;
+  }
+  
+  body.portfolio-page .feature-list li::before {
+    width: 6px;
+    height: 6px;
+  }
+  
+  body.portfolio-page .metrics-grid {
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  body.portfolio-page .metric-box {
+    padding: 1rem;
+  }
+  
+  body.portfolio-page .metric-value {
+    font-size: 1.5rem;
+  }
+  
+  body.portfolio-page .metric-label {
+    font-size: 0.7rem;
+  }
+  
+  body.portfolio-page .game-cta-section {
+    padding: 1.5rem 1rem;
+    margin: 0 1rem;
+    border-radius: 12px;
+  }
+  
+  body.portfolio-page .cta-header h3 {
+    font-size: 1.25rem;
+  }
+  
+  body.portfolio-page .cta-description p {
+    font-size: 0.875rem;
+  }
+  
+  body.portfolio-page .cta-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  body.portfolio-page .game-button {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  body.portfolio-page .game-button i {
+    font-size: 1rem;
+  }
+  
+  body.portfolio-page .ui-frame {
+    width: 40px;
+    height: 40px;
+    border-width: 1.5px;
+  }
+  
+  body.portfolio-page .ui-frame.top-left,
+  body.portfolio-page .ui-frame.top-right {
+    top: 15px;
+  }
+  
+  body.portfolio-page .ui-frame.bottom-left,
+  body.portfolio-page .ui-frame.bottom-right {
+    bottom: 15px;
+  }
+  
+  body.portfolio-page .ui-frame.top-left,
+  body.portfolio-page .ui-frame.bottom-left {
+    left: 15px;
+  }
+  
+  body.portfolio-page .ui-frame.top-right,
+  body.portfolio-page .ui-frame.bottom-right {
+    right: 15px;
+  }
+  
+  /* Footer adjustments */
+  body.portfolio-page .site-footer {
+    padding: 1.5rem 1rem;
+  }
+  
+  body.portfolio-page .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Small devices (481px - 576px) */
+@media (min-width: 481px) and (max-width: 576px) {
+  body.portfolio-page .hero-title.game-title {
+    font-size: clamp(1.5rem, 6vw, 2.25rem);
+  }
+  
+  body.portfolio-page .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium devices (577px - 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  body.portfolio-page .hero-title.game-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+  
+  body.portfolio-page .metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  body.portfolio-page .cta-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  body.portfolio-page .game-button {
+    width: auto;
+    min-width: 180px;
+  }
+}
+
+/* Touch device optimizations for portfolio pages */
+@media (hover: none) and (pointer: coarse) {
+  body.portfolio-page .game-button:hover,
+  body.portfolio-page .tech-badge:hover,
+  body.portfolio-page .metric-box:hover {
+    transform: none;
+  }
+  
+  body.portfolio-page .swiper-slide {
+    touch-action: pan-y pinch-zoom;
+  }
+  
+  /* Increase touch targets */
+  body.portfolio-page .game-button,
+  body.portfolio-page .nav-link,
+  body.portfolio-page .breadcrumb-item a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Show swiper pagination more prominently */
+  body.portfolio-page .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  body.portfolio-page .game-hero-details {
+    padding-top: max(80px, calc(70px + env(safe-area-inset-top)));
+  }
+  
+  body.portfolio-page .game-info-section {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  
+  body.portfolio-page .site-footer {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Reduced motion preference for portfolio pages */
+@media (prefers-reduced-motion: reduce) {
+  body.portfolio-page .game-hero-details,
+  body.portfolio-page .info-panel,
+  body.portfolio-page .metric-box,
+  body.portfolio-page .game-button,
+  body.portfolio-page .tech-badge {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  body.portfolio-page .particles-container {
+    display: none !important;
+  }
+  
+  body.portfolio-page .swiper-wrapper {
+    transition-duration: 0ms !important;
+  }
+}
+
+/* Landscape mobile mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  body.portfolio-page .game-hero-details {
+    min-height: 100svh;
+    padding: 60px var(--spacing-md);
+  }
+  
+  body.portfolio-page .hero-content {
+    transform: scale(0.9);
+  }
+}
+
+/* Print styles for portfolio pages */
+@media print {
+  body.portfolio-page .game-hero-details,
+  body.portfolio-page .particles-container,
+  body.portfolio-page .ui-frame,
+  body.portfolio-page .game-header,
+  body.portfolio-page .game-back-to-top {
+    display: none !important;
+  }
+  
+  body.portfolio-page .game-info-section,
+  body.portfolio-page .info-panel {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  body.portfolio-page .game-button {
+    border: 1px solid #333 !important;
+    background: white !important;
+    color: black !important;
+  }
+}
