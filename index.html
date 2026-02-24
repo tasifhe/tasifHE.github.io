@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>THE - Professional Game Designer & Developer Portfolio</title>
-  <meta name="description" content="Professional game designer and developer with 4+ years of Unity experience. Specializing in game mechanics, level design, procedural generation, and interactive experiences. View my portfolio of published games and projects.">
+  <meta name="description" content="Professional game designer and developer with 5+ years of Unity experience. Specializing in game mechanics, level design, procedural generation, and interactive experiences. View my portfolio of published games and projects.">
   <meta name="keywords" content="game designer, game developer, unity developer, level designer, procedural generation, game mechanics, interactive design, portfolio, unity games, indie game developer">
   <meta name="author" content="Tasif Hossain Emon">
   <meta name="robots" content="index, follow">
@@ -290,7 +290,7 @@
               </div>
               <div class="stat-content">
                 <span class="stat-label">COMM LINK</span>
-                <span class="stat-value">+880 1978648494</span>
+                <span class="stat-value">+880 1979648494</span>
               </div>
             </li>
             <li class="stat-item">
@@ -1050,7 +1050,6 @@
               
               <div class="project-image-container">
                 <img src="assets/img/SMTPCC/TP_Player_Controller(1).png" alt="Third Person Character Controller - State machine-based movement system" class="project-image-static" loading="lazy" decoding="async">
-                <img src="assets/img/PGW/PGWmin_GIF.gif" alt="Third Person Character Controller animated demonstration" class="project-image-gif" loading="lazy" decoding="async">
 
                 <div class="project-overlay">
                   <div class="project-tech-stack">
@@ -1296,7 +1295,6 @@
               
               <div class="project-image-container">
                 <img src="assets/img/Drawnscape/Drawnscape_Front_IMG.webp" alt="Drawnscape - Physics-based puzzle game with innovative drawing mechanics" class="project-image-static" loading="lazy" decoding="async">
-                <img src="assets/img/Drawnscape_GIF.gif" alt="Drawnscape gameplay demonstration" class="project-image-gif" loading="lazy" decoding="async">
                 
                 <div class="project-overlay">
                   <div class="project-tech-stack">
@@ -1378,7 +1376,6 @@
               
               <div class="project-image-container">
               <img src="assets/img/PCP/PCP_SS1.png" alt="Project Crack Platoon - Tactical squad-based shooter game" class="project-image-static" loading="lazy" decoding="async">
-              <img src="assets/img/PCP_GIF.gif" alt="Project Crack Platoon gameplay demonstration" class="project-image-gif" loading="lazy" decoding="async">
               
               <div class="project-overlay">
                 <div class="project-tech-stack">
@@ -1460,7 +1457,7 @@
                   <i class="bi bi-check-circle-fill"></i>
                 </div>
                 <div class="stat-info">
-                  <span class="stat-number">5</span>
+                  <span class="stat-number">6</span>
                   <span class="stat-label">Projects Showcased</span>
                 </div>
               </div>
@@ -1497,13 +1494,13 @@
             </div>
             
             <div class="summary-actions">
-              <a href="#" class="summary-btn primary">
+              <a href="assets/CV/CV.pdf" class="summary-btn primary" download="Tasif_Hossain_Emon_CV.pdf" target="_blank">
                 <i class="bi bi-download"></i>
-                <span>DOWNLOAD PORTFOLIO</span>
+                <span>DOWNLOAD CV</span>
               </a>
-              <a href="#" class="summary-btn secondary">
+              <a href="https://github.com/tasifHE" class="summary-btn secondary" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-github"></i>
-                <span>VIEW ALL ON GITHUB</span>
+                <span>VIEW ON GITHUB</span>
               </a>
             </div>
           </div>
@@ -1736,26 +1733,26 @@
                   </div>
                 </a>
                 
-                <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-link instagram" aria-label="Instagram">
+                <a href="https://www.instagram.com/tasif.grand" target="_blank" class="social-link instagram" aria-label="Instagram">
                   <div class="social-icon">
                     <i class="bi bi-instagram"></i>
                   </div>
                   <div class="social-info">
                     <span class="social-name">Instagram</span>
-                    <span class="social-handle">@yourprofile</span>
+                    <span class="social-handle">@tasif.grand</span>
                   </div>
                   <div class="social-status">
                     <div class="status-dot active"></div>
                   </div>
                 </a>
                 
-                <a href="https://twitter.com/yourprofile" target="_blank" class="social-link twitter" aria-label="Twitter">
+                <a href="https://x.com/tasifhe" target="_blank" class="social-link twitter" aria-label="Twitter / X">
                   <div class="social-icon">
-                    <i class="bi bi-twitter"></i>
+                    <i class="bi bi-twitter-x"></i>
                   </div>
                   <div class="social-info">
-                    <span class="social-name">Twitter</span>
-                    <span class="social-handle">@yourprofile</span>
+                    <span class="social-name">Twitter / X</span>
+                    <span class="social-handle">@tasifhe</span>
                   </div>
                   <div class="social-status">
                     <div class="status-dot"></div>
@@ -1846,7 +1843,7 @@
       </div>
       <div class="col-md-6 text-center text-md-end">
         <div class="footer-powered" style="font-family: 'Rajdhani', sans-serif; font-weight: 600; letter-spacing: 1px;">
-          Powered by <a href="#" target="_blank" style="font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 1.5px;">THE</a>
+          Powered by <a href="index.html" style="font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 1.5px;">THE</a>
         </div>
       </div>
     </div>
@@ -1905,71 +1902,12 @@
           }
         });
         
-        filterButtons.forEach(button => {
-          button.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const filterValue = this.getAttribute('data-filter');
-            console.log('Clicked filter:', filterValue);
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // First, fade out all cards quickly
-            portfolioCards.forEach(card => {
-              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-              card.style.opacity = '0';
-              card.style.transform = 'scale(0.9)';
-              card.classList.remove('filtered-in');
-              card.classList.add('filtered-out');
-            });
-            
-            // Then after fade out, show filtered cards with stagger
-            setTimeout(function() {
-              let visibleIndex = 0;
-              
-              portfolioCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                const cardCategories = cardCategory ? cardCategory.split(' ') : [];
-                
-                let shouldShow = false;
-                
-                if (filterValue === 'all') {
-                  shouldShow = true;
-                } else {
-                  // Check if card has the filter category
-                  shouldShow = cardCategories.includes(filterValue);
-                }
-                
-                console.log('Card:', cardCategories, 'Filter:', filterValue, 'Show:', shouldShow);
-                
-                if (shouldShow) {
-                  card.style.display = '';
-                  setTimeout(function() {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                    card.classList.remove('filtered-out');
-                    card.classList.add('filtered-in');
-                  }, visibleIndex * 100);
-                  visibleIndex++;
-                } else {
-                  // Hide non-matching cards
-                  card.style.display = 'none';
-                }
-              });
-              
-              // If no cards are visible, show a message
-              if (visibleIndex === 0) {
-                console.warn('No cards match filter:', filterValue);
-              }
-            }, 300);
-          });
-        });
+        console.log('Portfolio initialized: all cards visible, ALL PROJECTS active');
         
-        console.log('Portfolio filters initialized successfully!');
-        console.log('All cards visible, ALL PROJECTS active');
+        // Prevent href="#" secondary overlay buttons from scrolling to top
+        document.querySelectorAll('.project-actions .action-btn.secondary[href="#"]').forEach(function(btn) {
+          btn.setAttribute('href', 'javascript:void(0)');
+        });
       } else {
         console.error('Filter buttons or cards not found!');
       }

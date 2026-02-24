@@ -194,11 +194,11 @@
     
     const portfolioLinks = [
       'portfolio-details_PGW.html',
-      'portfolio-details_TPC.html', 
+      'portfolio-details_TPC.html',
       'portfolio-details_PGW_Forest.html',
       'portfolio-details_RAWWAR.html',
       'portfolio-details_Drawnscape.html',
-      'portfolio-details_TPC.html'
+      'portfolio-details_PCP.html'
     ];
     
     portfolioItems.forEach((item, index) => {
@@ -313,37 +313,6 @@
       skillsObserver.observe(skillsSection);
     }
   });
-
-  /**
-   * Enhanced form handling
-   */
-  const contactForm = document.querySelector('.php-email-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Add loading state
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      
-      // Simulate form submission (replace with actual form handling)
-      setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        
-        // Show success message
-        const successMsg = this.querySelector('.sent-message');
-        if (successMsg) {
-          successMsg.style.display = 'block';
-          setTimeout(() => {
-            successMsg.style.display = 'none';
-          }, 5000);
-        }
-      }, 2000);
-    });
-  }
 
   /**
    * Enhanced header scroll effect
@@ -633,66 +602,53 @@
    * Enhanced Portfolio functionality
    */
   function initPortfolioSystem() {
-    // Filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card-game');
-    
-    console.log('Portfolio System Init:', {
-      buttons: filterButtons.length,
-      cards: portfolioCards.length
-    });
-    
-    // Early exit if no filter buttons or cards found
-    if (filterButtons.length === 0 || portfolioCards.length === 0) {
-      console.warn('Portfolio filter system not initialized: missing elements');
-      return;
-    }
 
-    // Initialize all cards as visible
-    portfolioCards.forEach(card => {
-      card.classList.add('filtered-in');
-    });
+    if (filterButtons.length === 0 || portfolioCards.length === 0) return;
 
     filterButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('Filter clicked:', button.getAttribute('data-filter'));
-        
-        // Remove active class from all buttons
+
+        const filterValue = this.getAttribute('data-filter');
+
+        // Update active button
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        const filterValue = button.getAttribute('data-filter');
-        console.log('Filtering by:', filterValue);
-        
+        this.classList.add('active');
+
+        // Step 1: fade all cards out
         portfolioCards.forEach(card => {
-          const cardCategory = card.getAttribute('data-category');
-          const cardCategories = cardCategory ? cardCategory.split(' ') : [];
-          
-          console.log('Card categories:', cardCategories, 'Filter:', filterValue);
-          
-          let shouldShow = false;
-          
-          if (filterValue === 'all') {
-            shouldShow = true;
-          } else if (filterValue === 'unity') {
-            // UNITY 3D: Show unity projects but exclude 2D games
-            shouldShow = cardCategories.includes('unity') && !cardCategories.includes('2d');
-          } else {
-            // For other filters (procedural, controller, 2d), standard filtering
-            shouldShow = cardCategories.includes(filterValue);
-          }
-          
-          if (shouldShow) {
-            card.classList.remove('filtered-out');
-            card.classList.add('filtered-in');
-            card.style.display = '';
-          } else {
-            card.classList.remove('filtered-in');
-            card.classList.add('filtered-out');
-          }
+          card.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.92)';
         });
+
+        // Step 2: after fade, hide/show cards and fade matching ones in
+        setTimeout(function() {
+          let visibleIndex = 0;
+
+          portfolioCards.forEach(card => {
+            const cats = (card.getAttribute('data-category') || '').split(' ');
+            const shouldShow = filterValue === 'all' || cats.includes(filterValue);
+
+            if (shouldShow) {
+              card.style.display = '';
+              card.classList.remove('filtered-out');
+              card.classList.add('filtered-in');
+              // Staggered fade in
+              setTimeout(function() {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+              }, visibleIndex * 80);
+              visibleIndex++;
+            } else {
+              card.style.display = 'none';
+              card.classList.remove('filtered-in');
+              card.classList.add('filtered-out');
+            }
+          });
+        }, 260);
       });
     });
 
@@ -978,93 +934,9 @@
    */
   window.addEventListener('load', function() {
     setTimeout(initPortfolioSystem, 100);
+    initContactForm();
+    initFormAnimations();
+    initCounterAnimations();
   });
 
 })();
-
-// Additional global functions that need to be accessible
-function openScheduleModal() {
-  // Create simple modal for demo
-  const modal = document.createElement('div');
-  modal.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    backdrop-filter: blur(5px);
-  `;
-  
-  const modalContent = document.createElement('div');
-  modalContent.style.cssText = `
-    background: linear-gradient(145deg, rgba(25, 35, 55, 0.95), rgba(15, 25, 45, 0.95));
-    border: 1px solid rgba(0, 180, 255, 0.25);
-    border-radius: 20px;
-    padding: 2rem;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-    color: white;
-    box-shadow: 0 20px 40px rgba(0, 120, 255, 0.2);
-  `;
-  
-  modalContent.innerHTML = `
-    <div style="margin-bottom: 1.5rem;">
-      <i class="bi bi-calendar-check" style="font-size: 3rem; color: #00c6ff;"></i>
-    </div>
-    <h3 style="color: #00c6ff; margin-bottom: 1rem; font-family: 'Rajdhani', sans-serif; font-weight: 700;">SCHEDULE MEETING</h3>
-    <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.6;">
-      This feature is coming soon! For now, please use email or phone to schedule a meeting directly.
-    </p>
-    <div style="display: flex; gap: 1rem; justify-content: center;">
-      <a href="mailto:tasif.grandfleet@gmail.com" style="
-        background: linear-gradient(135deg, #0078ff, #00c6ff);
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-      ">
-        <i class="bi bi-envelope"></i>
-        EMAIL
-      </a>
-      <button onclick="this.closest('.modal').remove()" style="
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-      ">CLOSE</button>
-    </div>
-  `;
-  
-  modal.className = 'modal';
-  modal.appendChild(modalContent);
-  document.body.appendChild(modal);
-  
-  // Close on background click
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.remove();
-    }
-  });
-  
-  // Close on Escape key
-  document.addEventListener('keydown', function escapeHandler(e) {
-    if (e.key === 'Escape') {
-      modal.remove();
-      document.removeEventListener('keydown', escapeHandler);
-    }
-  });
-}

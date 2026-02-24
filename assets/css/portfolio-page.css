@@ -17,6 +17,93 @@
   --text-secondary: rgba(255, 255, 255, 0.8);
   --text-muted: rgba(255, 255, 255, 0.6);
   --font-primary: 'Rajdhani', sans-serif;
+  
+  /* Project-Specific Theming Variables - Can be overridden per page */
+  --project-accent: var(--primary-color);
+  --project-accent-secondary: var(--secondary-color);
+  --project-accent-rgb: 0, 120, 255;
+  --project-panel-border: rgba(0, 180, 255, 0.25);
+  --project-panel-header-bg: linear-gradient(135deg, rgba(0, 120, 255, 0.2), rgba(0, 198, 255, 0.15));
+  --project-panel-glow: rgba(0, 120, 255, 0.4);
+  --project-badge-bg: linear-gradient(135deg, #0078ff, #00c6ff);
+  --project-status-glow: rgba(0, 120, 255, 0.6);
+  
+  /* Typography Theming - Can adjust per project type */
+  --project-font-weight-header: 700;
+  --project-letter-spacing-header: 2px;
+  --project-text-transform: uppercase;
+}
+
+/* Project Category Themes - Add data-project-theme attribute to body */
+
+/* Horror/Dark Theme (e.g., RAWWAR) */
+body[data-project-theme="horror"] {
+  --project-accent: #dc3545;
+  --project-accent-secondary: #8b0000;
+  --project-accent-rgb: 220, 53, 69;
+  --project-panel-border: rgba(220, 53, 69, 0.3);
+  --project-panel-header-bg: linear-gradient(135deg, rgba(220, 53, 69, 0.25), rgba(139, 0, 0, 0.2));
+  --project-panel-glow: rgba(220, 53, 69, 0.4);
+  --project-badge-bg: linear-gradient(135deg, #dc3545, #8b0000);
+  --project-status-glow: rgba(220, 53, 69, 0.6);
+  --project-font-weight-header: 800;
+  --project-letter-spacing-header: 1.5px;
+}
+
+/* Puzzle/Casual Theme (e.g., Drawnscape) */
+body[data-project-theme="puzzle"] {
+  --project-accent: #9c27b0;
+  --project-accent-secondary: #ba68c8;
+  --project-accent-rgb: 156, 39, 176;
+  --project-panel-border: rgba(156, 39, 176, 0.3);
+  --project-panel-header-bg: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(186, 104, 200, 0.15));
+  --project-panel-glow: rgba(156, 39, 176, 0.4);
+  --project-badge-bg: linear-gradient(135deg, #9c27b0, #ba68c8);
+  --project-status-glow: rgba(156, 39, 176, 0.6);
+  --project-font-weight-header: 600;
+  --project-letter-spacing-header: 2.5px;
+}
+
+/* Action/FPS Theme (e.g., PCP) */
+body[data-project-theme="action"] {
+  --project-accent: #28a745;
+  --project-accent-secondary: #20c997;
+  --project-accent-rgb: 40, 167, 69;
+  --project-panel-border: rgba(40, 167, 69, 0.3);
+  --project-panel-header-bg: linear-gradient(135deg, rgba(40, 167, 69, 0.2), rgba(32, 201, 151, 0.15));
+  --project-panel-glow: rgba(40, 167, 69, 0.4);
+  --project-badge-bg: linear-gradient(135deg, #28a745, #20c997);
+  --project-status-glow: rgba(40, 167, 69, 0.6);
+  --project-font-weight-header: 800;
+  --project-letter-spacing-header: 1.8px;
+}
+
+/* Strategy/Simulation Theme (e.g., PGW) */
+body[data-project-theme="strategy"] {
+  --project-accent: #ffc107;
+  --project-accent-secondary: #ff9800;
+  --project-accent-rgb: 255, 193, 7;
+  --project-panel-border: rgba(255, 193, 7, 0.3);
+  --project-panel-header-bg: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.15));
+  --project-panel-glow: rgba(255, 193, 7, 0.4);
+  --project-badge-bg: linear-gradient(135deg, #ffc107, #ff9800);
+  --project-status-glow: rgba(255, 193, 7, 0.6);
+  --project-font-weight-header: 700;
+  --project-letter-spacing-header: 2.2px;
+}
+
+/* Tool/System Theme (e.g., TPC) */
+body[data-project-theme="tool"] {
+  --project-accent: #17a2b8;
+  --project-accent-secondary: #138496;
+  --project-accent-rgb: 23, 162, 184;
+  --project-panel-border: rgba(23, 162, 184, 0.3);
+  --project-panel-header-bg: linear-gradient(135deg, rgba(23, 162, 184, 0.2), rgba(19, 132, 150, 0.15));
+  --project-panel-glow: rgba(23, 162, 184, 0.4);
+  --project-badge-bg: linear-gradient(135deg, #17a2b8, #138496);
+  --project-status-glow: rgba(23, 162, 184, 0.6);
+  --project-font-weight-header: 700;
+  --project-letter-spacing-header: 2px;
 }
 
 /* Base Styles */
@@ -171,8 +258,8 @@ body.portfolio-page {
 }
 
 .status-indicator.completed {
-  background: var(--success);
-  box-shadow: 0 0 15px rgba(40, 167, 69, 0.6);
+  background: var(--project-accent);
+  box-shadow: 0 0 15px var(--project-status-glow);
 }
 
 @keyframes pulse {
@@ -181,7 +268,7 @@ body.portfolio-page {
 }
 
 .status-text {
-  color: var(--success);
+  color: var(--project-accent);
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 1.5px;
@@ -599,18 +686,18 @@ body.portfolio-page {
 
 /* Panel Headers */
 .panel-header {
-  background: linear-gradient(135deg, rgba(0, 120, 255, 0.2), rgba(0, 198, 255, 0.15));
+  background: var(--project-panel-header-bg);
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   gap: 12px;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--project-panel-border);
 }
 
 .panel-icon {
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  background: var(--project-badge-bg);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -621,11 +708,11 @@ body.portfolio-page {
 
 .panel-title {
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: var(--project-font-weight-header);
   margin: 0;
   font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: var(--project-letter-spacing-header);
+  text-transform: var(--project-text-transform);
   flex: 1;
 }
 
@@ -672,9 +759,9 @@ body.portfolio-page {
 }
 
 .game-tech-panel:hover {
-  border-color: rgba(0, 180, 255, 0.4);
+  border-color: var(--project-panel-glow);
   transform: translateY(-3px);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(var(--project-accent-rgb), 0.2);
 }
 
 .tech-grid {
@@ -721,7 +808,7 @@ body.portfolio-page {
 .game-metrics-panel,
 .game-achievements-panel {
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--project-panel-border);
   border-radius: var(--border-radius);
   overflow: hidden;
   backdrop-filter: blur(15px);
@@ -734,9 +821,9 @@ body.portfolio-page {
 .game-features-panel:hover,
 .game-metrics-panel:hover,
 .game-achievements-panel:hover {
-  border-color: rgba(0, 180, 255, 0.4);
+  border-color: var(--project-panel-glow);
   transform: translateY(-3px);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(var(--project-accent-rgb), 0.3);
 }
 
 /* Info Grid */

@@ -83,6 +83,16 @@
   --game-glow: 0 0 15px var(--primary-color);
   --game-frame-color: #00ffff;
   --level-color: #FFD700;
+  
+  /* Component-Specific Design Tokens */
+  --stat-item-padding: var(--spacing-md) var(--spacing-sm);
+  --stat-item-gap: var(--spacing-md);
+  --stat-icon-size: 44px;
+  --stat-icon-border-radius: 10px;
+  --stat-label-size: 11px;
+  --stat-value-size: 15px;
+  --panel-header-padding: var(--spacing-md) var(--spacing-lg);
+  --panel-content-padding: var(--spacing-lg);
 }
 
 /* Dark Theme Variants */
