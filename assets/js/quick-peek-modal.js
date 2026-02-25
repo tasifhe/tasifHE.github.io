@@ -265,10 +265,11 @@ class QuickPeekModal {
       this.hideLoading();
     });
     
-    img.addEventListener('error', () => {
+    img.addEventListener('error', function onImgError() {
+      img.removeEventListener('error', onImgError); // prevent infinite loop
       this.hideLoading();
-      img.src = 'assets/img/placeholder.webp';
-    });
+      img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%230a0f1e'/%3E%3Crect x='1' y='1' width='598' height='398' fill='none' stroke='%230078ff' stroke-width='1' opacity='0.4'/%3E%3Ctext x='300' y='185' font-family='monospace' font-size='40' fill='%230078ff' opacity='0.5' text-anchor='middle'%3E%5B%20%5D%3C/text%3E%3Ctext x='300' y='230' font-family='monospace' font-size='14' fill='%23ffffff' opacity='0.4' text-anchor='middle'%3ENo Preview Available%3C/text%3E%3C/svg%3E";
+    }.bind(this));
   }
   
   addCardClickHandlers() {
