@@ -790,3 +790,304 @@ footer.redesign-footer {
   color: var(--accent-gold);
   letter-spacing: 1px;
 }
+
+/* ── 12. MOBILE NAVIGATION DRAWER ─────────────────────────────────────── */
+.mobile-nav-toggle {
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-toggle:hover {
+  color: var(--accent-gold);
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 6rem 2rem 2rem;
+    gap: 1.5rem;
+    transition: right var(--transition-normal);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    z-index: 999;
+  }
+
+  body.mobile-nav-active .nav-links {
+    right: 0;
+  }
+}
+
+/* ── 13. PROJECT DETAILS PAGES DESIGN SYSTEM ──────────────────────────── */
+.portfolio-details-hero {
+  padding: 8rem 0 3rem;
+  background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+              linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.back-link:hover {
+  color: var(--accent-gold);
+}
+
+.details-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.details-category-badge {
+  display: inline-block;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--accent-gold);
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 991px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.details-media-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.details-media-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.details-media-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.details-info-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  height: fit-content;
+}
+
+.info-panel-title {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.info-meta-group {
+  margin-bottom: 1.25rem;
+}
+
+.info-meta-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.info-meta-value {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ── 14. MICRO-ANIMATIONS & HOVER POLISH ──────────────────────────────── */
+.btn-primary-gold, .btn-outline-gold, .btn-card-primary, .contact-link-item {
+  will-change: transform;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+/* ── 15. BRANCHING EXPERIENCE TIMELINE ───────────────────────────────── */
+.branching-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.branching-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent-gold) 0%, rgba(212, 175, 55, 0.2) 100%);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-branch-item {
+  position: relative;
+  width: 50%;
+  padding: 0 2.5rem 2.5rem;
+  box-sizing: border-box;
+}
+
+.timeline-branch-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-branch-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.branch-node-icon {
+  position: absolute;
+  top: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-gold);
+  color: var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.timeline-branch-item.left .branch-node-icon {
+  right: -22px;
+}
+
+.timeline-branch-item.right .branch-node-icon {
+  left: -22px;
+}
+
+.timeline-branch-item:hover .branch-node-icon {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+  background: var(--accent-gold);
+  color: #0D0F12;
+}
+
+.branch-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  position: relative;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.branch-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-4px);
+}
+
+.branch-header {
+  margin-bottom: 1rem;
+}
+
+.branch-role {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.branch-company {
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.branch-period {
+  display: inline-block;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 50px;
+}
+
+.timeline-branch-item.left .role-bullets {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .branching-timeline::before {
+    left: 20px;
+  }
+
+  .timeline-branch-item {
+    width: 100%;
+    padding-left: 3.5rem;
+    padding-right: 0;
+  }
+
+  .timeline-branch-item.left,
+  .timeline-branch-item.right {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-branch-item.left .branch-node-icon,
+  .timeline-branch-item.right .branch-node-icon {
+    left: 0px;
+  }
+}
+
+

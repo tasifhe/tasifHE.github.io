@@ -79,7 +79,8 @@
       </div>
 
       <nav id="navbar">
-        <ul class="nav-links d-none d-md-flex">
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        <ul class="nav-links">
           <li><a class="nav-link-item active" href="#hero">Home</a></li>
           <li><a class="nav-link-item" href="#about">About</a></li>
           <li><a class="nav-link-item" href="#experience">Experience</a></li>
@@ -169,97 +170,113 @@
       </div>
     </section>
 
-    <!-- ======= Experience Section ======= -->
+    <!-- ======= Experience Section (Branching Timeline) ======= -->
     <section id="experience" class="section-padding" style="background: var(--bg-secondary);">
       <div class="container">
-        <div class="section-header" data-aos="fade-up">
+        <div class="section-header text-center" data-aos="fade-up">
           <div class="section-subtitle">CAREER TRACK</div>
           <h2 class="section-title">WORK EXPERIENCE</h2>
         </div>
 
-        <div class="timeline">
-          <!-- GRANDFLEET -->
-          <div class="timeline-card" data-aos="fade-up">
-            <div class="timeline-header">
-              <div>
-                <h3 class="role-title">Co-founder &amp; Lead Level Designer</h3>
-                <span class="company-name">GRANDFLEET</span>
-              </div>
-              <span class="period-badge">Jan 2020 – Present</span>
+        <div class="branching-timeline">
+          <!-- 1. GRANDFLEET (Left) -->
+          <div class="timeline-branch-item left" data-aos="fade-right">
+            <div class="branch-node-icon">
+              <i class="bi bi-rocket-takeoff"></i>
             </div>
-            <ul class="role-bullets">
-              <li>Co-founded independent game studio focused on modular Unity titles and custom level design toolkits.</li>
-              <li>Designed and authored core game levels, terrain streaming pipelines, and level layouts from concept to production.</li>
-              <li>Led creative direction and authored comprehensive Game Design Documents (GDDs) for studio projects.</li>
-            </ul>
+            <div class="branch-card">
+              <div class="branch-header">
+                <h3 class="branch-role">Co-founder &amp; Lead Level Designer</h3>
+                <span class="branch-company">GRANDFLEET</span>
+                <span class="branch-period">Jan 2020 – Present</span>
+              </div>
+              <ul class="role-bullets">
+                <li>Co-founded independent game studio focused on modular Unity titles and custom level design toolkits.</li>
+                <li>Designed and authored core game levels, terrain streaming pipelines, and level layouts from concept to production.</li>
+                <li>Led creative direction and authored comprehensive Game Design Documents (GDDs) for studio projects.</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- Ghost Interactive -->
-          <div class="timeline-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="timeline-header">
-              <div>
-                <h3 class="role-title">Lead Game Designer</h3>
-                <span class="company-name">Ghost Interactive</span>
-              </div>
-              <span class="period-badge">Jul 2024 – Present</span>
+          <!-- 2. Ghost Interactive (Right) -->
+          <div class="timeline-branch-item right" data-aos="fade-left" data-aos-delay="100">
+            <div class="branch-node-icon">
+              <i class="bi bi-controller"></i>
             </div>
-            <ul class="role-bullets">
-              <li>Leading game design on Project Crack Platoon — a semi open-world tactical squad FPS.</li>
-              <li>Engineered combat feel, weapon recoil parameters, squad command systems, and tactical AI specs.</li>
-              <li>Directing cross-functional workflows between programming, art, and level assembly pipelines.</li>
-            </ul>
+            <div class="branch-card">
+              <div class="branch-header">
+                <h3 class="branch-role">Lead Game Designer</h3>
+                <span class="branch-company">Ghost Interactive</span>
+                <span class="branch-period">Jul 2024 – Present</span>
+              </div>
+              <ul class="role-bullets">
+                <li>Leading game design on Project Crack Platoon — a semi open-world tactical squad FPS.</li>
+                <li>Engineered combat feel, weapon recoil parameters, squad command systems, and tactical AI specs.</li>
+                <li>Directing cross-functional workflows between programming, art, and level assembly pipelines.</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- RiseUp Labs -->
-          <div class="timeline-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="timeline-header">
-              <div>
-                <h3 class="role-title">Game Designer</h3>
-                <span class="company-name">RiseUp Labs</span>
-              </div>
-              <span class="period-badge">Sep 2023 – Jun 2024</span>
+          <!-- 3. RiseUp Labs (Left) -->
+          <div class="timeline-branch-item left" data-aos="fade-right" data-aos-delay="200">
+            <div class="branch-node-icon">
+              <i class="bi bi-lightbulb"></i>
             </div>
-            <ul class="role-bullets">
-              <li>Architected educational and casual gameplay mechanics across 3+ mobile titles.</li>
-              <li>Produced user flow diagrams, interactive wireframes, and balance spreadsheets for game progression.</li>
-              <li>Ran iterative playtest cycles and balanced core loop mechanics based on analytics and player feedback.</li>
-            </ul>
+            <div class="branch-card">
+              <div class="branch-header">
+                <h3 class="branch-role">Game Designer</h3>
+                <span class="branch-company">RiseUp Labs</span>
+                <span class="branch-period">Sep 2023 – Jun 2024</span>
+              </div>
+              <ul class="role-bullets">
+                <li>Architected educational and casual gameplay mechanics across 3+ mobile titles.</li>
+                <li>Produced user flow diagrams, interactive wireframes, and balance spreadsheets for game progression.</li>
+                <li>Ran iterative playtest cycles and balanced core loop mechanics based on analytics and player feedback.</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- QP Studios -->
-          <div class="timeline-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="timeline-header">
-              <div>
-                <h3 class="role-title">Lead Level Designer</h3>
-                <span class="company-name">QP Studios</span>
-              </div>
-              <span class="period-badge">Mar 2023 – Feb 2024</span>
+          <!-- 4. QP Studios (Right) -->
+          <div class="timeline-branch-item right" data-aos="fade-left" data-aos-delay="300">
+            <div class="branch-node-icon">
+              <i class="bi bi-map"></i>
             </div>
-            <ul class="role-bullets">
-              <li>Led environment and level design across PC and mobile Unity releases.</li>
-              <li>Designed procedural generation pipelines to automate environment placement and biome generation.</li>
-              <li>Optimized scene geometry and dynamic lighting, reducing draw calls by ~30% across target hardware.</li>
-            </ul>
+            <div class="branch-card">
+              <div class="branch-header">
+                <h3 class="branch-role">Lead Level Designer</h3>
+                <span class="branch-company">QP Studios</span>
+                <span class="branch-period">Mar 2023 – Feb 2024</span>
+              </div>
+              <ul class="role-bullets">
+                <li>Led environment and level design across PC and mobile Unity releases.</li>
+                <li>Designed procedural generation pipelines to automate environment placement and biome generation.</li>
+                <li>Optimized scene geometry and dynamic lighting, reducing draw calls by ~30% across target hardware.</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- Utopia France -->
-          <div class="timeline-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="timeline-header">
-              <div>
-                <h3 class="role-title">Senior Developer &amp; Level Designer</h3>
-                <span class="company-name">Utopia (France)</span>
-              </div>
-              <span class="period-badge">Sep 2021 – Mar 2022</span>
+          <!-- 5. Utopia France (Left) -->
+          <div class="timeline-branch-item left" data-aos="fade-right" data-aos-delay="400">
+            <div class="branch-node-icon">
+              <i class="bi bi-code-slash"></i>
             </div>
-            <ul class="role-bullets">
-              <li>Built custom character controller systems, combat feedback routines, and enemy AI state machines.</li>
-              <li>Created level layouts and puzzle sequences for action-adventure gameplay modules.</li>
-              <li>Collaborated remotely with an international 6-person studio engineering team.</li>
-            </ul>
+            <div class="branch-card">
+              <div class="branch-header">
+                <h3 class="branch-role">Senior Developer &amp; Level Designer</h3>
+                <span class="branch-company">Utopia (France)</span>
+                <span class="branch-period">Sep 2021 – Mar 2022</span>
+              </div>
+              <ul class="role-bullets">
+                <li>Built custom character controller systems, combat feedback routines, and enemy AI state machines.</li>
+                <li>Created level layouts and puzzle sequences for action-adventure gameplay modules.</li>
+                <li>Collaborated remotely with an international 6-person studio engineering team.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- ======= Skills Section ======= -->
     <section id="skills" class="section-padding">
