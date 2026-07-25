@@ -32,20 +32,28 @@ export function ProjectDetail({ project }: { project: Project }) {
         <div className="container" data-aos="fade-up" data-aos-delay="100">
           <div className="details-grid">
             <div className="details-media-gallery">
-              {project.screenshots.map((shot, idx) => (
-                <div key={idx} className="details-media-item" data-aos="fade-up" data-aos-delay={150 + idx * 100}>
-                  <Image
-                    src={shot.src}
-                    alt={shot.caption}
-                    width={1200}
-                    height={675}
-                  />
-                  <p className="image-caption" style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "var(--text-muted)" }}>
-                    <i className="bi bi-camera me-2" style={{ color: "var(--accent-gold)" }}></i>
-                    {shot.caption}
-                  </p>
+              {project.screenshots.length > 0 ? (
+                project.screenshots.map((shot, idx) => (
+                  <div key={idx} className="details-media-item" data-aos="fade-up" data-aos-delay={150 + idx * 100}>
+                    <Image
+                      src={shot.src}
+                      alt={shot.caption}
+                      width={1200}
+                      height={675}
+                    />
+                    <p className="image-caption" style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "var(--text-muted)" }}>
+                      <i className="bi bi-camera me-2" style={{ color: "var(--accent-gold)" }}></i>
+                      {shot.caption}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <div className="details-media-item media-pending" data-aos="fade-up" data-aos-delay="150">
+                  <i className="bi bi-images"></i>
+                  <span>Screenshot Archive Pending</span>
+                  <p>This project&apos;s visual breakdown is still being assembled — check back soon.</p>
                 </div>
-              ))}
+              )}
             </div>
 
             <aside className="details-info-panel">

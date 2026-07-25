@@ -15,9 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${project.title} | Tasif Hossain Emon`,
     description: project.hook,
-    openGraph: {
-      images: [project.heroImage],
-    },
+    openGraph: project.heroImage ? { images: [project.heroImage] } : undefined,
   };
 }
 

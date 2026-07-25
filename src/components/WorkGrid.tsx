@@ -4,6 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { projects } from "../data/projects";
 
+function categoryIcon(categories: string[]): string {
+  if (categories.includes("VFX")) return "bi-stars";
+  if (categories.includes("Level Design")) return "bi-map";
+  if (categories.includes("Mobile")) return "bi-phone";
+  if (categories.includes("Procedural")) return "bi-cpu";
+  if (categories.includes("Mechanics")) return "bi-controller";
+  return "bi-joystick";
+}
+
 export function WorkGrid() {
   const categories = useMemo(() => {
     const all = new Set<string>();
@@ -50,22 +59,31 @@ export function WorkGrid() {
                 href={`/work/${project.slug}`}
                 className={`project-media-container ${project.demoGif ? "has-gif" : ""}`}
               >
-                <Image
-                  src={project.heroImage}
-                  alt={project.title}
-                  fill
-                  className="static-img"
-                  style={{ objectFit: "cover" }}
-                />
-                {project.demoGif && (
-                  <Image
-                    src={project.demoGif}
-                    alt={`${project.title} gameplay preview`}
-                    fill
-                    className="gif-img"
-                    style={{ objectFit: "cover" }}
-                    unoptimized
-                  />
+                {project.heroImage ? (
+                  <>
+                    <Image
+                      src={project.heroImage}
+                      alt={project.title}
+                      fill
+                      className="static-img"
+                      style={{ objectFit: "cover" }}
+                    />
+                    {project.demoGif && (
+                      <Image
+                        src={project.demoGif}
+                        alt={`${project.title} gameplay preview`}
+                        fill
+                        className="gif-img"
+                        style={{ objectFit: "cover" }}
+                        unoptimized
+                      />
+                    )}
+                  </>
+                ) : (
+                  <div className="media-pending">
+                    <i className={`bi ${categoryIcon(project.category)}`}></i>
+                    <span>Media Archive Pending</span>
+                  </div>
                 )}
                 <span className="project-status-badge">{project.status}</span>
               </Link>

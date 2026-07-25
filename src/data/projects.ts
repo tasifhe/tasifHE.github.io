@@ -3,7 +3,7 @@ export type Project = {
   title: string;
   category: string[];
   status: "Completed" | "In Progress";
-  heroImage: string;
+  heroImage?: string;
   demoGif?: string;
   hook: string;
   problem: string;
@@ -99,7 +99,8 @@ export const projects: Project[] = [
     screenshots: [
       { src: "/assets/img/PGWF/PGW_2_FOREST(2)-min.webp", caption: "Poisson Disk Sampling ensuring organic spacing between canopy trees." },
       { src: "/assets/img/PGWF/PGW_2_FOREST(3)-min.webp", caption: "Slope-based terrain masking preventing flora generation on steep cliffs." },
-      { src: "/assets/img/PGWF/PGW_2_FOREST(4)-min.webp", caption: "GPU-instanced grass rendering holding high performance across large fields." }
+      { src: "/assets/img/PGWF/PGW_2_FOREST(4)-min.webp", caption: "GPU-instanced grass rendering holding high performance across large fields." },
+      { src: "/assets/img/Screenshot 2025-02-04 022124.webp", caption: "Dense canopy distribution viewed from a low flythrough angle in-editor." }
     ],
     heroImage: "/assets/img/PGWF/PGW_2_FOREST_(1)-min.webp",
     demoGif: "/assets/img/PGWF/PGW_Forest_GIF.gif",
@@ -126,22 +127,97 @@ export const projects: Project[] = [
   },
   {
     slug: "pcp",
-    title: "Procedural City Prototype",
-    category: ["3D", "Procedural", "Tools"],
+    title: "Project Crack Platoon",
+    category: ["3D", "Mechanics", "Systems"],
     status: "In Progress",
-    hook: "A grid-based generation toolkit for spawning complex urban environments algorithmically.",
-    problem: "Urban environments require rigid structural rules (roads, zoning, building footprints) unlike organic terrain. Needed a deterministic grid-based layout algorithm.",
-    approach: "Implemented a modified Wave Function Collapse (WFC) algorithm and L-Systems to generate road networks first, then subdivide blocks into logical parcels for modular building prefab instantiation.",
-    techStack: ["Unity", "C#", "Wave Function Collapse", "L-Systems"],
-    studioOrClient: { label: "Studio", name: "GRANDFLEET" },
+    hook: "A hardcore, stealth-based tactical shooter — a spiritual successor to Project IGI — where Tier 1 operators infiltrate hostile territory through strategic Co-Op and PvP missions.",
+    problem: "Wanted a tactical shooter that rewards patience and precision over run-and-gun play, where advanced AI, gadgets, and reading the terrain matter more than reflexes alone.",
+    approach: "Designing strategy-driven infiltration missions against advanced AI opponents, gadget-based problem solving (night vision, thermal vision, armor plating, gas masks), and cooperative multiplayer built around coordination under pressure.",
+    techStack: ["Unity", "C#", "AI Systems", "Multiplayer Networking"],
+    studioOrClient: { label: "Studio", name: "Ghost Interactive" },
     completionDate: "Ongoing",
     duration: "In Development",
-    role: "Systems Architect",
+    role: "Lead Game Designer",
     screenshots: [
-      { src: "/assets/img/PCP/PCP_SS2.webp", caption: "L-System road network generation outlining major arterial paths." },
-      { src: "/assets/img/PCP/PCP_SS3.webp", caption: "Block subdivision logic parsing valid building parcels." },
-      { src: "/assets/img/PCP/PCP_SS4.webp", caption: "Modular building generation populating the final grid." }
+      { src: "/assets/img/PCP/PCP_SS2.webp", caption: "A gated checkpoint bridge blocking the approach to a fortified compound." },
+      { src: "/assets/img/PCP/PCP_SS3.webp", caption: "Perimeter approach along a forested compound wall during a night infiltration." },
+      { src: "/assets/img/PCP/PCP_SS4.webp", caption: "Aerial view of an industrial facility objective, with the AI navigation mesh visible for patrol routing." }
     ],
     heroImage: "/assets/img/PCP/PCP_SS1.webp",
+  },
+  {
+    slug: "protocol-zero",
+    title: "Protocol Zero",
+    category: ["3D", "Mechanics", "Systems"],
+    status: "In Progress",
+    hook: "A hardcore, realism-driven survival game set in a post-apocalyptic Europe after a global nuclear catastrophe, where every decision between violence and mercy shapes your fate.",
+    problem: "Wanted survival stakes that felt real — not just a hunger bar, but radiation, temperature, and stamina all compounding against you while mutated creatures and rival factions hunt the same scraps you need to live.",
+    approach: "Building layered survival systems (hunger, radiation exposure, temperature, stamina) alongside tactical combat against mutated creatures and human factions, with scavenging and crafting systems for adapting to the environment.",
+    techStack: ["Unity", "C#", "Systems Design"],
+    studioOrClient: { label: "Studio", name: "Ghost Interactive" },
+    completionDate: "Coming Soon",
+    duration: "In Development",
+    role: "Lead Game Designer",
+    screenshots: [],
+  },
+  {
+    slug: "realtime-traffic-system",
+    title: "Realtime Traffic System",
+    category: ["3D", "Procedural", "Systems"],
+    status: "Completed",
+    hook: "A real-time vehicle traffic simulation built as a university systems project, with AI-driven pathfinding and intersection logic.",
+    problem: "Needed believable, self-regulating traffic flow for a simulated road network without hand-scripting every vehicle's route.",
+    approach: "Implemented AI-driven vehicle pathfinding with intersection and right-of-way logic, spawning and routing traffic in real time across a procedurally laid-out road network.",
+    techStack: ["Unity", "C#", "AI Pathfinding"],
+    studioOrClient: { label: "Studio", name: "Shanto-Mariam University of Creative Technology" },
+    completionDate: "2023",
+    duration: "University Project",
+    role: "Systems Programmer",
+    screenshots: [],
+  },
+  {
+    slug: "stormfly-ascent",
+    title: "Stormfly Ascent",
+    category: ["2D", "Mobile", "Mechanics"],
+    status: "Completed",
+    hook: "A mobile endless runner starring a storm-battered bird you steer through the sky, one wingbeat at a time.",
+    problem: "Wanted a tight, one-touch mobile control scheme that stayed skill-expressive over long endless-runner sessions instead of going flat and repetitive.",
+    approach: "Built a physics-driven flight controller around simple tap/hold input, with procedurally spawned obstacle patterns to keep runs unpredictable run after run.",
+    techStack: ["Unity", "C#", "Mobile"],
+    studioOrClient: { label: "Studio", name: "Personal Project" },
+    completionDate: "2022",
+    duration: "Personal Project",
+    role: "Solo Developer",
+    screenshots: [],
+  },
+  {
+    slug: "greybox-vertical-slice",
+    title: "Greybox: Vertical Slice",
+    category: ["3D", "Level Design", "Tools"],
+    status: "Completed",
+    hook: "A level design practice pass — blockout, pacing, and encounter placement for a single vertical-slice environment.",
+    problem: "Wanted deliberate practice at spatial storytelling and pacing outside of a production pipeline, where every layout choice is mine to make and critique.",
+    approach: "Greyboxed a full level from blockout through a lighting pass, iterating on sightlines, encounter pacing, and player guidance using landmarking and light.",
+    techStack: ["Unity", "Level Design", "Lighting"],
+    studioOrClient: { label: "Studio", name: "Personal Project" },
+    completionDate: "2023",
+    duration: "Personal Project",
+    role: "Level Designer",
+    screenshots: [],
+  },
+  {
+    slug: "vfx-particle-study",
+    title: "VFX & Particle Study",
+    category: ["VFX", "Procedural", "Tools"],
+    status: "Completed",
+    hook: "A series of shader and particle-system studies — fire, magic, and impact effects built to sharpen real-time VFX skills.",
+    problem: "Wanted hands-on reps with real-time VFX — juice and visual feedback are as much a design tool as a mechanic, and worth owning rather than outsourcing to asset packs.",
+    approach: "Built a set of particle and shader effects (impacts, magic casts, environmental ambience) using Unity's Shader Graph and VFX Graph, focused on readability and game feel.",
+    techStack: ["Unity", "Shader Graph", "VFX Graph"],
+    studioOrClient: { label: "Studio", name: "Personal Project" },
+    completionDate: "2023",
+    duration: "Personal Project",
+    role: "VFX Artist",
+    screenshots: [],
   }
 ];
