@@ -142,7 +142,7 @@ const PROJECTS_DATA = {
     },
     metrics: [
       { value: '4', label: 'Squad Size' },
-      { value: '10+', label: 'Missions' },
+      { value: '10+', label: 'Operations' },
       { value: 'Co-op', label: 'Mode' }
     ],
     links: {

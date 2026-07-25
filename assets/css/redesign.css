@@ -1450,3 +1450,31 @@ footer.redesign-footer {
 .portfolio-page .image-caption h5 {
   color: var(--accent-gold, #D4AF37);
 }
+
+/* ── 17. MOBILE RESPONSIVENESS (TIMELINE) ────────────────────────────── */
+@media (max-width: 768px) {
+  .branching-timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-branch-item {
+    width: 100%;
+    padding: 0 0 2.5rem 50px;
+  }
+  
+  .timeline-branch-item.left,
+  .timeline-branch-item.right {
+    left: 0;
+    text-align: left;
+  }
+  
+  .timeline-branch-item.left .branch-node-icon,
+  .timeline-branch-item.right .branch-node-icon {
+    left: -2px; /* Adjust based on before::left which is 20px, icon is 44px (20 - 22 = -2px) */
+    right: auto;
+  }
+  
+  .timeline-branch-item.left .role-bullets {
+    text-align: left;
+  }
+}
