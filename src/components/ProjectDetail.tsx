@@ -6,130 +6,93 @@ import { Project } from "../data/projects";
 export function ProjectDetail({ project }: { project: Project }) {
   return (
     <main className="main portfolio-page">
-      {/* Detail Hero Section */}
-      <section className="portfolio-hero section-padding">
+      <section className="portfolio-details-hero">
         <div className="container" data-aos="fade-up">
-          <div className="row justify-content-center">
-            <div className="col-lg-10 text-center">
-              <div className="game-breadcrumb">
-                <Link href="/">HOME</Link>
-                <i className="bi bi-chevron-right mx-2"></i>
-                <Link href="/#work">ARCHIVES</Link>
-                <i className="bi bi-chevron-right mx-2"></i>
-                <span className="active">
-                  <i className="bi bi-folder2-open me-2"></i>
-                  {project.slug.toUpperCase()}
-                </span>
-              </div>
-              <h1 className="display-4 fw-bold mb-4" style={{ fontFamily: "monospace" }}>
-                {project.title}
-              </h1>
-              <p className="lead" style={{ color: "var(--accent-gold)", maxWidth: "800px", margin: "0 auto" }}>
-                {project.hook}
-              </p>
-            </div>
-          </div>
+          <Link href="/#work" className="back-link">
+            <i className="bi bi-arrow-left"></i> Back to Archives
+          </Link>
+          <div className="details-category-badge">{project.category.join(" / ")}</div>
+          <h1 className="details-title">{project.title}</h1>
+          <p className="lead" style={{ color: "var(--accent-gold)", maxWidth: "800px" }}>
+            {project.hook}
+          </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="portfolio-details section-padding pt-0">
+      <section className="section-padding pt-0">
         <div className="container" data-aos="fade-up" data-aos-delay="100">
-          <div className="row gy-5">
-            {/* Left Column: Visuals & Tech */}
-            <div className="col-lg-8">
+          <div className="details-grid">
+            <div className="details-media-gallery">
               {project.screenshots.map((shot, idx) => (
-                <div key={idx} className="mb-5" data-aos="fade-up" data-aos-delay={200 + (idx * 100)}>
-                  <div className="image-frame" style={{ border: "1px solid var(--border-color)", padding: "4px", borderRadius: "8px", background: "var(--bg-secondary)" }}>
-                    <Image 
-                      src={shot.src} 
-                      alt={shot.caption} 
-                      width={1200} 
-                      height={675} 
-                      className="img-fluid rounded"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                  <div className="image-caption mt-3">
-                    <p style={{ fontFamily: "monospace", color: "#94a3b8", fontSize: "0.9rem" }}>
-                      <i className="bi bi-camera me-2 text-warning"></i> 
-                      {shot.caption}
-                    </p>
-                  </div>
+                <div key={idx} className="details-media-item" data-aos="fade-up" data-aos-delay={150 + idx * 100}>
+                  <Image
+                    src={shot.src}
+                    alt={shot.caption}
+                    width={1200}
+                    height={675}
+                  />
+                  <p className="image-caption" style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "var(--text-muted)" }}>
+                    <i className="bi bi-camera me-2" style={{ color: "var(--accent-gold)" }}></i>
+                    {shot.caption}
+                  </p>
                 </div>
               ))}
             </div>
 
-            {/* Right Column: Specs & Deep Dive */}
-            <div className="col-lg-4">
-              <div className="game-info-panel p-4 rounded mb-5 sticky-top" style={{ top: "100px", background: "var(--bg-secondary)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                
-                {/* Meta Data */}
-                <div className="panel-section mb-4 pb-4 border-bottom border-secondary">
-                  <h3 className="h5 mb-4" style={{ color: "var(--accent-gold)" }}><i className="bi bi-cpu me-2"></i> SYSTEM DATA</h3>
-                  <ul className="list-unstyled" style={{ fontSize: "0.95rem" }}>
-                    <li className="mb-3">
-                      <strong className="d-block text-secondary text-uppercase mb-1" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>{project.studioOrClient.label}</strong>
-                      {project.studioOrClient.name}
-                    </li>
-                    <li className="mb-3">
-                      <strong className="d-block text-secondary text-uppercase mb-1" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>Date</strong>
-                      {project.completionDate}
-                    </li>
-                    <li className="mb-3">
-                      <strong className="d-block text-secondary text-uppercase mb-1" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>Duration</strong>
-                      {project.duration}
-                    </li>
-                    <li>
-                      <strong className="d-block text-secondary text-uppercase mb-1" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>Role</strong>
-                      {project.role}
-                    </li>
-                  </ul>
+            <aside className="details-info-panel">
+              <h3 className="info-panel-title"><i className="bi bi-cpu me-2"></i>System Data</h3>
+              <div className="info-meta-group">
+                <span className="info-meta-label">{project.studioOrClient.label}</span>
+                <span className="info-meta-value">{project.studioOrClient.name}</span>
+              </div>
+              <div className="info-meta-group">
+                <span className="info-meta-label">Date</span>
+                <span className="info-meta-value">{project.completionDate}</span>
+              </div>
+              <div className="info-meta-group">
+                <span className="info-meta-label">Duration</span>
+                <span className="info-meta-value">{project.duration}</span>
+              </div>
+              <div className="info-meta-group">
+                <span className="info-meta-label">Role</span>
+                <span className="info-meta-value">{project.role}</span>
+              </div>
+
+              <h3 className="info-panel-title" style={{ marginTop: "2rem" }}>
+                <i className="bi bi-journal-code me-2"></i>Implementation
+              </h3>
+              <div className="info-meta-group">
+                <span className="info-meta-label">The Problem</span>
+                <p className="bio-text" style={{ fontSize: "0.9rem", marginTop: "0.35rem" }}>{project.problem}</p>
+              </div>
+              <div className="info-meta-group">
+                <span className="info-meta-label">The Approach</span>
+                <p className="bio-text" style={{ fontSize: "0.9rem", marginTop: "0.35rem" }}>{project.approach}</p>
+              </div>
+              {project.results && (
+                <div className="info-meta-group">
+                  <span className="info-meta-label">Results</span>
+                  <p className="bio-text" style={{ fontSize: "0.9rem", marginTop: "0.35rem" }}>{project.results}</p>
                 </div>
+              )}
 
-                {/* Deep Dive Copy */}
-                <div className="panel-section">
-                  <h3 className="h5 mb-4" style={{ color: "var(--accent-gold)" }}><i className="bi bi-journal-code me-2"></i> IMPLEMENTATION</h3>
-                  
-                  <div className="mb-4">
-                    <h4 className="h6 text-white mb-2">The Problem</h4>
-                    <p className="text-secondary" style={{ fontSize: "0.9rem", lineHeight: "1.6" }}>{project.problem}</p>
-                  </div>
-
-                  <div className="mb-4">
-                    <h4 className="h6 text-white mb-2">The Approach</h4>
-                    <p className="text-secondary" style={{ fontSize: "0.9rem", lineHeight: "1.6" }}>{project.approach}</p>
-                  </div>
-
-                  {project.results && (
-                    <div className="mb-4">
-                      <h4 className="h6 text-white mb-2">Results</h4>
-                      <p className="text-secondary" style={{ fontSize: "0.9rem", lineHeight: "1.6" }}>{project.results}</p>
-                    </div>
-                  )}
-
-                  <div className="mt-4 pt-4 border-top border-secondary">
-                    <h4 className="h6 text-white mb-3">Tech Stack</h4>
-                    <div className="d-flex flex-wrap gap-2">
-                      {project.techStack.map(tech => (
-                        <span key={tech} className="badge bg-dark border border-secondary text-light px-2 py-1">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+              <div className="info-meta-group">
+                <span className="info-meta-label">Tech Stack</span>
+                <div className="project-tech-pills" style={{ marginTop: "0.5rem" }}>
+                  {project.techStack.map((tech) => (
+                    <span key={tech} className="tech-tag">{tech}</span>
+                  ))}
                 </div>
               </div>
-            </div>
+            </aside>
           </div>
-        </div>
 
-        {/* Global CTA */}
-        <div className="container mt-5 pt-5 border-top border-secondary text-center" data-aos="fade-up">
-          <h3 className="mb-4">Interested in a system like this for your project?</h3>
-          <Link href="/#contact" className="btn game-button primary large px-5 py-3">
-            <i className="bi bi-envelope me-2"></i> GET IN TOUCH
-          </Link>
+          <div className="text-center" style={{ marginTop: "4rem", paddingTop: "3rem", borderTop: "1px solid var(--border-color)" }}>
+            <h3 className="section-title" style={{ marginBottom: "1.5rem" }}>Interested in a system like this for your project?</h3>
+            <Link href="/#contact" className="btn-primary-gold">
+              <i className="bi bi-envelope"></i> Get In Touch
+            </Link>
+          </div>
         </div>
       </section>
     </main>

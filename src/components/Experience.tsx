@@ -6,7 +6,8 @@ export function Experience() {
     <section id="experience" className="section-padding" style={{ background: "var(--bg-secondary)" }}>
       <div className="container" data-aos="fade-up">
         <div className="section-header">
-          <h2>SERVICE HISTORY</h2>
+          <div className="section-subtitle">Career</div>
+          <h2 className="section-title">Service History</h2>
         </div>
         <div className="branching-timeline">
           {experienceList.map((exp, index) => (
@@ -16,11 +17,11 @@ export function Experience() {
               data-aos={exp.alignment === "left" ? "fade-right" : "fade-left"} 
               data-aos-delay={100 * (index + 1)}
             >
-              <div className="branch-content">
+              <div className="branch-card">
                 <div className="branch-header">
-                  <h3>{exp.role}</h3>
-                  <h4>{exp.company}</h4>
-                  <span className="branch-date">{exp.period}</span>
+                  <h3 className="branch-role">{exp.role}</h3>
+                  <span className="branch-company">{exp.company}</span>
+                  <span className="branch-period">{exp.period}</span>
                 </div>
                 <ul className="role-bullets">
                   {exp.bullets.map((bullet, i) => (

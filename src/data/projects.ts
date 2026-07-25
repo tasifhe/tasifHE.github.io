@@ -4,7 +4,7 @@ export type Project = {
   category: string[];
   status: "Completed" | "In Progress";
   heroImage: string;
-  demoGif: string;
+  demoGif?: string;
   hook: string;
   problem: string;
   approach: string;
@@ -33,9 +33,8 @@ export const projects: Project[] = [
     duration: "1 Month",
     role: "Lead Developer",
     screenshots: [
-      { src: "/assets/img/PGW/PGW_SS1_3.jpg", caption: "Chunk boundary streaming during continuous player traversal." },
-      { src: "/assets/img/PGW/PGW_SS2_3.jpg", caption: "Compute-shader density field calculations rendering in real-time." },
-      { src: "/assets/img/PGW/PGW_SS3_3.jpg", caption: "Simplex noise overlaid for biome parameter injection." }
+      { src: "/assets/img/PGW/PGW_SS1 (2).jpg", caption: "Chunk boundary streaming during continuous player traversal." },
+      { src: "/assets/img/PGW/PGW_SS1 (3).jpg", caption: "Compute-shader density field calculations rendering in real-time." }
     ],
     heroImage: "/assets/img/PGW/PGW_Infinite.webp",
     demoGif: "/assets/img/PGW/PGWmin_GIF.gif",
@@ -55,12 +54,12 @@ export const projects: Project[] = [
     duration: "2 Months",
     role: "Lead Game Designer",
     screenshots: [
-      { src: "/assets/img/rawwar/rawwar_1.png", caption: "Typing buffer actively parsing real-time string inputs during combat." },
-      { src: "/assets/img/rawwar/rawwar_2.png", caption: "Visual feedback system triggering animation states on successful keystrokes." },
-      { src: "/assets/img/rawwar/rawwar_3.png", caption: "Combo multiplier scaling based on sustained typing accuracy." }
+      { src: "/assets/img/RAWWAR/RAWWAR_PLAYGROUND.webp", caption: "Open playground arena used to test typing-driven combat encounters." },
+      { src: "/assets/img/RAWWAR/RAWWAR_PLAYGROUND3.webp", caption: "Visual feedback system triggering animation states on successful keystrokes." },
+      { src: "/assets/img/RAWWAR/ProjectRawWar.webp", caption: "Key art for Project RAWWAR." }
     ],
-    heroImage: "/assets/img/rawwar/rawwar_hero.jpg",
-    demoGif: "/assets/img/rawwar/rawwar_gameplay.gif",
+    heroImage: "/assets/img/RAWWAR/RAWWAR_MAINMENU.webp",
+    demoGif: "/assets/img/RAWWAR/RawWar_GIF.gif",
   },
   {
     slug: "tpc",
@@ -77,12 +76,11 @@ export const projects: Project[] = [
     duration: "1.5 Months",
     role: "Gameplay Programmer",
     screenshots: [
-      { src: "/assets/img/tpc/tpc_1.png", caption: "IK foot placement system adapting to uneven terrain geometry." },
-      { src: "/assets/img/tpc/tpc_2.png", caption: "Animation blend tree managing seamless transitions between locomotion states." },
-      { src: "/assets/img/tpc/tpc_3.png", caption: "Custom camera collision raycasting for dynamic obstacle occlusion." }
+      { src: "/assets/img/SMTPCC/TP_Player_Controller(1).webp", caption: "IK foot placement system adapting to uneven terrain geometry." },
+      { src: "/assets/img/SMTPCC/TP_Player_Controller(2).webp", caption: "Animation blend tree managing seamless transitions between locomotion states." },
+      { src: "/assets/img/SMTPCC/TP_Player_Controller(3).webp", caption: "Custom camera collision raycasting for dynamic obstacle occlusion." }
     ],
-    heroImage: "/assets/img/tpc/tpc_hero.jpg",
-    demoGif: "/assets/img/tpc/tpc_locomotion.gif",
+    heroImage: "/assets/img/SMTPCC/TP_Player_Controller.webp",
   },
   {
     slug: "pgw-forest",
@@ -99,12 +97,12 @@ export const projects: Project[] = [
     duration: "3 Weeks",
     role: "Tools Programmer",
     screenshots: [
-      { src: "/assets/img/forest/forest_1.jpg", caption: "Poisson Disk Sampling ensuring organic spacing between canopy trees." },
-      { src: "/assets/img/forest/forest_2.jpg", caption: "Slope-based terrain masking preventing flora generation on steep cliffs." },
-      { src: "/assets/img/forest/forest_3.jpg", caption: "GPU-instanced grass rendering holding high performance across large fields." }
+      { src: "/assets/img/PGWF/PGW_2_FOREST(2)-min.webp", caption: "Poisson Disk Sampling ensuring organic spacing between canopy trees." },
+      { src: "/assets/img/PGWF/PGW_2_FOREST(3)-min.webp", caption: "Slope-based terrain masking preventing flora generation on steep cliffs." },
+      { src: "/assets/img/PGWF/PGW_2_FOREST(4)-min.webp", caption: "GPU-instanced grass rendering holding high performance across large fields." }
     ],
-    heroImage: "/assets/img/forest/forest_hero.webp",
-    demoGif: "/assets/img/forest/forest_flythrough.gif",
+    heroImage: "/assets/img/PGWF/PGW_2_FOREST_(1)-min.webp",
+    demoGif: "/assets/img/PGWF/PGW_Forest_GIF.gif",
   },
   {
     slug: "drawnscape",
@@ -120,12 +118,11 @@ export const projects: Project[] = [
     duration: "1 Month",
     role: "Lead Developer",
     screenshots: [
-      { src: "/assets/img/drawnscape/ds_1.png", caption: "Real-time conversion of screen-space strokes into 2D mesh colliders." },
-      { src: "/assets/img/drawnscape/ds_2.png", caption: "Dynamic physics interactions between player rigidbodies and generated lines." },
-      { src: "/assets/img/drawnscape/ds_3.png", caption: "Edge simplification algorithm actively reducing collider complexity." }
+      { src: "/assets/img/Drawnscape/FeatureGraphic.webp", caption: "Real-time conversion of screen-space strokes into 2D mesh colliders." },
+      { src: "/assets/img/Drawnscape/FeatureGraphic2.webp", caption: "Dynamic physics interactions between player rigidbodies and generated lines." },
+      { src: "/assets/img/Drawnscape/FeatureGraphic_3.webp", caption: "Edge simplification algorithm actively reducing collider complexity." }
     ],
-    heroImage: "/assets/img/drawnscape/ds_hero.jpg",
-    demoGif: "/assets/img/drawnscape/ds_gameplay.gif",
+    heroImage: "/assets/img/Drawnscape/Drawnscape_Front_IMG.webp",
   },
   {
     slug: "pcp",
@@ -141,11 +138,10 @@ export const projects: Project[] = [
     duration: "In Development",
     role: "Systems Architect",
     screenshots: [
-      { src: "/assets/img/pcp/pcp_1.jpg", caption: "L-System road network generation outlining major arterial paths." },
-      { src: "/assets/img/pcp/pcp_2.jpg", caption: "Block subdivision logic parsing valid building parcels." },
-      { src: "/assets/img/pcp/pcp_3.jpg", caption: "Modular building generation populating the final grid." }
+      { src: "/assets/img/PCP/PCP_SS2.webp", caption: "L-System road network generation outlining major arterial paths." },
+      { src: "/assets/img/PCP/PCP_SS3.webp", caption: "Block subdivision logic parsing valid building parcels." },
+      { src: "/assets/img/PCP/PCP_SS4.webp", caption: "Modular building generation populating the final grid." }
     ],
-    heroImage: "/assets/img/pcp/pcp_hero.jpg",
-    demoGif: "/assets/img/pcp/pcp_generation.gif",
+    heroImage: "/assets/img/PCP/PCP_SS1.webp",
   }
 ];

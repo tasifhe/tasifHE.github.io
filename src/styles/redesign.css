@@ -23,9 +23,7 @@
   --text-secondary: #94A3B8;
   --text-muted: #64748B;
 
-  /* Typography */
-  --font-heading: 'Bebas Neue', display, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Typography: --font-heading / --font-body are supplied by next/font in layout.tsx */
 
   /* Layout & Transitions */
   --radius-sm: 4px;
@@ -183,7 +181,7 @@ a:hover {
   padding: 8rem 0 4rem;
   background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
               linear-gradient(180deg, rgba(13, 15, 18, 0.4) 0%, rgba(13, 15, 18, 0.95) 100%),
-              url('../img/CoverBG3.webp') center/cover no-repeat;
+              url('/assets/img/CoverBG3.webp') center/cover no-repeat;
   overflow: hidden;
 }
 

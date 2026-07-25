@@ -1,11 +1,31 @@
 import type { Metadata } from "next";
+import { Bebas_Neue, Inter } from "next/font/google";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
+import { AosInit } from "../components/AosInit";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "../styles/redesign.css";
 import "./globals.css"; // We will put minimal overrides here
 
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Tasif Hossain Emon | Game Designer & Developer",
-  description: "Portfolio of Tasif Hossain Emon, Lead Game Designer & Unity Developer specializing in procedural generation, systems, and tools.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: "Tasif Hossain Emon | Game Developer & Level Designer",
+  description: "Portfolio of Tasif Hossain Emon, Game Developer & Level Designer specializing in procedural generation, systems, and tools.",
 };
 
 export default function RootLayout({
@@ -14,27 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        
-        <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-        <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-        <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-        <link href="/assets/css/redesign.css" rel="stylesheet" />
-      </head>
+    <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
       <body className="index-page">
+        <AosInit />
         <Nav />
         {children}
         <Footer />
-        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" async></script>
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" async></script>
-        <script src="/assets/js/main.js" async></script>
       </body>
     </html>
   );

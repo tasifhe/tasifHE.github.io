@@ -11,54 +11,71 @@ export type Experience = {
 export const experienceList: Experience[] = [
   {
     id: "grandfleet",
-    role: "Lead Game Designer & Unity Developer",
+    role: "Co-founder & Lead Level Designer",
     company: "GRANDFLEET",
-    period: "2023 - PRESENT",
+    period: "January 2020 - Present",
     alignment: "left",
-    icon: "bi-controller",
+    icon: "bi-rocket",
     bullets: [
-      "Engineered a multithreaded terrain chunking system, eliminating load stutters across 50km² open-world environments.",
-      "Architected custom editor toolkits for level designers, reducing environment population time by ~40%.",
-      "Designed and implemented a compute-shader density generation pipeline for real-time procedural worlds."
+      "Established and executed company vision and strategic direction as co-founder.",
+      "Oversee the design and implementation of game levels, mentoring the level design team.",
+      "Lead development of new level concepts and prototypes.",
+      "Cultivate partnerships and maintain stakeholder relationships."
     ]
   },
   {
     id: "ghost",
-    role: "Gameplay Programmer",
+    role: "Lead Game Designer",
     company: "Ghost Interactive",
-    period: "2022 - 2023",
+    period: "July 2024 - Present",
     alignment: "right",
-    icon: "bi-braces",
+    icon: "bi-controller",
     bullets: [
-      "Built a state-machine driven kinematic character controller with seamless animation blending and IK foot placement.",
-      "Optimized draw calls by ~30% through strict GPU instancing and aggressive occlusion culling strategies.",
-      "Developed an event-driven quest tracking framework used across 40+ unique missions."
+      "Develop game concepts and vision, creating and maintaining design documents.",
+      "Balance and tune game mechanics across the project.",
+      "Coordinate internal and external teams to manage timelines and deliverables.",
+      "Drive innovation in game design processes."
     ]
   },
   {
-    id: "apex",
-    role: "Level Designer",
-    company: "Apex Studios",
-    period: "2021 - 2022",
+    id: "riseup",
+    role: "Game Designer",
+    company: "RiseUp Labs",
+    period: "September 2023 - June 2024",
     alignment: "left",
-    icon: "bi-layers",
+    icon: "bi-lightbulb",
     bullets: [
-      "Constructed multi-layered urban environments emphasizing verticality and fluid traversal mechanics.",
-      "Balanced combat encounters using custom heat-map analytics tools to track player death and choke points.",
-      "Collaborated with environment artists to establish clear visual language and navigational affordances."
+      "Contributed to level design and game balancing across active production titles.",
+      "Collaborated with the design team to refine mechanics based on playtesting feedback.",
+      "Supported cross-department coordination on level implementation."
+    ]
+  },
+  {
+    id: "qp",
+    role: "Lead Level Designer",
+    company: "QP Studios",
+    period: "March 2023 - February 2024",
+    alignment: "right",
+    icon: "bi-map",
+    bullets: [
+      "Oversaw design and implementation of game levels, mentoring the level design team.",
+      "Set and enforced level design standards and practices.",
+      "Analyzed playtesting feedback to refine levels and optimize workflows.",
+      "Coordinated with other departments to integrate level components."
     ]
   },
   {
     id: "utopia",
-    role: "Unity Developer Intern",
-    company: "Utopia Tech",
-    period: "2021",
-    alignment: "right",
-    icon: "bi-terminal",
+    role: "Senior Developer & Level Designer",
+    company: "Utopia (France)",
+    period: "September 2021 - March 2022",
+    alignment: "left",
+    icon: "bi-code-slash",
     bullets: [
-      "Prototyped core mechanics for mobile AR titles using ARFoundation.",
-      "Wrote Editor scripts to automate repetitive prefab setup tasks.",
-      "Assisted in profiling memory allocations and resolving mobile performance bottlenecks."
+      "Designed, created, and balanced interactive game levels using Unity's Terrain Editor.",
+      "Collaborated with art and design teams to align level design with aesthetic and gameplay goals.",
+      "Implemented NPC behaviors and AI pathfinding to enhance gameplay dynamics.",
+      "Programmed core gameplay mechanics and interactive elements in C#."
     ]
   }
 ];
