@@ -167,18 +167,28 @@
   }
 
   /**
-  /**
-   * Hide preloader on load
+   * Load Events (AOS, Preloader, Particles)
    */
   window.addEventListener('load', () => {
-    aos_init();
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    }
+    
     const preloader = document.getElementById('preloader');
     if (preloader) {
       setTimeout(() => {
         preloader.classList.add('hidden');
       }, 350);
     }
-    initHeroParticles();
+    
+    if (typeof initHeroParticles === 'function') {
+      initHeroParticles();
+    }
   });
 
   /**
