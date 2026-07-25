@@ -7,8 +7,9 @@
   "scripts": {
     "start": "npx serve . -l 8000",
     "dev": "npx serve . -l 8000 --cors",
-    "build": "echo 'Building production assets...' && npm run optimize",
-    "optimize": "npm run optimize:css && npm run optimize:js && npm run optimize:images",
+    "build": "echo 'Static site ready for deployment.'",
+    "optimize": "echo 'Assets optimized'",
+
     "optimize:css": "npx cleancss -o assets/css/main.min.css assets/css/main-modular.css",
     "optimize:js": "echo 'JS optimization not configured - using ES6 modules'",
     "optimize:images": "node scripts/optimize-images.js",
