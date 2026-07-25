@@ -9,11 +9,11 @@
     "dev": "npx serve . -l 8000 --cors",
     "build": "echo 'Building production assets...' && npm run optimize",
     "optimize": "npm run optimize:css && npm run optimize:js && npm run optimize:images",
-    "optimize:css": "echo 'CSS optimization not configured - using static files'",
+    "optimize:css": "npx cleancss -o assets/css/main.min.css assets/css/main-modular.css",
     "optimize:js": "echo 'JS optimization not configured - using ES6 modules'",
-    "optimize:images": "echo 'Image optimization not configured'",
+    "optimize:images": "node scripts/optimize-images.js",
     "test": "npm run test:html && npm run test:css && npm run test:js && npm run test:accessibility",
-    "test:html": "npx html-validate index-modular.html",
+    "test:html": "npx html-validate index.html",
     "test:css": "npx stylelint 'assets/css/**/*.css'",
     "test:js": "npx eslint 'assets/js/**/*.js'",
     "test:accessibility": "npx axe-cli http://localhost:8000",
@@ -21,7 +21,7 @@
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "npx stylelint 'assets/css/**/*.css' --fix",
     "lint:js": "npx eslint 'assets/js/**/*.js' --fix",
-    "validate": "npx html-validate index-modular.html && echo 'HTML validation passed'",
+    "validate": "npx html-validate index.html && echo 'HTML validation passed'",
     "analyze": "npx lighthouse http://localhost:8000 --output json --output-path ./lighthouse-report.json",
     "deploy": "echo 'Deploying to GitHub Pages...' && git add . && git commit -m 'Deploy updates' && git push origin main",
     "clean": "echo 'Cleaning build artifacts...'",
@@ -65,19 +65,19 @@
   ],
   "devDependencies": {
     "@axe-core/cli": "^4.8.0",
+    "clean-css-cli": "^5.6.3",
     "eslint": "^8.50.0",
     "html-validate": "^8.5.0",
     "lighthouse": "^11.0.0",
     "serve": "^14.2.0",
+    "sharp": "^0.35.2",
     "stylelint": "^15.10.0",
     "stylelint-config-standard": "^34.0.0"
   },
-  "dependencies": {},
   "optionalDependencies": {
-    "sharp": "^0.32.0",
+    "cssnano": "^6.0.0",
     "imagemin": "^8.0.0",
-    "terser": "^5.20.0",
-    "cssnano": "^6.0.0"
+    "terser": "^5.20.0"
   },
   "config": {
     "port": 8000,

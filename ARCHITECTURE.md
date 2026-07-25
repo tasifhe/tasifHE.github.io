@@ -307,7 +307,7 @@ axe https://your-site.com
    ```
 
 2. **Development Server**
-   - Use `index-modular.html` for the new modular version
+   - Use `index.html` as the single entry point
    - Use browser dev tools for debugging
    - Enable debug mode in `config.js`
 
@@ -353,7 +353,7 @@ npm install -g parcel-bundler
 npm install -g webpack webpack-cli
 
 # Build for production
-parcel build index-modular.html
+parcel build index.html
 ```
 
 ### Optimization Checklist
@@ -444,7 +444,7 @@ export const CONFIG = {
    ```
 
 2. **Gradual Migration**
-   - Start with `index-modular.html`
+   - Start with `index.html` (current entry point)
    - Test each component
    - Update links and references
    - Maintain backwards compatibility

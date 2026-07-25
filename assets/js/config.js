@@ -8,7 +8,7 @@ export const CONFIG = {
   // Site Information
   site: {
     name: 'THE Portfolio',
-    version: '2.0.0',
+    version: '2.0.2',
     description: 'Professional Game Developer Portfolio',
     author: 'THE'
   },

@@ -1,9 +1,10 @@
 /**
-* Template Name: DevFolio
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* THE Portfolio - Main JavaScript
+* Author: Tasif Hossain Emon (THE)
+* Version: 2.0.2
+* Based on DevFolio template by BootstrapMade.com (https://bootstrapmade.com/license/)
+* Heavily customized with game-style UI, portfolio filter system,
+* EmailJS contact form, skill animations, and counter effects.
 */
 
 (function() {
@@ -718,71 +719,47 @@
   // Add this to your existing main.js file
 
   /**
-   * Enhanced Contact Form functionality
+   * Contact Form — EmailJS Integration
+   * -------------------------------------------------------
+   * Fill in your EmailJS credentials below to activate.
+   * 1. Sign up free at https://www.emailjs.com/
+   * 2. Create a service (Gmail, Outlook, etc.) → copy Service ID
+   * 3. Create an email template → copy Template ID
+   * 4. Go to Account → API Keys → copy your Public Key
+   * -------------------------------------------------------
    */
   function initContactForm() {
+    // ── EMAILJS CREDENTIALS (fill these in) ──────────────────
+    const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz456'
+    const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'aBcDeFgHiJkLmNoPq'
+    // ─────────────────────────────────────────────────────────
+
     const contactForm = document.querySelector('.game-contact-form');
-    
     if (!contactForm) return;
-    
+
     const loadingDiv = contactForm.querySelector('.loading');
-    const errorDiv = contactForm.querySelector('.error-message');
+    const errorDiv   = contactForm.querySelector('.error-message');
     const successDiv = contactForm.querySelector('.sent-message');
-    const submitBtn = contactForm.querySelector('.btn-transmit');
-    
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Show loading state
-      hideAllMessages();
-      loadingDiv.classList.add('show');
-      submitBtn.disabled = true;
-      
-      // Add particle effect to button
-      createButtonParticles(submitBtn);
-      
-      // Simulate form submission (replace with actual form handling)
-      setTimeout(() => {
-        loadingDiv.classList.remove('show');
-        
-        // Simulate success (in real implementation, check actual response)
-        const isSuccess = Math.random() > 0.1; // 90% success rate for demo
-        
-        if (isSuccess) {
-          successDiv.classList.add('show');
-          contactForm.reset();
-          
-          // Hide success message after 5 seconds
-          setTimeout(() => {
-            successDiv.classList.remove('show');
-          }, 5000);
-        } else {
-          errorDiv.classList.add('show');
-          
-          // Hide error message after 5 seconds
-          setTimeout(() => {
-            errorDiv.classList.remove('show');
-          }, 5000);
-        }
-        
-        submitBtn.disabled = false;
-      }, 2000);
-    });
-    
+    const submitBtn  = contactForm.querySelector('.btn-transmit');
+
+    // Check EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+      console.warn('EmailJS SDK not loaded. Contact form will not send emails.');
+    } else {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+
     function hideAllMessages() {
       loadingDiv.classList.remove('show');
       errorDiv.classList.remove('show');
       successDiv.classList.remove('show');
     }
-    
+
     function createButtonParticles(button) {
       const particlesContainer = button.querySelector('.btn-particles');
       if (!particlesContainer) return;
-      
-      // Clear existing particles
       particlesContainer.innerHTML = '';
-      
-      // Create particles
       for (let i = 0; i < 10; i++) {
         const particle = document.createElement('div');
         particle.style.cssText = `
@@ -798,15 +775,60 @@
           animation: buttonParticle 0.8s ease-out forwards;
           animation-delay: ${i * 0.1}s;
         `;
-        
         particlesContainer.appendChild(particle);
       }
-      
-      // Remove particles after animation
-      setTimeout(() => {
-        particlesContainer.innerHTML = '';
-      }, 1000);
+      setTimeout(() => { particlesContainer.innerHTML = ''; }, 1000);
     }
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      hideAllMessages();
+      loadingDiv.classList.add('show');
+      submitBtn.disabled = true;
+      createButtonParticles(submitBtn);
+
+      // Collect form data
+      const templateParams = {
+        from_name:    contactForm.querySelector('#name').value.trim(),
+        from_email:   contactForm.querySelector('#email').value.trim(),
+        subject:      contactForm.querySelector('#subject').value.trim(),
+        message:      contactForm.querySelector('#message').value.trim(),
+        reply_to:     contactForm.querySelector('#email').value.trim()
+      };
+
+      if (typeof emailjs === 'undefined' ||
+          EMAILJS_SERVICE_ID  === 'YOUR_SERVICE_ID' ||
+          EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' ||
+          EMAILJS_PUBLIC_KEY  === 'YOUR_PUBLIC_KEY') {
+        // EmailJS not configured — show helpful warning
+        loadingDiv.classList.remove('show');
+        errorDiv.querySelector('span').textContent =
+          'Contact form not yet configured. Please email directly: tasif.grandfleet@gmail.com';
+        errorDiv.classList.add('show');
+        submitBtn.disabled = false;
+        setTimeout(() => errorDiv.classList.remove('show'), 7000);
+        return;
+      }
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function() {
+          loadingDiv.classList.remove('show');
+          successDiv.classList.add('show');
+          contactForm.reset();
+          setTimeout(() => successDiv.classList.remove('show'), 6000);
+          submitBtn.disabled = false;
+        })
+        .catch(function(err) {
+          console.error('EmailJS send failed:', err);
+          loadingDiv.classList.remove('show');
+          errorDiv.querySelector('span').textContent =
+            'Message failed to send. Please try emailing directly: tasif.grandfleet@gmail.com';
+          errorDiv.classList.add('show');
+          setTimeout(() => errorDiv.classList.remove('show'), 7000);
+          submitBtn.disabled = false;
+        });
+    });
   }
 
   /**

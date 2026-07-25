@@ -615,3 +615,55 @@ p + p {
     color: black !important;
   }
 }
+
+/* ========================================
+   UTILITY: no-padding
+   Used by passion-panel .panel-content
+   ======================================== */
+.panel-content.no-padding {
+  padding: 0;
+}
+
+/* ========================================
+   EXPERIENCE: Role bullet descriptions
+   ======================================== */
+.experience-details {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.experience-details li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding-left: 1.1rem;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.experience-details li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  top: 0.05em;
+}
+
+.experience-card:hover .experience-details li {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 768px) {
+  .experience-details {
+    gap: 0.25rem;
+  }
+  .experience-details li {
+    font-size: 0.78rem;
+  }
+}
+

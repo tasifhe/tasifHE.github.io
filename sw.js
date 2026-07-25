@@ -3,7 +3,7 @@
  * Enables offline functionality and caching for PWA capabilities
  */
 
-const CACHE_NAME = 'the-portfolio-v2.0.0';
+const CACHE_NAME = 'the-portfolio-v2.0.1';
 const RUNTIME_CACHE = 'runtime-cache';
 
 // Assets to cache on install
@@ -11,11 +11,10 @@ const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/assets/css/main-modular.css',
+  '/assets/css/main.min.css',
   '/assets/js/main.js',
   '/assets/js/loading.js',
-  '/assets/img/THE2.ico',
-  '/assets/img/CoverBG3.png',
+  '/assets/img/THE2.ico'
   // Add critical assets only
 ];
 
