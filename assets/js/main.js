@@ -603,8 +603,8 @@
    * Enhanced Portfolio functionality
    */
   function initPortfolioSystem() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioCards = document.querySelectorAll('.portfolio-card-game');
+    const filterButtons = document.querySelectorAll('.filter-btn, .filter-btn-redesign');
+    const portfolioCards = document.querySelectorAll('.portfolio-card-game, .project-card-redesign');
 
     if (filterButtons.length === 0 || portfolioCards.length === 0) return;
 
@@ -622,7 +622,7 @@
         portfolioCards.forEach(card => {
           card.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
           card.style.opacity = '0';
-          card.style.transform = 'scale(0.92)';
+          card.style.transform = 'scale(0.95)';
         });
 
         // Step 2: after fade, hide/show cards and fade matching ones in
@@ -641,7 +641,7 @@
               setTimeout(function() {
                 card.style.opacity = '1';
                 card.style.transform = 'scale(1)';
-              }, visibleIndex * 80);
+              }, visibleIndex * 60);
               visibleIndex++;
             } else {
               card.style.display = 'none';
@@ -655,8 +655,8 @@
 
     // Enhanced hover effects for portfolio cards
     portfolioCards.forEach(card => {
-      const staticImg = card.querySelector('.project-image-static');
-      const gifImg = card.querySelector('.project-image-gif');
+      const staticImg = card.querySelector('.project-image-static, .static-img');
+      const gifImg = card.querySelector('.project-image-gif, .gif-img');
       
       // Preload GIFs on hover
       card.addEventListener('mouseenter', function() {

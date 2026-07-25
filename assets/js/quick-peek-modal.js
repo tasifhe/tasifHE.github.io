@@ -273,11 +273,11 @@ class QuickPeekModal {
   }
   
   addCardClickHandlers() {
-    const cards = document.querySelectorAll('.portfolio-card-game');
+    const cards = document.querySelectorAll('.portfolio-card-game, .project-card-redesign');
     
     cards.forEach((card, index) => {
       // Create quick peek trigger area
-      const imageContainer = card.querySelector('.project-image-container');
+      const imageContainer = card.querySelector('.project-image-container, .project-media-container');
       
       if (imageContainer) {
         // Add quick peek button
@@ -296,23 +296,23 @@ class QuickPeekModal {
           left: 50%;
           transform: translate(-50%, -50%) scale(0.8);
           z-index: 20;
-          padding: 12px 24px;
-          background: linear-gradient(135deg, rgba(0, 120, 255, 0.9), rgba(0, 198, 255, 0.9));
+          padding: 10px 20px;
+          background: linear-gradient(135deg, rgba(212, 175, 55, 0.95), rgba(243, 156, 18, 0.95));
           border: none;
-          border-radius: 30px;
-          color: white;
-          font-family: var(--font-secondary, 'Rajdhani', sans-serif);
-          font-size: 0.875rem;
+          border-radius: 4px;
+          color: #0D0F12;
+          font-family: var(--font-heading, 'Bebas Neue', sans-serif);
+          font-size: 1rem;
           font-weight: 700;
-          letter-spacing: 1px;
+          letter-spacing: 1.5px;
           cursor: pointer;
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
           opacity: 0;
           visibility: hidden;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 4px 20px rgba(0, 120, 255, 0.5);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         `;
         
         // Show/hide on card hover
@@ -331,12 +331,12 @@ class QuickPeekModal {
         // Button hover effect
         quickPeekBtn.addEventListener('mouseenter', () => {
           quickPeekBtn.style.transform = 'translate(-50%, -50%) scale(1.05)';
-          quickPeekBtn.style.boxShadow = '0 8px 30px rgba(0, 120, 255, 0.7)';
+          quickPeekBtn.style.boxShadow = '0 8px 24px rgba(212, 175, 55, 0.4)';
         });
         
         quickPeekBtn.addEventListener('mouseleave', () => {
           quickPeekBtn.style.transform = 'translate(-50%, -50%) scale(1)';
-          quickPeekBtn.style.boxShadow = '0 4px 20px rgba(0, 120, 255, 0.5)';
+          quickPeekBtn.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
         });
         
         // Click handler
