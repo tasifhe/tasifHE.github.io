@@ -12,7 +12,7 @@ export function Hero() {
             <span className="hero-label-dot"></span> STATUS: ONLINE
           </div>
           <h1 className="hero-main-title" data-aos="fade-up" data-aos-delay="200">
-            TASIF <span className="highlight">HOSSAIN EMON</span>
+            TASIF <span className="highlight" data-text="HOSSAIN EMON">HOSSAIN EMON</span>
           </h1>
           <h2 className="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
             Game Developer &amp; Level Designer<span className="blinking-cursor">_</span>
@@ -33,6 +33,10 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <a href="#about" className="scroll-cue" aria-label="Scroll to About section">
+        <span className="scroll-cue-mouse"><span className="scroll-cue-wheel"></span></span>
+        <span className="scroll-cue-label">SCROLL</span>
+      </a>
     </section>
   );
 }

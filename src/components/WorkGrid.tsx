@@ -46,7 +46,10 @@ export function WorkGrid() {
               data-aos="fade-up"
               data-aos-delay={100 * ((index % 3) + 1)}
             >
-              <Link href={`/work/${project.slug}`} className="project-media-container">
+              <Link
+                href={`/work/${project.slug}`}
+                className={`project-media-container ${project.demoGif ? "has-gif" : ""}`}
+              >
                 <Image
                   src={project.heroImage}
                   alt={project.title}

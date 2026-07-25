@@ -3,14 +3,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { Project } from "../data/projects";
 
+function getThemeClass(categories: string[]): string {
+  if (categories.includes("Procedural")) return "theme-procedural";
+  if (categories.includes("Mechanics") || categories.includes("Systems")) return "theme-mechanics";
+  return "theme-cinematic";
+}
+
 export function ProjectDetail({ project }: { project: Project }) {
+  const themeClass = getThemeClass(project.category);
   return (
-    <main className="main portfolio-page">
+    <main className={`main portfolio-page ${themeClass}`}>
       <section className="portfolio-details-hero">
         <div className="container" data-aos="fade-up">
-          <Link href="/#work" className="back-link">
-            <i className="bi bi-arrow-left"></i> Back to Archives
-          </Link>
+          <div>
+            <Link href="/#work" className="back-link">
+              <i className="bi bi-arrow-left"></i> Back to Archives
+            </Link>
+          </div>
           <div className="details-category-badge">{project.category.join(" / ")}</div>
           <h1 className="details-title">{project.title}</h1>
           <p className="lead" style={{ color: "var(--accent-gold)", maxWidth: "800px" }}>

@@ -53,7 +53,7 @@ export const experienceList: Experience[] = [
   {
     id: "qp",
     role: "Lead Level Designer",
-    company: "QP Studios",
+    company: "Nightfall Interactive",
     period: "March 2023 - February 2024",
     alignment: "right",
     icon: "bi-map",
@@ -66,7 +66,7 @@ export const experienceList: Experience[] = [
   },
   {
     id: "utopia",
-    role: "Senior Developer & Level Designer",
+    role: "Level Designer",
     company: "Utopia (France)",
     period: "September 2021 - March 2022",
     alignment: "left",

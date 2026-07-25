@@ -268,10 +268,11 @@ a:hover {
   position: relative;
   display: inline-block;
   transition: all 0.3s ease;
+  animation: ambient-glitch 6s ease-in-out infinite;
 }
 
 .hero-main-title .highlight:hover {
-  text-shadow: 
+  text-shadow:
     0 0 10px rgba(212,175,55,0.8),
     -2px 0 0 rgba(255,0,0,0.5),
     2px 0 0 rgba(0,255,255,0.5);
@@ -285,6 +286,21 @@ a:hover {
   60% { transform: translate(1px, 1px) }
   80% { transform: translate(1px, -1px) }
   100% { transform: translate(0) }
+}
+
+/* A faint, involuntary flicker every few seconds — the title feels alive even at rest. */
+@keyframes ambient-glitch {
+  0%, 92%, 100% { transform: translate(0); text-shadow: none; }
+  93% { transform: translate(-2px, 1px); text-shadow: -2px 0 rgba(230,57,70,0.5), 2px 0 rgba(0,229,255,0.5); }
+  94% { transform: translate(2px, -1px); text-shadow: 2px 0 rgba(230,57,70,0.5), -2px 0 rgba(0,229,255,0.5); }
+  95% { transform: translate(-1px, 0); text-shadow: -1px 0 rgba(230,57,70,0.4), 1px 0 rgba(0,229,255,0.4); }
+  96% { transform: translate(0); text-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-main-title .highlight {
+    animation: none;
+  }
 }
 
 .hero-description {
@@ -343,6 +359,72 @@ a:hover {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
   transform: translateY(-2px);
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+  animation: scroll-cue-bob 2.4s ease-in-out infinite;
+}
+
+.scroll-cue:hover {
+  color: var(--accent-gold);
+}
+
+.scroll-cue-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.scroll-cue-wheel {
+  width: 3px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: scroll-cue-wheel 1.8s ease-in-out infinite;
+}
+
+.scroll-cue-label {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+}
+
+@keyframes scroll-cue-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+@keyframes scroll-cue-wheel {
+  0% { opacity: 1; transform: translateY(0); }
+  70% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+@media (max-width: 767px) {
+  .scroll-cue {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue,
+  .scroll-cue-wheel {
+    animation: none;
+  }
 }
 
 /* ── 5. SECTIONS COMMON STYLES ─────────────────────────────────────────── */
@@ -634,12 +716,18 @@ a:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal), border-color var(--transition-normal);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .project-card-redesign:hover {
   transform: translateY(-6px);
   border-color: var(--border-active);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-active);
+}
+
+.project-card-redesign:hover .project-title {
+  color: var(--accent-gold);
+  transition: color var(--transition-fast);
 }
 
 .project-media-container {
@@ -654,14 +742,15 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
 }
 
-.project-card-redesign:hover .project-media-container img.static-img {
+/* Cards with a demo GIF cross-fade into it on hover... */
+.project-card-redesign:hover .project-media-container.has-gif img.static-img {
   opacity: 0;
 }
 
-.project-card-redesign:hover .project-media-container img.gif-img {
+.project-card-redesign:hover .project-media-container.has-gif img.gif-img {
   opacity: 1;
 }
 
@@ -670,6 +759,11 @@ a:hover {
   top: 0;
   left: 0;
   opacity: 0;
+}
+
+/* ...cards without one just get a subtle Ken Burns zoom instead. */
+.project-card-redesign:hover .project-media-container:not(.has-gif) img.static-img {
+  transform: scale(1.08);
 }
 
 .project-status-badge {
@@ -942,6 +1036,7 @@ footer.redesign-footer {
   text-transform: uppercase;
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
 }
 
 .details-grid {
@@ -1322,131 +1417,77 @@ footer.redesign-footer {
 }
 
 /* ── 18. PORTFOLIO DETAIL THEMES ────────────────────────────────────────── */
+/* Each project detail page picks one of these based on its category
+   (see getThemeClass in ProjectDetail.tsx). Overriding --accent-gold and
+   --bg-primary here re-tints every existing gold-accented element inside
+   .portfolio-page automatically; the rules below layer a few extra,
+   category-specific flourishes on top. */
 
-/* A. THEME: CINEMATIC SHOWCASE (Full Game Releases) */
+.portfolio-page {
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-normal);
+}
+
+/* A. THEME: CINEMATIC SHOWCASE (default — narrative / full releases) */
 .theme-cinematic {
   --accent-gold: #E63946; /* Crimson Accent */
   --accent-gold-hover: #FF4D5A;
-  --bg-primary: #0A0A0A;
+  --bg-primary: #120A0B;
 }
-.theme-cinematic .game-hero-details {
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 -100px 100px -50px var(--bg-primary);
+.theme-cinematic .portfolio-details-hero {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(230, 57, 70, 0.14) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
-.theme-cinematic .game-title {
-  text-shadow: 0 4px 30px rgba(230, 57, 70, 0.4);
-}
-.theme-cinematic .game-breadcrumb {
-  border-top-color: rgba(230, 57, 70, 0.2);
-}
-.theme-cinematic .panel-header {
-  border-bottom: 1px solid rgba(230, 57, 70, 0.3);
+.theme-cinematic .details-title {
+  text-shadow: 0 4px 30px rgba(230, 57, 70, 0.45);
 }
 
-/* B. THEME: PROCEDURAL SYSTEMS (Tools & Generators) */
+/* B. THEME: PROCEDURAL SYSTEMS (world-gen, terrain, tools) */
 .theme-procedural {
   --accent-gold: #00E5FF; /* Cyber Cyan */
   --accent-gold-hover: #33EEFF;
-  --bg-primary: #0B1116;
+  --bg-primary: #070E12;
 }
-.theme-procedural .game-hero-details::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: 
-    linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center;
-  z-index: 1;
+.theme-procedural .portfolio-details-hero {
+  position: relative;
+  background:
+    linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 50% 20%, rgba(0, 229, 255, 0.1) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background-size: 36px 36px, 36px 36px, auto, auto;
 }
-.theme-procedural .game-title {
+.theme-procedural .details-title {
   font-family: monospace;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
-.theme-procedural .game-title::before {
-  content: "[ "; color: #64748B; font-weight: normal;
+.theme-procedural .details-title::before {
+  content: "[ "; color: var(--text-muted); font-weight: normal;
 }
-.theme-procedural .game-title::after {
-  content: " ]"; color: #64748B; font-weight: normal;
+.theme-procedural .details-title::after {
+  content: " ]"; color: var(--text-muted); font-weight: normal;
 }
-.theme-procedural .panel-header {
-  border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+.theme-procedural .details-media-item,
+.theme-procedural .details-info-panel {
+  border-color: rgba(0, 229, 255, 0.15);
 }
 
-/* C. THEME: CORE MECHANICS (Controllers & Prototypes) */
+/* C. THEME: CORE MECHANICS (controllers, combat, systems) */
 .theme-mechanics {
   --accent-gold: #39FF14; /* Neon Green */
   --accent-gold-hover: #66FF4D;
-  --bg-primary: #11140D;
+  --bg-primary: #0A0F08;
 }
-.theme-mechanics .status-frame {
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(57, 255, 20, 0.03),
-    rgba(57, 255, 20, 0.03) 10px,
-    transparent 10px,
-    transparent 20px
-  );
+.theme-mechanics .portfolio-details-hero {
+  background:
+    repeating-linear-gradient(45deg, rgba(57, 255, 20, 0.025), rgba(57, 255, 20, 0.025) 10px, transparent 10px, transparent 20px),
+    radial-gradient(circle at 50% 20%, rgba(57, 255, 20, 0.1) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+.theme-mechanics .details-category-badge,
+.theme-mechanics .details-info-panel {
   border: 1px dashed rgba(57, 255, 20, 0.4);
-}
-.theme-mechanics .game-status-bar {
-  border-bottom: 2px dashed rgba(57, 255, 20, 0.2);
-}
-.theme-mechanics .game-hero-details::after {
-  content: '';
-  position: absolute;
-  top: 20px; left: 20px; right: 20px; bottom: 20px;
-  border: none;
-  box-shadow: none;
-  background: 
-    linear-gradient(var(--accent-gold), var(--accent-gold)) top left / 20px 2px no-repeat,
-    linear-gradient(var(--accent-gold), var(--accent-gold)) top left / 2px 20px no-repeat,
-    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom left / 20px 2px no-repeat,
-    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom left / 2px 20px no-repeat,
-    linear-gradient(var(--accent-gold), var(--accent-gold)) top right / 20px 2px no-repeat,
-    linear-gradient(var(--accent-gold), var(--accent-gold)) top right / 2px 20px no-repeat,
-    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom right / 20px 2px no-repeat,
-    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom right / 2px 20px no-repeat;
-  z-index: 1;
-}
-.theme-mechanics .panel-header {
-  border-bottom: 1px dashed rgba(57, 255, 20, 0.3);
-}
-
-/* Ensure detail pages correctly map variables from redesign.css */
-.portfolio-page {
-  background-color: var(--bg-primary, #0D0F12);
-  color: var(--text-primary, #F1F5F9);
-}
-.portfolio-page .game-info-panel {
-  background: var(--bg-secondary, #15181E);
-  border: 1px solid var(--border-color, rgba(255,255,255,0.08));
-}
-.portfolio-page .panel-title {
-  color: var(--accent-gold, #D4AF37);
-}
-.portfolio-page .btn.game-button.primary {
-  background: var(--accent-gold, #D4AF37);
-  color: #000;
-  border: 1px solid var(--accent-gold, #D4AF37);
-}
-.portfolio-page .btn.game-button.primary:hover {
-  background: transparent;
-  color: var(--accent-gold, #D4AF37);
-}
-.portfolio-page .game-breadcrumb a:hover,
-.portfolio-page .game-breadcrumb .active span,
-.portfolio-page .game-breadcrumb .active i {
-  color: var(--accent-gold, #D4AF37);
-}
-.portfolio-page .status-indicator.completed {
-  background: var(--accent-gold, #D4AF37);
-  box-shadow: 0 0 10px var(--accent-gold, #D4AF37);
-}
-.portfolio-page .image-caption h5 {
-  color: var(--accent-gold, #D4AF37);
 }
 
 /* ── 17. MOBILE RESPONSIVENESS (TIMELINE) ────────────────────────────── */
