@@ -112,6 +112,14 @@ a:hover {
   border-radius: var(--radius-sm);
 }
 
+.brand-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+
 .brand-title {
   font-family: var(--font-heading);
   font-size: 1.5rem;
@@ -1067,27 +1075,154 @@ footer.redesign-footer {
   text-align: left;
 }
 
+/* ── 16. QUICK PEEK MODAL OVERLAY STYLES ────────────────────────────── */
+.quick-peek-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(13, 15, 18, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quick-peek-overlay.active,
+.quick-peek-overlay.show,
+.quick-peek-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.quick-peek-modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  max-width: 850px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.15);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quick-peek-overlay.active .quick-peek-modal,
+.quick-peek-overlay.show .quick-peek-modal,
+.quick-peek-overlay.open .quick-peek-modal {
+  transform: scale(1);
+}
+
+.quick-peek-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.quick-peek-close:hover {
+  background: var(--accent-gold);
+  color: #0D0F12;
+}
+
+.quick-peek-media {
+  position: relative;
+  background: var(--bg-tertiary);
+  min-height: 300px;
+}
+
+.quick-peek-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.quick-peek-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.quick-peek-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.quick-peek-subtitle {
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.quick-peek-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.quick-peek-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.quick-peek-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+.quick-peek-btn.primary {
+  background: var(--accent-gold);
+  color: #0D0F12;
+}
+
+.quick-peek-btn.github {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
-  .branching-timeline::before {
-    left: 20px;
-  }
-
-  .timeline-branch-item {
-    width: 100%;
-    padding-left: 3.5rem;
-    padding-right: 0;
-  }
-
-  .timeline-branch-item.left,
-  .timeline-branch-item.right {
-    left: 0;
-    text-align: left;
-  }
-
-  .timeline-branch-item.left .branch-node-icon,
-  .timeline-branch-item.right .branch-node-icon {
-    left: 0px;
+  .quick-peek-modal {
+    grid-template-columns: 1fr;
   }
 }
+
 
 
