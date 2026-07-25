@@ -1041,6 +1041,31 @@
     initContactForm();
     initFormAnimations();
     initCounterAnimations();
+    initHeroParallax();
   });
+
+  /**
+   * Hero Parallax Mouse Follow Effect
+   */
+  function initHeroParallax() {
+    const hero = document.querySelector('.hero-redesign');
+    const content = document.querySelector('.hero-content-wrapper');
+    if (!hero || !content) return;
+
+    hero.addEventListener('mousemove', (e) => {
+      const x = (window.innerWidth / 2 - e.pageX) / 40;
+      const y = (window.innerHeight / 2 - e.pageY) / 40;
+      content.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg)`;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      content.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+      content.style.transition = 'transform 0.5s ease';
+    });
+
+    hero.addEventListener('mouseenter', () => {
+      content.style.transition = 'none';
+    });
+  }
 
 })();

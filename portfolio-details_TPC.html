@@ -46,10 +46,10 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- NEW: Modular CSS Architecture -->
-  <link href="assets/css/main.min.css" rel="stylesheet">
+  <link href="assets/css/redesign.css" rel="stylesheet">
   <link href="assets/css/portfolio-page.css" rel="stylesheet">
   
   <!-- Structured Data for SEO -->
@@ -68,20 +68,9 @@
   }
   </script>
 
-  <!-- Deferred JS -->
+  </head>
 
-  <script defer src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script defer src="assets/vendor/typed.js/typed.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-    <script defer src="assets/js/main.js"></script>
-  
-</head>
-
-<body class="portfolio-page" data-project-theme="tool">
+<body class="portfolio-page theme-mechanics">
 
   <!-- Skip Navigation for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -93,71 +82,31 @@
       <p>Loading Mission Data...</p>
     </div>
   </div>
-  <!-- ======= Main Site Navbar (from index.html) ======= -->
-  <header id="header" class="fixed-top game-header">
-    <div class="nav-frame left"></div>
-    <div class="nav-frame right"></div>
+    <!-- ======= Navigation Header ======= -->
+  <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="game-logo">
-        <a href="index.html" class="d-flex align-items-center">
-          <div class="logo-emblem">
-            <div class="logo-glow"></div>
-            <i class="bi bi-controller" aria-hidden="true"></i>
-          </div>
-          <div class="logo-text-container">
-            <span class="logo-text glitch-hover" data-text="THE">THE</span>
-            <span class="logo-tagline">GAME DESIGNER</span>
+      <div class="brand-logo">
+        <a href="index.html" class="d-flex align-items-center gap-2">
+          <img src="assets/img/THE2.ico" alt="THE Logo" class="brand-logo-img">
+          <div>
+            <span class="brand-title">TASIF HOSSAIN EMON</span>
+            <span class="brand-subtitle">GAME DESIGNER &amp; DEVELOPER</span>
           </div>
         </a>
       </div>
-      <nav id="navbar" class="game-navbar" aria-label="Main navigation">
-        <div class="nav-bracket left"></div>
-        <ul role="list">
-          <li>
-            <a class="nav-link scrollto" href="index.html#hero" aria-label="Navigate to home section">
-              <span class="nav-icon"><i class="bi bi-house" aria-hidden="true"></i></span>
-              <span class="nav-text">HOME</span>
-              <span class="nav-hover-effect"></span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="index.html#about" aria-label="Navigate to about section">
-              <span class="nav-icon"><i class="bi bi-person" aria-hidden="true"></i></span>
-              <span class="nav-text">ABOUT</span>
-              <span class="nav-hover-effect"></span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="index.html#services" aria-label="Navigate to services section">
-              <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
-              <span class="nav-text">SERVICES</span>
-              <span class="nav-hover-effect"></span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto active" href="index.html#work" aria-label="Navigate to work section" aria-current="page">
-              <span class="nav-icon"><i class="bi bi-briefcase" aria-hidden="true"></i></span>
-              <span class="nav-text">WORK</span>
-              <span class="nav-hover-effect"></span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="index.html#contact" aria-label="Navigate to contact section">
-              <span class="nav-icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
-              <span class="nav-text">CONTACT</span>
-              <span class="nav-hover-effect"></span>
-            </a>
-          </li>
+      <nav id="navbar">
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        <ul class="nav-links">
+          <li><a class="nav-link-item" href="index.html#hero">Home</a></li>
+          <li><a class="nav-link-item" href="index.html#about">About</a></li>
+          <li><a class="nav-link-item" href="index.html#experience">Experience</a></li>
+          <li><a class="nav-link-item" href="index.html#skills">Skills</a></li>
+          <li><a class="nav-link-item active" href="index.html#work">Work</a></li>
+          <li><a class="nav-link-item" href="index.html#contact">Contact</a></li>
         </ul>
-        <div class="nav-bracket right"></div>
-        <div class="game-mobile-toggle">
-          <i class="bi bi-list mobile-nav-toggle" role="button" aria-label="Toggle mobile navigation" aria-expanded="false"></i>
-          <div class="toggle-glow"></div>
-        </div>
       </nav>
     </div>
   </header>
-  <!-- End Main Site Navbar -->
   <!-- ======= Enhanced Game-Style Hero Section ======= -->
   <section class="hero hero-single route bg-image game-hero-details" style="background-image: url('assets/img/SMTPCC/TP_Player_Controller.webp')" data-aos="fade-in">
     <div class="particles-container"></div>
@@ -568,21 +517,14 @@
     </section>
   </main>
 
-  <!-- ======= Enhanced Game-Style Footer ======= -->
-  <footer class="site-footer game-footer">
-    <div class="container py-4">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-          <span class="footer-brand">GRANDFLEET</span> &copy; <span id="footer-year"></span> All Rights Reserved.
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <div class="footer-powered">
-            Powered by <a href="#" target="_blank">THE</a>
-          </div>
-        </div>
+    <!-- ======= Footer ======= -->
+  <footer class="redesign-footer">
+    <div class="container">
+      <div class="footer-text">
+        &copy; 2026 <span class="footer-brand">TASIF HOSSAIN EMON</span> — All Rights Reserved.
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
 
   <!-- Back to Top -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center game-back-to-top">
@@ -687,6 +629,15 @@
     });
   </script>
 
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

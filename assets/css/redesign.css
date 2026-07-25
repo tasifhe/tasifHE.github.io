@@ -176,7 +176,7 @@ a:hover {
 
 /* ── 4. HERO SECTION ────────────────────────────────────────────────────── */
 .hero-redesign {
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -184,32 +184,77 @@ a:hover {
   background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
               linear-gradient(180deg, rgba(13, 15, 18, 0.4) 0%, rgba(13, 15, 18, 0.95) 100%),
               url('../img/CoverBG3.webp') center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* Subtly scanline overlay for engine feel */
+.hero-redesign::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(13, 15, 18, 0) 50%, rgba(13, 15, 18, 0.15) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Viewport corners */
+.hero-redesign::after {
+  content: '';
+  position: absolute;
+  top: 2rem; left: 2rem; right: 2rem; bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  z-index: 1;
+  /* Custom corners using clip-path and borders can be complex, let's stick to a subtle inner frame */
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
 }
 
 .hero-content-wrapper {
   max-width: 800px;
+  position: relative;
+  z-index: 2; /* above scanlines */
 }
 
 .hero-label {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: rgba(21, 24, 30, 0.7);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   padding: 0.35rem 1rem;
-  border-radius: 50px;
   font-size: 0.8rem;
   color: var(--accent-gold);
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
 }
 
 .hero-label-dot {
   width: 6px;
   height: 6px;
   background: var(--accent-gold);
-  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-gold);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.blinking-cursor {
+  font-family: monospace;
+  font-weight: 700;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
 }
 
 .hero-main-title {
@@ -217,10 +262,31 @@ a:hover {
   line-height: 0.95;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 .hero-main-title .highlight {
   color: var(--accent-gold);
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.hero-main-title .highlight:hover {
+  text-shadow: 
+    0 0 10px rgba(212,175,55,0.8),
+    -2px 0 0 rgba(255,0,0,0.5),
+    2px 0 0 rgba(0,255,255,0.5);
+  animation: slight-glitch 0.3s infinite;
+}
+
+@keyframes slight-glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-1px, 1px) }
+  40% { transform: translate(-1px, -1px) }
+  60% { transform: translate(1px, 1px) }
+  80% { transform: translate(1px, -1px) }
+  100% { transform: translate(0) }
 }
 
 .hero-description {
@@ -1257,6 +1323,130 @@ footer.redesign-footer {
   to { transform: rotate(360deg); }
 }
 
+/* ── 18. PORTFOLIO DETAIL THEMES ────────────────────────────────────────── */
 
+/* A. THEME: CINEMATIC SHOWCASE (Full Game Releases) */
+.theme-cinematic {
+  --accent-gold: #E63946; /* Crimson Accent */
+  --accent-gold-hover: #FF4D5A;
+  --bg-primary: #0A0A0A;
+}
+.theme-cinematic .game-hero-details {
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 -100px 100px -50px var(--bg-primary);
+}
+.theme-cinematic .game-title {
+  text-shadow: 0 4px 30px rgba(230, 57, 70, 0.4);
+}
+.theme-cinematic .game-breadcrumb {
+  border-top-color: rgba(230, 57, 70, 0.2);
+}
+.theme-cinematic .panel-header {
+  border-bottom: 1px solid rgba(230, 57, 70, 0.3);
+}
 
+/* B. THEME: PROCEDURAL SYSTEMS (Tools & Generators) */
+.theme-procedural {
+  --accent-gold: #00E5FF; /* Cyber Cyan */
+  --accent-gold-hover: #33EEFF;
+  --bg-primary: #0B1116;
+}
+.theme-procedural .game-hero-details::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: 
+    linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  z-index: 1;
+}
+.theme-procedural .game-title {
+  font-family: monospace;
+  letter-spacing: -2px;
+}
+.theme-procedural .game-title::before {
+  content: "[ "; color: #64748B; font-weight: normal;
+}
+.theme-procedural .game-title::after {
+  content: " ]"; color: #64748B; font-weight: normal;
+}
+.theme-procedural .panel-header {
+  border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+}
 
+/* C. THEME: CORE MECHANICS (Controllers & Prototypes) */
+.theme-mechanics {
+  --accent-gold: #39FF14; /* Neon Green */
+  --accent-gold-hover: #66FF4D;
+  --bg-primary: #11140D;
+}
+.theme-mechanics .status-frame {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(57, 255, 20, 0.03),
+    rgba(57, 255, 20, 0.03) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  border: 1px dashed rgba(57, 255, 20, 0.4);
+}
+.theme-mechanics .game-status-bar {
+  border-bottom: 2px dashed rgba(57, 255, 20, 0.2);
+}
+.theme-mechanics .game-hero-details::after {
+  content: '';
+  position: absolute;
+  top: 20px; left: 20px; right: 20px; bottom: 20px;
+  border: none;
+  box-shadow: none;
+  background: 
+    linear-gradient(var(--accent-gold), var(--accent-gold)) top left / 20px 2px no-repeat,
+    linear-gradient(var(--accent-gold), var(--accent-gold)) top left / 2px 20px no-repeat,
+    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom left / 20px 2px no-repeat,
+    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom left / 2px 20px no-repeat,
+    linear-gradient(var(--accent-gold), var(--accent-gold)) top right / 20px 2px no-repeat,
+    linear-gradient(var(--accent-gold), var(--accent-gold)) top right / 2px 20px no-repeat,
+    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom right / 20px 2px no-repeat,
+    linear-gradient(var(--accent-gold), var(--accent-gold)) bottom right / 2px 20px no-repeat;
+  z-index: 1;
+}
+.theme-mechanics .panel-header {
+  border-bottom: 1px dashed rgba(57, 255, 20, 0.3);
+}
+
+/* Ensure detail pages correctly map variables from redesign.css */
+.portfolio-page {
+  background-color: var(--bg-primary, #0D0F12);
+  color: var(--text-primary, #F1F5F9);
+}
+.portfolio-page .game-info-panel {
+  background: var(--bg-secondary, #15181E);
+  border: 1px solid var(--border-color, rgba(255,255,255,0.08));
+}
+.portfolio-page .panel-title {
+  color: var(--accent-gold, #D4AF37);
+}
+.portfolio-page .btn.game-button.primary {
+  background: var(--accent-gold, #D4AF37);
+  color: #000;
+  border: 1px solid var(--accent-gold, #D4AF37);
+}
+.portfolio-page .btn.game-button.primary:hover {
+  background: transparent;
+  color: var(--accent-gold, #D4AF37);
+}
+.portfolio-page .game-breadcrumb a:hover,
+.portfolio-page .game-breadcrumb .active span,
+.portfolio-page .game-breadcrumb .active i {
+  color: var(--accent-gold, #D4AF37);
+}
+.portfolio-page .status-indicator.completed {
+  background: var(--accent-gold, #D4AF37);
+  box-shadow: 0 0 10px var(--accent-gold, #D4AF37);
+}
+.portfolio-page .image-caption h5 {
+  color: var(--accent-gold, #D4AF37);
+}
