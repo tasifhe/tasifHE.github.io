@@ -167,22 +167,94 @@
   }
 
   /**
-   * Animation on scroll
+  /**
+   * Hide preloader on load
    */
-  function aos_init() {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-      mirror: false
-    });
-  }
-  window.addEventListener('load', aos_init);
+  window.addEventListener('load', () => {
+    aos_init();
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 350);
+    }
+    initHeroParticles();
+  });
 
   /**
-   * Initiate Pure Counter 
+   * Hero Particle Canvas Effect
    */
-  new PureCounter();
+  function initHeroParticles() {
+    const heroSection = document.querySelector('.hero-redesign');
+    if (!heroSection) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.className = 'hero-particle-canvas';
+    canvas.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    `;
+    heroSection.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resize() {
+      width = canvas.width = heroSection.offsetWidth;
+      height = canvas.height = heroSection.offsetHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 2 + 1;
+        this.alpha = Math.random() * 0.4 + 0.15;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      particles.push(new Particle());
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
 
   /**
    * Enhanced Portfolio functionality with smooth animations
